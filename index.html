@@ -40,6 +40,13 @@ textarea,input{width:100%;font:inherit;font-size:16px;padding:8px;background:var
 small{opacity:.75}
 .big.long{font-size:27px;text-align:left;line-height:1.6}
 .b.opt{min-height:104px;font-size:32px;padding:14px 16px;margin:12px 0;line-height:1.35}.b.opt.sm{font-size:23px;min-height:96px}
+.mrow{display:flex;justify-content:space-between;align-items:center;font-size:34px;padding:2px 14px;margin:4px 0;border-bottom:2px dashed var(--soft);min-height:52px;border-radius:10px}
+.mrow.cur{background:var(--soft)}.mrow .ma{min-width:72px;text-align:right;font-weight:bold;color:#d9534f}
+.mans{font-size:56px;text-align:center;min-height:84px;line-height:84px;border:3px solid var(--ink);border-radius:14px;margin:8px 0;background:var(--soft)}
+.mans.ok{background:var(--ok)}.mans.bad{background:var(--bad)}
+.kpad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.kpad .b{margin:0;min-height:72px;font-size:34px;padding:0}
+.mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.mgrid .b{margin:4px 0;font-size:32px;min-height:68px;padding:0}
+@media (max-height:720px){.kpad .b{min-height:56px;font-size:28px}.mans{min-height:64px;line-height:64px;font-size:46px}}
 .hint{text-align:center;margin:8px 0;font-size:20px;padding:6px;border:2px dashed var(--ink);border-radius:10px}
 .blk{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:flex-end;justify-content:center;margin:8px 0}
 .flat{width:46px;height:46px;border:2px solid var(--ink);background:repeating-linear-gradient(0deg,transparent 0 4px,rgba(0,0,0,.2) 4px 5px),repeating-linear-gradient(90deg,transparent 0 4px,rgba(0,0,0,.2) 4px 5px),#f6d68a}
@@ -280,7 +287,45 @@ function nav(){return '<div class="nav"><button class="b" onclick="unl=0;home()"
 function login(){var us=Object.keys(S.u);show('<h1>🏫 石牌小學堂</h1><div class="c"><h2>誰要上學？</h2>'+us.map(function(n,i){return '<button class="b pri" onclick="go('+i+')">'+S.u[n].av+' '+n+'</button>'}).join('')+'<p>新同學：</p><input id="nm" placeholder="輸入名字"><div style="margin:8px 0">'+avs.map(function(a){return '<span class="chip '+(a==av?'on':'')+'" onclick="av=\''+a+'\';login()">'+a+'</span>'}).join('')+'</div><button class="b" onclick="mk()">建立帳號</button></div>'+(famGet()?'':cloudCard()));scr='login'}
 function mk(){var n=$('#nm').value.trim();if(!n||S.u[n])return;S.u[n]={av:av,pts:0,tot:0,hist:[],st:{},tix:[]};S.cur=n;sv(1);home()}
 function go(i){S.cur=Object.keys(S.u)[i];sv();home()}
-function home(){var p=P();if(!p)return login();var l=lv(p);show(nav()+'<div class="c">'+p.av+' <b>'+S.cur+'</b>　Lv.'+l+' '+TT[Math.min(5,l-1)]+'<br>⭐ '+p.pts+' 分　<small>再 '+(100-p.tot%100)+' 分升級</small><progress value="'+p.tot%100+'" max="100"></progress><div><small id="sy"></small></div></div><div class="roof"></div><div class="c" style="margin-top:0"><h2>🏫 石牌小學堂</h2><div class="grid"><button class="room" onclick="room(\'chi\')">📖<br>國語教室</button><button class="room" onclick="room(\'math\')">➗<br>數學教室</button><div class="room lock">🔤<br>英文教室<br><small>即將開放</small></div><div class="room lock">➕<br>新教室<br><small>敬請期待</small></div></div></div>');badge();scr='home'}
+function home(){var p=P();if(!p)return login();var l=lv(p);show(nav()+'<div class="c">'+p.av+' <b>'+S.cur+'</b>　Lv.'+l+' '+TT[Math.min(5,l-1)]+'<br>⭐ '+p.pts+' 分　<small>再 '+(100-p.tot%100)+' 分升級</small><progress value="'+p.tot%100+'" max="100"></progress><div><small id="sy"></small></div></div><div class="roof"></div><div class="c" style="margin-top:0"><h2>🏫 石牌小學堂</h2><div class="grid"><button class="room" onclick="room(\'chi\')">📖<br>國語教室</button><button class="room" onclick="room(\'math\')">➗<br>數學教室</button><button class="room" onclick="mroom()">✖️<br>九九乘法教室</button><div class="room lock">🔤<br>英文教室<br><small>即將開放</small></div><div class="room lock" style="grid-column:1/-1">➕<br>新教室<br><small>敬請期待</small></div></div></div>');badge();scr='home'}
+/* ===== 九九乘法教室 ===== */
+var CN='零一二三四五六七八九',SND=(function(){try{return localStorage.getItem('sch_snd')!=='0'}catch(e){return true}})(),mp=null,mq=null;
+function cn(n){if(n<10)return CN.charAt(n);if(n<20)return '十'+(n%10?CN.charAt(n%10):'');return CN.charAt(Math.floor(n/10))+'十'+(n%10?CN.charAt(n%10):'')}
+function msay(a,b){return cn(a)+'乘'+cn(b)+'等於'+cn(a*b)}
+function speak(t){if(!SND||!window.speechSynthesis||!window.SpeechSynthesisUtterance)return;try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='zh-TW';u.rate=.85;var vs=speechSynthesis.getVoices(),v=vs.filter(function(x){return /zh[-_]TW/i.test(x.lang)})[0]||vs.filter(function(x){return /^zh/i.test(x.lang)})[0];if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
+function hl(u){return P().hist.filter(function(h){return u?h.u==u:h.u!='mul'})}
+function mkq(a,b){return{a:a,b:b,q:a+'×'+b+'＝？',v:a*b}}
+function mall(){var r=[],a,b;for(a=2;a<=9;a++)for(b=1;b<=9;b++)r.push(mkq(a,b));return r}
+function mweak(){return mall().filter(weak)}
+function sndBtn(){return '<button class="chip" style="flex:0 0 auto" onclick="event.stopPropagation();sndTog()">'+(SND?'🔊 聲音開':'🔇 聲音關')+'</button>'}
+function sndTog(){SND=!SND;try{localStorage.setItem('sch_snd',SND?'1':'0')}catch(e){}if(!SND&&window.speechSynthesis)try{speechSynthesis.cancel()}catch(e){}if(mp)mpv();else if(mq)mqv();else mroom()}
+function mroom(){var p=P();if(!p)return login();var wk=mweak(),H=hl('mul');mp=null;mq=null;wk.sort(function(x,y){return p.st[y.q].w-p.st[x.q].w});
+show(nav()+'<h1>✖️ 九九乘法教室</h1><div class="c"><b>✏️ 互動練習</b><br><small>選一個數字開始。點一下螢幕，就會念出算式並顯示答案。</small><div class="mgrid">'+[2,3,4,5,6,7,8,9].map(function(n){return '<button class="b pri" onclick="mprac('+n+')">'+n+'</button>'}).join('')+'</div></div><div class="c"><button class="b" onclick="mstart(\'weak\')">🎯 弱點加強（'+wk.length+'題待過關）</button><small>答錯的算式會常出現，連續答對 3 次才算過關。</small><button class="b" onclick="mstart(\'test\')">📝 隨堂測驗（20題）</button><small>用數字鍵盤輸入答案，答對會念出算式。</small></div><div class="c"><b>最近常錯</b><br>'+(wk.length?wk.slice(0,8).map(function(q){return '<span class="chip">'+q.a+'×'+q.b+' ×'+p.st[q.q].w+'</span>'}).join(''):'<small>還沒有錯題紀錄</small>')+'<br><b>成績紀錄</b><br>'+(H.length?H.slice(-5).reverse().map(function(h){return h.d+'　'+h.s+' 分'}).join('<br>'):'<small>還沒考過</small>')+'<div style="margin-top:10px">'+sndBtn()+'</div><small>沒聽到聲音時，請檢查音量和靜音鍵。</small></div>');scr='mroom'}
+function mprac(n){mp={n:n,i:0};mpv()}
+function mpv(){var n=mp.n,i=mp.i,r='',b;for(b=1;b<=9;b++)r+='<div class="mrow'+(b==i?' cur':'')+'"><span>'+n+' × '+b+' ＝</span><span class="ma">'+(b<=i?n*b:'')+'</span></div>';
+show('<div onclick="mtap()" style="min-height:85vh;touch-action:manipulation"><div class="c"><div class="row" style="align-items:center"><button class="chip" style="flex:0 0 auto" onclick="event.stopPropagation();mroom()">✖ 退出</button><span></span>'+sndBtn()+'</div><h2>'+n+' 的乘法</h2>'+(i<9?'<div style="text-align:center"><small>👆 點一下螢幕，念出算式並顯示答案</small></div>':'')+r+(i>=9?'<div class="big" style="font-size:28px">🎉 '+n+' 的乘法完成！</div>'+(n<9?'<button class="b pri" onclick="event.stopPropagation();mprac('+(n+1)+')">➜ 練習 '+(n+1)+' 的乘法</button>':'')+'<button class="b" onclick="event.stopPropagation();mprac('+n+')">↺ 再練一次</button><button class="b" onclick="event.stopPropagation();mroom()">回九九乘法教室</button>':'')+'</div></div>')}
+function mtap(){if(!mp||mp.i>=9)return;mp.i++;speak(msay(mp.n,mp.i));mpv()}
+function mstart(m){var pool=m=='weak'?mweak():mall();if(!pool.length)return alert('目前沒有待加強的算式，太棒了！可以去做隨堂測驗。');mq={m:m,qs:pick(pool,m=='test'?20:10),i:0,ok:0,wr:[],buf:'',k:-1};mp=null;mqv()}
+function mqv(){var z=mq,q=z.qs[z.i],done=z.k>-1,dis=done?' disabled':'',kp='',fb='';
+[7,8,9,4,5,6,1,2,3].forEach(function(d){kp+='<button class="b"'+dis+' onclick="mkey('+d+')">'+d+'</button>'});
+kp+='<button class="b bad"'+dis+' onclick="mdel()">⌫</button><button class="b"'+dis+' onclick="mkey(0)">0</button><button class="b ok"'+dis+' onclick="mok()">✔</button>';
+if(done&&z.m=='weak')fb='<div style="text-align:center">'+(z.k?'🎉 答對了！+10 分':'💡 答案是 '+q.v+'，念一次記起來！')+'</div><button class="b pri opt" onclick="mnx()">'+(z.i+1>=z.qs.length?'看結果 ➜':'下一題 ➜')+'</button>';
+show('<div class="c"><div style="text-align:right;margin-bottom:-6px"><button class="chip" onclick="mqx()">✖ 退出</button></div><small>'+(z.m=='test'?'隨堂測驗':'弱點加強')+'　第 '+(z.i+1)+' / '+z.qs.length+' 題</small><progress value="'+z.i+'" max="'+z.qs.length+'"></progress><div class="big">'+q.a+' × '+q.b+' ＝</div><div class="mans'+(done?(z.k?' ok':' bad'):'')+'">'+(z.buf||'？')+'</div>'+(fb||'<div class="kpad">'+kp+'</div>')+'</div>')}
+function mkey(d){var z=mq;if(!z||z.k>-1||z.buf.length>=2)return;z.buf+=d;mqv()}
+function mdel(){var z=mq;if(!z||z.k>-1)return;z.buf=z.buf.slice(0,-1);mqv()}
+function mok(){var z=mq;if(!z||z.k>-1||!z.buf)return;var q=z.qs[z.i],p=P(),r=parseInt(z.buf,10)===q.v,s=p.st[q.q]||(p.st[q.q]={r:0,w:0,s:0});z.k=r?1:0;
+if(r){z.ok++;s.r++;s.s++;speak(msay(q.a,q.b));if(z.m=='weak'){p.pts+=10;p.tot+=10}}else{s.w++;s.s=0;z.wr.push(q);if(z.m=='weak')speak('答案是'+msay(q.a,q.b))}
+sv(1);if(z.m=='test')setTimeout(function(){if(mq===z)mnx()},700);mqv()}
+function mnx(){var z=mq;if(!z)return;z.i++;z.buf='';z.k=-1;if(z.i>=z.qs.length)return mfin();mqv()}
+function mwr(z){return z.wr.length?'<b>要再複習：</b><br>'+z.wr.map(function(q){return '・'+q.a+' × '+q.b+' ＝ <b>'+q.v+'</b>'}).join('<br>'):''}
+function mfin(){var z=mq,p=P(),n=z.qs.length,sc=Math.round(z.ok/n*100),b=0,h;
+if(z.m=='test'){b=z.ok*5+(sc>=90?30:0);p.pts+=b;p.tot+=b;var d=new Date();p.hist.push({d:(d.getMonth()+1)+'/'+d.getDate(),s:sc,t:Date.now(),u:'mul'});h='<div class="big">'+sc+' 分</div><p style="text-align:center">答對 '+z.ok+' / '+n+' 題，獲得 '+b+' 分'+(sc>=90?'（滿分獎勵 +30）':'')+'</p>'}else h='<div class="big">'+z.ok+' / '+n+'</div><p style="text-align:center">本次練習獲得 '+z.ok*10+' 分</p>';
+mq=null;sv(1);show('<h1>'+(sc>=90?'🌟 太棒了！':'💪 繼續加油！')+'</h1><div class="c">'+h+(mwr(z)||'<p style="text-align:center">全部答對！</p>')+'</div><button class="b pri" onclick="mroom()">回九九乘法教室</button>'+nav())}
+function mqx(){var z=mq;if(!z)return mroom();var p=P(),n=z.i+(z.k>-1&&z.m=='weak'?1:0);
+if(!confirm(z.m=='test'?'要中途退出嗎？\n已答對的題目會換成分數，但這次不會記成績。':'要中途退出嗎？\n已經得到的分數會保留。'))return;
+if(!n){mq=null;return mroom()}
+var b=z.m=='test'?z.ok*5:z.ok*10;if(z.m=='test'){p.pts+=b;p.tot+=b}
+mq=null;sv(1);show('<h1>👋 下次再繼續</h1><div class="c"><div class="big">'+z.ok+' / '+n+'</div><p style="text-align:center">已完成 '+n+' 題，答對 '+z.ok+' 題，獲得 '+b+' 分'+(z.m=='test'?'<br><small>中途退出，這次不記入隨堂測驗成績</small>':'')+'</p>'+mwr(z)+'</div><button class="b pri" onclick="mroom()">回九九乘法教室</button>'+nav())}
 function qx(){var z=quiz;if(!z)return room();var p=P(),n=z.i+(z.k>-1&&z.m!='test'?1:0);
 if(!confirm(z.m=='test'?'要中途退出嗎？\n已答對的題目會換成分數，但這次不會記成績。':'要中途退出嗎？\n已經得到的分數會保留。')){return}
 if(!n){quiz=null;return room()}
@@ -288,7 +333,7 @@ var b=z.m=='test'?z.ok*5:z.ok*10;if(z.m=='test'){p.pts+=b;p.tot+=b}
 quiz=null;sv(1);
 show('<h1>👋 下次再繼續</h1><div class="c"><div class="big">'+z.ok+' / '+n+'</div><p style="text-align:center">已完成 '+n+' 題，答對 '+z.ok+' 題，獲得 '+b+' 分'+(z.m=='test'?'<br><small>中途退出，這次不記入模擬考成績</small>':'')+'</p>'+(z.wr.length?'<b>要再複習：</b><br>'+z.wr.map(function(q){return '・'+plain(q.q)+' → <b>'+esc(q.c[q.a])+'</b>'+(q.h?'<br><small>📝 '+esc(q.h)+'</small>':'')}).join('<br>'):'')+'</div><button class="b pri" onclick="room()">回'+SUBS[sub].n+'</button>'+nav())}
 function room(s){if(s)sub=s;var p=P(),SB=SUBS[sub],sel=sels[sub],pool=Q.filter(function(q){return q.s==sub&&sel.indexOf(q.l)>-1}),wk=Q.filter(function(q){return q.s==sub&&weak(q)}),tg={};Object.keys(p.st).forEach(function(k){var q=Q.filter(function(x){return x.q==k})[0];if(q&&q.s==sub&&p.st[k].w)tg[q.g]=(tg[q.g]||0)+p.st[k].w});var tl=Object.keys(tg).sort(function(a,b){return tg[b]-tg[a]}).slice(0,8);
-show(nav()+'<h1>'+SB.ic+' '+SB.n+'</h1><div class="c"><b>選'+SB.w+'別</b><br>'+SB.u.map(function(n){return '<span class="chip '+(sel.indexOf(n)>-1?'on':'')+'" onclick="tg('+n+')">第'+n+SB.w+'</span>'}).join('')+'<button class="b pri" onclick="start(\'prac\')">✏️ 互動練習（'+pool.length+'題可選）</button></div><div class="c"><button class="b" onclick="start(\'weak\')">🎯 弱點加強（'+wk.length+'題待過關）</button><small>答錯的題目會常出現，連續答對 3 次才算過關。</small><button class="b" onclick="start(\'test\')">📝 模擬期中考（20題）</button></div><div class="c"><b>最近常錯</b><br>'+(tl.length?tl.map(function(t){return '<span class="chip">'+t+' ×'+tg[t]+'</span>'}).join(''):'<small>還沒有錯題紀錄</small>')+'<br><b>成績紀錄</b><br>'+(p.hist.length?p.hist.slice(-5).reverse().map(function(h){return h.d+'　'+h.s+' 分'}).join('<br>'):'<small>還沒考過</small>')+'</div>')}
+show(nav()+'<h1>'+SB.ic+' '+SB.n+'</h1><div class="c"><b>選'+SB.w+'別</b><br>'+SB.u.map(function(n){return '<span class="chip '+(sel.indexOf(n)>-1?'on':'')+'" onclick="tg('+n+')">第'+n+SB.w+'</span>'}).join('')+'<button class="b pri" onclick="start(\'prac\')">✏️ 互動練習（'+pool.length+'題可選）</button></div><div class="c"><button class="b" onclick="start(\'weak\')">🎯 弱點加強（'+wk.length+'題待過關）</button><small>答錯的題目會常出現，連續答對 3 次才算過關。</small><button class="b" onclick="start(\'test\')">📝 模擬期中考（20題）</button></div><div class="c"><b>最近常錯</b><br>'+(tl.length?tl.map(function(t){return '<span class="chip">'+t+' ×'+tg[t]+'</span>'}).join(''):'<small>還沒有錯題紀錄</small>')+'<br><b>成績紀錄</b><br>'+(hl().length?hl().slice(-5).reverse().map(function(h){return h.d+'　'+h.s+' 分'}).join('<br>'):'<small>還沒考過</small>')+'</div>')}
 function tg(n){var sel=sels[sub],i=sel.indexOf(n);if(i>-1&&sel.length>1)sel.splice(i,1);else if(i<0)sel.push(n);room()}
 function start(m){var p=P(),sel=sels[sub],pool,ins=function(q){return q.s==sub&&sel.indexOf(q.l)>-1};if(m=='test')pool=Q.filter(function(q){return q.s==sub});else if(m=='weak'){pool=Q.filter(function(q){return q.s==sub&&weak(q)});if(!pool.length){pool=Q.filter(ins)}}else pool=Q.filter(ins);if(!pool.length)return;
 quiz={m:m,qs:pick(pool,m=='test'?20:10),i:0,ok:0,wr:[],o:null,k:-1};qv()}
