@@ -41,7 +41,7 @@ small{opacity:.75}
 .big.long{font-size:27px;text-align:left;line-height:1.6}
 .b.opt{min-height:104px;font-size:32px;padding:14px 16px;margin:12px 0;line-height:1.35}.b.opt.sm{font-size:23px;min-height:96px}
 .mrow{display:flex;justify-content:center;align-items:center;gap:14px;font-size:34px;padding:2px 14px;margin:4px 0;border-bottom:2px dashed var(--soft);min-height:52px;border-radius:10px}
-.mrow.cur{background:var(--soft)}.mrow .ma{min-width:76px;text-align:left;font-weight:bold;color:#d9534f}
+.mrow.cur{background:#ffe27a;color:#3b2f2f;box-shadow:0 0 0 3px #3b2f2f inset}.mrow.cur .ma{color:#b3261e}.mrow .ma{min-width:76px;text-align:left;font-weight:bold;color:#d9534f}
 .mans{font-size:56px;text-align:center;min-height:84px;line-height:84px;border:3px solid var(--ink);border-radius:14px;margin:8px 0;background:var(--soft)}
 .mans.ok{background:var(--ok)}.mans.bad{background:var(--bad)}
 .kpad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.kpad .b{margin:0;min-height:72px;font-size:34px;padding:0}
@@ -296,7 +296,7 @@ var CN='零一二三四五六七八九',SND=(function(){try{return localStorage.
 function cn(n){if(n<10)return CN.charAt(n);if(n<20)return '十'+(n%10?CN.charAt(n%10):'');return CN.charAt(Math.floor(n/10))+'十'+(n%10?CN.charAt(n%10):'')}
 function msay(a,b){return cn(a)+cn(b)+'，'+cn(a*b)}
 function speak(t,cb){var fin=function(){if(cb){var c=cb;cb=null;c()}};if(!SND||!window.speechSynthesis||!window.SpeechSynthesisUtterance){if(cb)setTimeout(fin,1800);return}
-try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='zh-TW';u.rate=.85;u.onend=fin;u.onerror=fin;var vs=speechSynthesis.getVoices(),v=vs.filter(function(x){return /zh[-_]TW/i.test(x.lang)})[0]||vs.filter(function(x){return /^zh/i.test(x.lang)})[0];if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){fin()}}
+try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='zh-TW';u.rate=1.06;u.onend=fin;u.onerror=fin;var vs=speechSynthesis.getVoices(),v=vs.filter(function(x){return /zh[-_]TW/i.test(x.lang)})[0]||vs.filter(function(x){return /^zh/i.test(x.lang)})[0];if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){fin()}}
 function hl(u){return P().hist.filter(function(h){return u?h.u==u:h.u!='mul'})}
 function mkq(a,b){return{a:a,b:b,q:a+'×'+b+'＝？',v:a*b}}
 function mall(){var r=[],a,b;for(a=2;a<=9;a++)for(b=1;b<=9;b++)r.push(mkq(a,b));return r}
