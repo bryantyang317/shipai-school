@@ -41,13 +41,14 @@ small{opacity:.75}
 .big.long{font-size:27px;text-align:left;line-height:1.6}
 .b.opt{min-height:104px;font-size:32px;padding:14px 16px;margin:12px 0;line-height:1.35}.b.opt.sm{font-size:23px;min-height:96px}
 .mrow{font-family:Arial,'Helvetica Neue',Helvetica,sans-serif;display:flex;justify-content:center;align-items:center;gap:14px;font-size:34px;padding:2px 14px;margin:4px 0;border-bottom:2px dashed var(--soft);min-height:52px;border-radius:10px}
+.spdbar{text-align:center;margin:6px 0;font-size:19px}.spdbar .chip{font-size:20px;padding:5px 18px;margin:3px 5px}
 .mrow.cur{background:#ffe27a;color:#3b2f2f;box-shadow:0 0 0 3px #3b2f2f inset}.mrow.cur .ma{color:#b3261e}.mrow .ma{min-width:76px;text-align:left;font-weight:bold;color:#d9534f}
 .mans{font-size:56px;text-align:center;min-height:84px;line-height:84px;border:3px solid var(--ink);border-radius:14px;margin:8px 0;background:var(--soft)}
 .mans.ok{background:var(--ok)}.mans.bad{background:var(--bad)}
 .kpad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.kpad .b{margin:0;min-height:72px;font-size:34px;padding:0}
 .mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.mgrid .b{margin:4px 0;font-size:32px;min-height:68px;padding:0}
-@media (max-height:780px){.mrow{font-size:28px;min-height:44px}}
-@media (max-height:700px){.mrow{font-size:24px;min-height:38px;margin:2px 0}#app h2{margin:2px 0}}
+@media (max-height:880px){.mrow{font-size:30px;min-height:44px}}
+@media (max-height:700px){.hintline{display:none}.spdbar{margin:2px 0}.spdbar .chip{padding:3px 16px}.mrow{font-size:23px;min-height:35px;margin:2px 0}#app h2{margin:2px 0}}
 @media (max-height:720px){.kpad .b{min-height:56px;font-size:28px}.mans{min-height:64px;line-height:64px;font-size:46px}}
 .hint{text-align:center;margin:8px 0;font-size:20px;padding:6px;border:2px dashed var(--ink);border-radius:10px}
 .blk{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:flex-end;justify-content:center;margin:8px 0}
@@ -296,15 +297,18 @@ var CN='零一二三四五六七八九',SND=(function(){try{return localStorage.
 function cn(n){if(n<10)return CN.charAt(n);if(n<20)return '十'+(n%10?CN.charAt(n%10):'');return CN.charAt(Math.floor(n/10))+'十'+(n%10?CN.charAt(n%10):'')}
 function msay(a,b){return cn(a)+cn(b)+'，'+cn(a*b)}
 function speak(t,cb){var fin=function(){if(cb){var c=cb;cb=null;c()}};if(!SND||!window.speechSynthesis||!window.SpeechSynthesisUtterance){if(cb)setTimeout(fin,1800);return}
-try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='zh-TW';u.rate=1.06;u.onend=fin;u.onerror=fin;var vs=speechSynthesis.getVoices(),v=vs.filter(function(x){return /zh[-_]TW/i.test(x.lang)})[0]||vs.filter(function(x){return /^zh/i.test(x.lang)})[0];if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){fin()}}
+try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='zh-TW';u.rate=RATES[SPD]||1.06;u.onend=fin;u.onerror=fin;var vs=speechSynthesis.getVoices(),v=vs.filter(function(x){return /zh[-_]TW/i.test(x.lang)})[0]||vs.filter(function(x){return /^zh/i.test(x.lang)})[0];if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){fin()}}
 function hl(u){return P().hist.filter(function(h){return u?h.u==u:h.u!='mul'})}
 function mkq(a,b){return{a:a,b:b,q:a+'×'+b+'＝？',v:a*b}}
 function mall(){var r=[],a,b;for(a=2;a<=9;a++)for(b=1;b<=9;b++)r.push(mkq(a,b));return r}
 function mweak(){return mall().filter(weak)}
+var SPD=(function(){try{var v=parseFloat(localStorage.getItem('sch_spd'));return v==1.5||v==2?v:1}catch(e){return 1}})(),RATES={1:1.06,1.5:1.59,2:2.12};
+function spdBar(){return '<div class="spdbar">語速　'+[1,1.5,2].map(function(x){return '<button class="chip'+(SPD==x?' on':'')+'" onclick="event.stopPropagation();setSpd('+x+')">'+x+'×</button>'}).join('')+'</div>'}
+function setSpd(x){SPD=x;try{localStorage.setItem('sch_spd',String(x))}catch(e){}if(mp)mpv();else if(mq)mqv();else mroom()}
 function sndBtn(){return '<button class="chip" style="flex:0 0 auto" onclick="event.stopPropagation();sndTog()">'+(SND?'🔊 聲音開':'🔇 聲音關')+'</button>'}
 function sndTog(){SND=!SND;try{localStorage.setItem('sch_snd',SND?'1':'0')}catch(e){}if(!SND)lpStop();if(mp)mpv();else if(mq)mqv();else mroom()}
 function mroom(){var p=P();if(!p)return login();var wk=mweak(),H=hl('mul');lpStop();mp=null;mq=null;wk.sort(function(x,y){return p.st[y.q].w-p.st[x.q].w});
-show(nav()+'<h1>✖️ 九九乘法教室</h1><div class="c"><b>✏️ 互動練習</b><br><small>選一個數字開始。點一下螢幕，就會念出算式並顯示答案。</small><div class="mgrid">'+[2,3,4,5,6,7,8,9].map(function(n){return '<button class="b pri" onclick="mprac('+n+')">'+n+'</button>'}).join('')+'</div></div><div class="c"><button class="b" onclick="mstart(\'weak\')">🎯 弱點加強（'+wk.length+'題待過關）</button><small>答錯的算式會常出現，連續答對 3 次才算過關。</small><button class="b" onclick="mstart(\'test\')">📝 隨堂測驗（20題）</button><small>用數字鍵盤輸入答案，答對會念出算式。</small></div><div class="c"><b>最近常錯</b><br>'+(wk.length?wk.slice(0,8).map(function(q){return '<span class="chip">'+q.a+'×'+q.b+' ×'+p.st[q.q].w+'</span>'}).join(''):'<small>還沒有錯題紀錄</small>')+'<br><b>成績紀錄</b><br>'+(H.length?H.slice(-5).reverse().map(function(h){return h.d+'　'+h.s+' 分'}).join('<br>'):'<small>還沒考過</small>')+'<div style="margin-top:10px">'+sndBtn()+'</div><small>沒聽到聲音時，請檢查音量和靜音鍵。</small></div>');scr='mroom'}
+show(nav()+'<h1>✖️ 九九乘法教室</h1><div class="c"><b>✏️ 互動練習</b><br><small>選一個數字開始。點一下螢幕，就會念出算式並顯示答案。</small><div class="mgrid">'+[2,3,4,5,6,7,8,9].map(function(n){return '<button class="b pri" onclick="mprac('+n+')">'+n+'</button>'}).join('')+'</div></div><div class="c"><button class="b" onclick="mstart(\'weak\')">🎯 弱點加強（'+wk.length+'題待過關）</button><small>答錯的算式會常出現，連續答對 3 次才算過關。</small><button class="b" onclick="mstart(\'test\')">📝 隨堂測驗（20題）</button><small>用數字鍵盤輸入答案，答對會念出算式。</small></div><div class="c"><b>最近常錯</b><br>'+(wk.length?wk.slice(0,8).map(function(q){return '<span class="chip">'+q.a+'×'+q.b+' ×'+p.st[q.q].w+'</span>'}).join(''):'<small>還沒有錯題紀錄</small>')+'<br><b>成績紀錄</b><br>'+(H.length?H.slice(-5).reverse().map(function(h){return h.d+'　'+h.s+' 分'}).join('<br>'):'<small>還沒考過</small>')+'<div style="margin-top:10px">'+sndBtn()+'</div>'+spdBar()+'<small>沒聽到聲音時，請檢查音量和靜音鍵。</small></div>');scr='mroom'}
 function mprac(n){lpStop();mp={n:n,i:0,loop:0};mpv()}
 var LPT=0;
 function lpStop(){LPT++;if(mp)mp.loop=0;try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(e){}}
@@ -312,7 +316,7 @@ function lpToggle(){if(!mp)return;if(mp.loop){lpStop();return mpv()}if(!SND){ale
 function lpStep(t,k){if(t!==LPT||!mp||!mp.loop)return;mp.i=k;mpv();var done=0,go=function(){if(done||t!==LPT)return;done=1;setTimeout(function(){lpStep(t,k%9+1)},900)};speak(msay(mp.n,k),go);setTimeout(go,7000)}
 document.addEventListener('visibilitychange',function(){if(document.hidden&&mp&&mp.loop){lpStop();mpv()}});
 function mpv(){var n=mp.n,i=mp.i,lp=mp.loop,r='',b;for(b=1;b<=9;b++)r+='<div class="mrow'+(b==i?' cur':'')+'"><span>'+n+' × '+b+' =</span><span class="ma">'+(b<=i?n*b:'')+'</span></div>';
-inPv=1;show('<div onclick="mtap()" style="min-height:85vh;touch-action:manipulation"><div class="c"><div class="row" style="align-items:center"><button class="chip" style="flex:0 0 auto" onclick="event.stopPropagation();mroom()">✖ 退出</button><span></span>'+sndBtn()+'</div><h2>'+n+' 的乘法</h2><button class="b'+(lp?' pri':'')+'" style="min-height:56px;font-size:20px" onclick="event.stopPropagation();lpToggle()">'+(lp?'⏹ 循環播放中…點一下停止':'🔁 循環播放：關（點一下開始）')+'</button>'+(i<9&&!lp?'<div style="text-align:center"><small>👆 或點一下螢幕，念出算式並顯示答案</small></div>':'')+r+(i>=9&&!lp?'<div class="big" style="font-size:28px">🎉 '+n+' 的乘法完成！</div>'+(n<9?'<button class="b pri" onclick="event.stopPropagation();mprac('+(n+1)+')">➜ 練習 '+(n+1)+' 的乘法</button>':'')+'<button class="b" onclick="event.stopPropagation();mprac('+n+')">↺ 再練一次</button><button class="b" onclick="event.stopPropagation();mroom()">回九九乘法教室</button>':'')+'</div></div>');inPv=0}
+inPv=1;show('<div onclick="mtap()" style="min-height:85vh;touch-action:manipulation"><div class="c"><div class="row" style="align-items:center"><button class="chip" style="flex:0 0 auto" onclick="event.stopPropagation();mroom()">✖ 退出</button><span></span>'+sndBtn()+'</div><h2>'+n+' 的乘法</h2><button class="b'+(lp?' pri':'')+'" style="min-height:56px;font-size:20px" onclick="event.stopPropagation();lpToggle()">'+(lp?'⏹ 循環播放中…點一下停止':'🔁 循環播放：關（點一下開始）')+'</button>'+spdBar()+(i<9&&!lp?'<div class="hintline" style="text-align:center"><small>👆 或點一下螢幕，念出算式並顯示答案</small></div>':'')+r+(i>=9&&!lp?'<div class="big" style="font-size:28px">🎉 '+n+' 的乘法完成！</div>'+(n<9?'<button class="b pri" onclick="event.stopPropagation();mprac('+(n+1)+')">➜ 練習 '+(n+1)+' 的乘法</button>':'')+'<button class="b" onclick="event.stopPropagation();mprac('+n+')">↺ 再練一次</button><button class="b" onclick="event.stopPropagation();mroom()">回九九乘法教室</button>':'')+'</div></div>');inPv=0}
 function mtap(){if(!mp||mp.loop||mp.i>=9)return;mp.i++;speak(msay(mp.n,mp.i));mpv()}
 function mstart(m){var pool=m=='weak'?mweak():mall();if(!pool.length)return alert('目前沒有待加強的算式，太棒了！可以去做隨堂測驗。');mq={m:m,qs:pick(pool,m=='test'?20:10),i:0,ok:0,wr:[],buf:'',k:-1};lpStop();mp=null;mqv()}
 function mqv(){var z=mq,q=z.qs[z.i],done=z.k>-1,dis=done?' disabled':'',kp='',fb='';
