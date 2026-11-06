@@ -207,7 +207,7 @@ var DB=null,SY='local',dirty={},exDirty=0,shopDirty=0,pinDirty=0,busy=0,pushT=0,
 function canon(o){if(o&&typeof o=='object'){if(Array.isArray(o))return '['+o.map(canon).join(',')+']';return '{'+Object.keys(o).sort().map(function(k){return JSON.stringify(k)+':'+canon(o[k])}).join(',')+'}'}return JSON.stringify(o)}
 function kid(n){return 'k_'+Array.from(String(n)).map(function(c){return c.codePointAt(0).toString(16)}).join('-')}
 function pack(n){var u=S.u[n];return{name:n,av:u.av,pts:u.pts||0,tot:u.tot||0,hist:u.hist||[],st:u.st||{},tix:u.tix||[],ts:u.ts||0}}
-function badge(){var m={local:'📱 只存在這台裝置',wait:'⏳ 正在連上雲端…',ok:'☁️ 已同步（iPhone／iPad 共用）',ro:'🔒 沒有寫入權限，只存這台',err:'⚠️ 暫時連不上雲端，先存在這台'},e=$('#sy');if(e)e.textContent=m[SY]}
+function badge(){var m={local:'📱 只存在這台裝置',wait:'⏳ 正在連上雲端…',ok:'☁️ 已同步（iPhone／iPad 共用）',ro:'🔒 沒有寫入權限，只存這台',err:'⚠️ 暫時連不上雲端，先存在這台'},e=$('#sy');if(e)e.textContent=m[SY]+(SY=='err'&&typeof LASTERR=='string'&&LASTERR?'｜'+LASTERR:SY=='ro'&&LASTERR?'｜'+LASTERR:'')}
 function setSY(s){SY=s;badge()}
 function mrg(l,r){var rn=(r.ts||0)>(l.ts||0);if(rn){l.av=r.av||l.av;l.pts=r.pts||0;l.tot=r.tot||0}
 var st=l.st||(l.st={}),rs=r.st||{};Object.keys(rs).forEach(function(k){var a=st[k],b=rs[k],bs=b.r+b.w;if(!a||bs>a.r+a.w||(bs==a.r+a.w&&rn))st[k]={r:b.r,w:b.w,s:b.s}});
@@ -231,8 +231,10 @@ function famGet(){try{return localStorage.getItem('sch_fam')||''}catch(e){return
 function famSet(v){try{if(v)localStorage.setItem('sch_fam',v);else localStorage.removeItem('sch_fam')}catch(e){}}
 function famShow(c){return c.replace(/(.{4})(?=.)/g,'$1-')}
 function famNorm(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
-async function rpc(fn,args){var r=await fetch(SBC.url+'/rest/v1/rpc/'+fn,{method:'POST',headers:{apikey:SBC.key,Authorization:'Bearer '+SBC.key,'Content-Type':'application/json'},body:JSON.stringify(args)});
-if(!r.ok){var e=new Error('http '+r.status);e.code=(r.status==400||r.status==401||r.status==403)?'invalid_argument':'net';throw e}
+var LASTERR='';
+async function rpc(fn,args){var hd={apikey:SBC.key,'Content-Type':'application/json'},r,e;if(String(SBC.key).indexOf('sb_')!==0)hd.Authorization='Bearer '+SBC.key;
+try{r=await fetch(String(SBC.url).replace(/\/+$/,'')+'/rest/v1/rpc/'+fn,{method:'POST',headers:hd,body:JSON.stringify(args)})}catch(x){LASTERR='連線失敗：'+(x&&x.message||x)+'（請檢查 config.js 的網址）';e=new Error(LASTERR);e.code='net';throw e}
+if(!r.ok){var bt='';try{bt=(await r.text()).replace(/\s+/g,' ').slice(0,140)}catch(x){}LASTERR='HTTP '+r.status+' '+bt;e=new Error(LASTERR);e.code=(r.status==400||r.status==401||r.status==403)?'invalid_argument':'net';throw e}LASTERR='';
 var t=await r.text();return t?JSON.parse(t):null}
 function hasDirty(){return Object.keys(dirty).length>0||exDirty||shopDirty||pinDirty}
 function mkDB(f){var cache={},subs=[],since='1970-01-01T00:00:00+00:00',inited=0,pulling=0,timer=0,stopped=0;
