@@ -34,12 +34,13 @@ h1,h2{margin:6px 0;text-align:center}
 .chip{display:inline-block;padding:2px 12px;margin:3px;border:2px solid var(--ink);border-radius:14px 4px 12px 5px;background:var(--soft);font:inherit;color:var(--ink);cursor:pointer}
 .chip.on{background:var(--acc)}
 .big{font-size:34px;text-align:center;margin:10px 0}
-.nav{display:flex;gap:6px}.nav .b{font-size:15px;min-height:42px;padding:4px}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;margin-bottom:6px}.nav .b{font-size:24px;min-height:64px;padding:6px 8px;margin:6px 0;white-space:nowrap}
 progress{width:100%;height:14px}
 textarea,input{width:100%;font:inherit;font-size:16px;padding:8px;background:var(--paper);color:var(--ink);border:2px solid var(--ink);border-radius:8px}
 small{opacity:.75}
-.big.long{font-size:22px;text-align:left;line-height:1.6}
-.hint{text-align:center;margin:8px 0;font-size:16px;padding:6px;border:2px dashed var(--ink);border-radius:10px}
+.big.long{font-size:27px;text-align:left;line-height:1.6}
+.b.opt{min-height:104px;font-size:32px;padding:14px 16px;margin:12px 0;line-height:1.35}.b.opt.sm{font-size:23px;min-height:96px}
+.hint{text-align:center;margin:8px 0;font-size:20px;padding:6px;border:2px dashed var(--ink);border-radius:10px}
 .blk{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:flex-end;justify-content:center;margin:8px 0}
 .flat{width:46px;height:46px;border:2px solid var(--ink);background:repeating-linear-gradient(0deg,transparent 0 4px,rgba(0,0,0,.2) 4px 5px),repeating-linear-gradient(90deg,transparent 0 4px,rgba(0,0,0,.2) 4px 5px),#f6d68a}
 .rods{display:flex;gap:4px;align-items:flex-end}
@@ -280,13 +281,19 @@ function login(){var us=Object.keys(S.u);show('<h1>🏫 石牌小學堂</h1><div
 function mk(){var n=$('#nm').value.trim();if(!n||S.u[n])return;S.u[n]={av:av,pts:0,tot:0,hist:[],st:{},tix:[]};S.cur=n;sv(1);home()}
 function go(i){S.cur=Object.keys(S.u)[i];sv();home()}
 function home(){var p=P();if(!p)return login();var l=lv(p);show(nav()+'<div class="c">'+p.av+' <b>'+S.cur+'</b>　Lv.'+l+' '+TT[Math.min(5,l-1)]+'<br>⭐ '+p.pts+' 分　<small>再 '+(100-p.tot%100)+' 分升級</small><progress value="'+p.tot%100+'" max="100"></progress><div><small id="sy"></small></div></div><div class="roof"></div><div class="c" style="margin-top:0"><h2>🏫 石牌小學堂</h2><div class="grid"><button class="room" onclick="room(\'chi\')">📖<br>國語教室</button><button class="room" onclick="room(\'math\')">➗<br>數學教室</button><div class="room lock">🔤<br>英文教室<br><small>即將開放</small></div><div class="room lock">➕<br>新教室<br><small>敬請期待</small></div></div></div>');badge();scr='home'}
+function qx(){var z=quiz;if(!z)return room();var p=P(),n=z.i+(z.k>-1&&z.m!='test'?1:0);
+if(!confirm(z.m=='test'?'要中途退出嗎？\n已答對的題目會換成分數，但這次不會記成績。':'要中途退出嗎？\n已經得到的分數會保留。')){return}
+if(!n){quiz=null;return room()}
+var b=z.m=='test'?z.ok*5:z.ok*10;if(z.m=='test'){p.pts+=b;p.tot+=b}
+quiz=null;sv(1);
+show('<h1>👋 下次再繼續</h1><div class="c"><div class="big">'+z.ok+' / '+n+'</div><p style="text-align:center">已完成 '+n+' 題，答對 '+z.ok+' 題，獲得 '+b+' 分'+(z.m=='test'?'<br><small>中途退出，這次不記入模擬考成績</small>':'')+'</p>'+(z.wr.length?'<b>要再複習：</b><br>'+z.wr.map(function(q){return '・'+plain(q.q)+' → <b>'+esc(q.c[q.a])+'</b>'+(q.h?'<br><small>📝 '+esc(q.h)+'</small>':'')}).join('<br>'):'')+'</div><button class="b pri" onclick="room()">回'+SUBS[sub].n+'</button>'+nav())}
 function room(s){if(s)sub=s;var p=P(),SB=SUBS[sub],sel=sels[sub],pool=Q.filter(function(q){return q.s==sub&&sel.indexOf(q.l)>-1}),wk=Q.filter(function(q){return q.s==sub&&weak(q)}),tg={};Object.keys(p.st).forEach(function(k){var q=Q.filter(function(x){return x.q==k})[0];if(q&&q.s==sub&&p.st[k].w)tg[q.g]=(tg[q.g]||0)+p.st[k].w});var tl=Object.keys(tg).sort(function(a,b){return tg[b]-tg[a]}).slice(0,8);
 show(nav()+'<h1>'+SB.ic+' '+SB.n+'</h1><div class="c"><b>選'+SB.w+'別</b><br>'+SB.u.map(function(n){return '<span class="chip '+(sel.indexOf(n)>-1?'on':'')+'" onclick="tg('+n+')">第'+n+SB.w+'</span>'}).join('')+'<button class="b pri" onclick="start(\'prac\')">✏️ 互動練習（'+pool.length+'題可選）</button></div><div class="c"><button class="b" onclick="start(\'weak\')">🎯 弱點加強（'+wk.length+'題待過關）</button><small>答錯的題目會常出現，連續答對 3 次才算過關。</small><button class="b" onclick="start(\'test\')">📝 模擬期中考（20題）</button></div><div class="c"><b>最近常錯</b><br>'+(tl.length?tl.map(function(t){return '<span class="chip">'+t+' ×'+tg[t]+'</span>'}).join(''):'<small>還沒有錯題紀錄</small>')+'<br><b>成績紀錄</b><br>'+(p.hist.length?p.hist.slice(-5).reverse().map(function(h){return h.d+'　'+h.s+' 分'}).join('<br>'):'<small>還沒考過</small>')+'</div>')}
 function tg(n){var sel=sels[sub],i=sel.indexOf(n);if(i>-1&&sel.length>1)sel.splice(i,1);else if(i<0)sel.push(n);room()}
 function start(m){var p=P(),sel=sels[sub],pool,ins=function(q){return q.s==sub&&sel.indexOf(q.l)>-1};if(m=='test')pool=Q.filter(function(q){return q.s==sub});else if(m=='weak'){pool=Q.filter(function(q){return q.s==sub&&weak(q)});if(!pool.length){pool=Q.filter(ins)}}else pool=Q.filter(ins);if(!pool.length)return;
 quiz={m:m,qs:pick(pool,m=='test'?20:10),i:0,ok:0,wr:[],o:null,k:-1};qv()}
 function qv(){var z=quiz,q=z.qs[z.i];if(!z.o)z.o=shuf(q.c.map(function(x,i){return[x,i==q.a]}));var done=z.k>-1;
-show('<div class="c"><small>'+(z.m=='test'?'模擬考':z.m=='weak'?'弱點加強':'互動練習')+'　第 '+(z.i+1)+' / '+z.qs.length+' 題</small><progress value="'+z.i+'" max="'+z.qs.length+'"></progress><div class="big'+(q.q.replace(/\[\[[^\]]*\]\]/g,'').length>16?' long':'')+'">'+fmt(q.q)+'</div>'+z.o.map(function(o,k){var c='';if(done&&z.m!='test'){if(o[1])c='ok';else if(k==z.k)c='bad'}return '<button class="b '+c+'" '+(done?'disabled':'')+' onclick="ans('+k+')">'+esc(o[0])+'</button>'}).join('')+(done&&z.m!='test'?'<div style="text-align:center">'+(z.o[z.k][1]?'🎉 答對了！+10 分':'💡 再記一次，答案是「'+esc(q.c[q.a])+'」')+'</div>'+(q.h?'<div class="hint">📝 '+esc(q.h)+'</div>':'')+'<button class="b pri" onclick="nx()">下一題 ➜</button>':'')+'</div>')}
+show('<div class="c"><div style="text-align:right;margin-bottom:-6px"><button class="chip" onclick="qx()">✖ 退出</button></div><small>'+(z.m=='test'?'模擬考':z.m=='weak'?'弱點加強':'互動練習')+'　第 '+(z.i+1)+' / '+z.qs.length+' 題</small><progress value="'+z.i+'" max="'+z.qs.length+'"></progress><div class="big'+(q.q.replace(/\[\[[^\]]*\]\]/g,'').length>16?' long':'')+'">'+fmt(q.q)+'</div>'+z.o.map(function(o,k){var c='';if(done&&z.m!='test'){if(o[1])c='ok';else if(k==z.k)c='bad'}return '<button class="b opt'+(o[0].length>14?' sm':'')+' '+c+'" '+(done?'disabled':'')+' onclick="ans('+k+')">'+esc(o[0])+'</button>'}).join('')+(done&&z.m!='test'?'<div style="text-align:center">'+(z.o[z.k][1]?'🎉 答對了！+10 分':'💡 再記一次，答案是「'+esc(q.c[q.a])+'」')+'</div>'+(q.h?'<div class="hint">📝 '+esc(q.h)+'</div>':'')+'<button class="b pri opt" onclick="nx()">下一題 ➜</button>':'')+'</div>')}
 function ans(k){var z=quiz,q=z.qs[z.i],p=P(),r=z.o[k][1],s=p.st[q.q]||(p.st[q.q]={r:0,w:0,s:0});if(z.k>-1)return;z.k=k;if(r){z.ok++;s.r++;s.s++;if(z.m!='test'){p.pts+=10;p.tot+=10}}else{s.w++;s.s=0;z.wr.push(q)}sv(1);if(z.m=='test')nx();else qv()}
 function nx(){var z=quiz;z.i++;z.k=-1;z.o=null;if(z.i<z.qs.length)return qv();fin()}
 function fin(){var z=quiz,p=P(),n=z.qs.length,sc=Math.round(z.ok/n*100),b=0,h='';if(z.m=='test'){b=z.ok*5+(sc>=90?30:0);p.pts+=b;p.tot+=b;var d=new Date();p.hist.push({d:(d.getMonth()+1)+'/'+d.getDate(),s:sc,t:Date.now()});h='<div class="big">'+sc+' 分</div><p style="text-align:center">答對 '+z.ok+' / '+n+' 題，獲得 '+b+' 分'+(sc>=90?'（滿分獎勵 +30）':'')+'</p>'}else{h='<div class="big">'+z.ok+' / '+n+'</div><p style="text-align:center">本次練習獲得 '+z.ok*10+' 分</p>'}
