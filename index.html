@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>石牌小學堂</title>
+<meta name="theme-color" content="#cfe8f5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="石牌小學堂">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<style>
+:root{--bg:#cfe8f5;--paper:#fffaf0;--ink:#3b2f2f;--acc:#f4a259;--ok:#8bc78b;--bad:#f08a8a;--soft:#f3e6c8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1f2a33;--paper:#2d2a26;--ink:#f1e7d3;--acc:#c9803a;--ok:#4f8a4f;--bad:#a34f4f;--soft:#3a352e}}
+:root[data-theme="dark"]{--bg:#1f2a33;--paper:#2d2a26;--ink:#f1e7d3;--acc:#c9803a;--ok:#4f8a4f;--bad:#a34f4f;--soft:#3a352e}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+button,input,textarea{touch-action:manipulation}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Kaiti TC","BiauKai","STKaiti","Marker Felt",cursive,sans-serif;font-size:18px;line-height:1.5}
+#app{max-width:640px;margin:0 auto;padding:12px}
+h1,h2{margin:6px 0;text-align:center}
+.c{background:var(--paper);border:3px solid var(--ink);border-radius:18px 6px 16px 8px/8px 16px 6px 18px;box-shadow:3px 4px 0 var(--ink);padding:12px;margin:12px 0}
+.b{display:block;width:100%;min-height:50px;margin:8px 0;padding:8px 12px;font:inherit;font-size:19px;color:var(--ink);background:var(--soft);border:3px solid var(--ink);border-radius:14px 5px 12px 6px/6px 12px 5px 14px;box-shadow:2px 3px 0 var(--ink);cursor:pointer;text-align:center}
+.b:active{transform:translate(2px,3px);box-shadow:none}
+.b.pri{background:var(--acc)}.b.ok{background:var(--ok)}.b.bad{background:var(--bad)}.b[disabled]{opacity:.5}
+.row{display:flex;gap:8px;flex-wrap:wrap}.row>*{flex:1}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.room{text-align:center;padding:14px 6px;border:3px solid var(--ink);border-radius:10px 4px 12px 5px;background:var(--paper);font:inherit;color:var(--ink);font-size:20px;box-shadow:2px 3px 0 var(--ink)}
+.room.lock{opacity:.45;border-style:dashed}
+.roof{width:0;height:0;margin:8px auto 0;border-left:150px solid transparent;border-right:150px solid transparent;border-bottom:60px solid var(--acc);filter:drop-shadow(0 2px 0 var(--ink))}
+.chip{display:inline-block;padding:2px 12px;margin:3px;border:2px solid var(--ink);border-radius:14px 4px 12px 5px;background:var(--soft);font:inherit;color:var(--ink);cursor:pointer}
+.chip.on{background:var(--acc)}
+.big{font-size:34px;text-align:center;margin:10px 0}
+.nav{display:flex;gap:6px}.nav .b{font-size:15px;min-height:42px;padding:4px}
+progress{width:100%;height:14px}
+textarea,input{width:100%;font:inherit;font-size:16px;padding:8px;background:var(--paper);color:var(--ink);border:2px solid var(--ink);border-radius:8px}
+small{opacity:.75}
+.big.long{font-size:22px;text-align:left;line-height:1.6}
+.hint{text-align:center;margin:8px 0;font-size:16px;padding:6px;border:2px dashed var(--ink);border-radius:10px}
+.blk{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:flex-end;justify-content:center;margin:8px 0}
+.flat{width:46px;height:46px;border:2px solid var(--ink);background:repeating-linear-gradient(0deg,transparent 0 4px,rgba(0,0,0,.2) 4px 5px),repeating-linear-gradient(90deg,transparent 0 4px,rgba(0,0,0,.2) 4px 5px),#f6d68a}
+.rods{display:flex;gap:4px;align-items:flex-end}
+.rod{width:9px;height:46px;border:2px solid var(--ink);background:repeating-linear-gradient(0deg,transparent 0 4px,rgba(0,0,0,.25) 4px 5px),#9ed3e6}
+.ones{display:grid;grid-template-columns:repeat(3,13px);gap:2px}
+.one{width:13px;height:13px;border:2px solid var(--ink);background:#f4a0a0}
+.ruler{display:block;margin:6px auto;max-width:100%;height:auto;color:var(--ink)}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script src="config.js"></script>
+<script src="math-bank.js"></script>
+<script>
+var RAW=`3|形|小＿子很長，我們慢慢走進去。|巷/卷/券|0|巷
+3|形|媽媽買了一張彩＿。|巷/卷/券|2|券
+3|形|他把圖畫紙＿起來。|巷/卷/券|1|卷
+3|形|姊姊幫新娘打＿。|粉/扮|1|扮
+3|形|黑板上有白色的＿筆。|粉/扮|0|粉
+3|形|新＿穿著漂亮的衣服。|娘/浪|0|娘
+3|形|海＿一波一波地打來。|娘/浪|1|浪
+3|形|手裡＿著花。|棒/捧|1|捧
+3|形|蝴＿飛到花上。|蝶/葉|0|蝶
+4|形|＿動會上大家很開心。|運/連|0|運
+4|形|＿接兩間教室的走廊。|運/連|1|連
+4|形|天氣很＿，大家都流汗。|熱/熟|0|熱
+4|形|請＿前走三步。|住/往|1|往
+4|形|我＿在台北。|住/往|0|住
+4|形|他笑得很開心，臉上都是笑＿。|客/容|1|容
+4|形|小＿裡的水很清涼。|何/河/可|1|河
+4|形|這隻小狗真＿愛。|何/河/可|2|可
+5|形|＿風讓人很舒服。|吹/次|0|吹
+5|形|這是我第一＿看到海。|吹/次|1|次
+5|形|媽媽用竹＿裝水果。|籃/藍|0|籃
+5|形|天空是＿色的。|籃/藍|1|藍
+5|形|放＿假，全家去玩。|暑/署|0|暑
+5|形|爸爸去＿魚。|捕/補/鋪|0|捕
+5|形|媽媽在＿衣服。|捕/補/鋪|1|補
+5|形|請大家說＿，不要吵。|話/活|0|話
+6|形|她對人很＿切。|親/新|0|親
+6|形|＿年快樂！|親/新|1|新
+6|形|＿子是橘色的水果。|柿/市|0|柿
+6|形|＿為下雨，所以不出門。|因/困|0|因
+6|形|謝謝你，我願意接＿。|愛/受|1|受
+2|形|媽媽煎了一個荷包＿。|蛋/番|0|蛋
+2|形|＿茄炒蛋很好吃。|蛋/番|1|番
+2|形|我早餐吃吐＿。|司/可|0|司
+2|形|這張＿桌可以坐很多人。|園/圓|1|圓
+1|形|請你＿門進來。|位/拉|1|拉
+1|形|我們到圖＿館借書。|書/畫|0|書
+1|音|還書的「還」怎麼念？|ㄏㄞˊ/ㄏㄨㄢˊ|1|還
+1|音|還要的「還」怎麼念？|ㄏㄞˊ/ㄏㄨㄢˊ|0|還
+1|音|以為的「為」怎麼念？|ㄨㄟˊ/ㄨㄟˋ|0|為
+6|音|因為的「為」怎麼念？|ㄨㄟˊ/ㄨㄟˋ|1|為
+5|音|暑假的「假」怎麼念？|ㄐㄧㄚˇ/ㄐㄧㄚˋ|1|假
+5|音|假裝的「假」怎麼念？|ㄐㄧㄚˇ/ㄐㄧㄚˋ|0|假
+5|音|好奇的「好」怎麼念？|ㄏㄠˇ/ㄏㄠˋ|1|好
+5|音|好看的「好」怎麼念？|ㄏㄠˇ/ㄏㄠˋ|0|好
+2|音|切菜的「切」怎麼念？|ㄑㄧㄝ/ㄑㄧㄝˋ|0|切
+6|音|親切的「切」怎麼念？|ㄑㄧㄝ/ㄑㄧㄝˋ|1|切
+2|音|中心的「中」怎麼念？|ㄓㄨㄥ/ㄓㄨㄥˋ|0|中
+4|注|「腳」怎麼念？|ㄐㄧㄠˇ/ㄐㄧㄠˋ/ㄐㄧㄝˇ|0|腳
+2|注|「輪」怎麼念？|ㄌㄨㄣˊ/ㄌㄧㄣˊ/ㄌㄨㄥˊ|0|輪
+2|注|「蛋」怎麼念？|ㄉㄢˋ/ㄊㄢˋ/ㄉㄢˇ|0|蛋
+3|注|「巷」怎麼念？|ㄒㄧㄤˋ/ㄒㄧㄤˊ/ㄒㄩㄥˋ|0|巷
+6|注|「客」怎麼念？|ㄍㄜˋ/ㄎㄜˋ/ㄎㄜˊ|1|客
+6|注|「色」怎麼念？|ㄕㄜˋ/ㄙㄜˋ/ㄙㄜˊ|1|色
+2|注|「全」怎麼念？|ㄑㄧㄢˊ/ㄒㄩㄢˊ/ㄑㄩㄢˊ|2|全
+1|注|「望」怎麼念？|ㄨㄤˊ/ㄨㄤˋ/ㄨㄥˋ|1|望
+5|句|哪一句用對了「一邊…一邊…」？|姐姐一邊走路一邊唱歌。/姐姐一邊走路也唱歌。/姐姐除了走路一邊唱歌。|0|一邊
+6|句|哪一句用對了「除了…也…」？|我家除了小魚，也有小狗。/我家除了小魚，一邊有小狗。/我家一邊小魚，也有小狗。|0|除了
+3|句|哪一句用對了「越來越…」？|天氣越來越冷。/越天氣來越冷。/天氣越來冷越。|0|越來越
+3|詞|我＿＿地打開房門，怕吵醒爸爸。|輕輕/重重/快快|0|輕輕
+1|形|菜＿很利，可以切菜。|刀/力|0|刀
+1|形|他的＿氣很大，可以搬重物。|刀/力|1|力
+1|形|校園裡有一棵大樹＿。|木/本|0|木
+1|形|我帶了一＿故事書。|木/本|1|本
+1|形|媽媽買了一本故事＿。|畫/書|1|書
+1|形|弟弟用蠟筆＿圖。|畫/書|0|畫
+1|形|請你＿手過馬路。|位/拉|1|拉
+1|形|請坐在這個座＿上。|位/拉|0|位
+1|形|老＿教我們寫字。|師/帥|0|師
+2|形|我想去，＿是沒有時間。|可/司|0|可
+2|形|小朋友在花＿裡玩。|園/圓|0|園
+2|形|衣服用＿子夾住。|夾/來|0|夾
+2|形|他從教室出＿了。|夾/來|1|來
+3|形|這裡的風景真美＿。|麗/厲|0|麗
+3|形|妹妹把花＿在手上，真漂亮。|棒/捧|1|捧
+4|形|＿後一名衝過終點線。|最/是|0|最
+4|形|這個東西＿我的。|最/是|1|是
+4|形|他很＿心，常幫助別人。|熱/熟|0|熱
+4|形|請＿後退一步。|住/往|1|往
+5|形|我們參加＿動。|話/活|1|活
+6|形|＿朋好友都來了。|親/新|0|親
+6|形|我有一件＿衣服。|親/新|1|新
+6|形|他說話很＿氣。|客/容|0|客
+6|形|這隻小貓真可＿。|愛/受|0|愛
+6|形|我的個子＿他高。|比/此|0|比
+6|形|下雨了，因＿我們沒出去玩。|此/比|0|此
+1|音|還有的「還」怎麼念？|ㄏㄞˊ/ㄏㄨㄢˊ|0|還
+1|音|為什麼的「為」怎麼念？|ㄨㄟˊ/ㄨㄟˋ|1|為
+2|音|射中靶心的「中」怎麼念？|ㄓㄨㄥ/ㄓㄨㄥˋ|1|中
+2|音|一切的「切」怎麼念？|ㄑㄧㄝ/ㄑㄧㄝˋ|1|切
+5|音|假日的「假」怎麼念？|ㄐㄧㄚˇ/ㄐㄧㄚˋ|1|假
+5|音|好學的「好」怎麼念？|ㄏㄠˇ/ㄏㄠˋ|1|好
+1|注|「淡」怎麼念？|ㄉㄢˋ/ㄊㄢˊ/ㄉㄢˊ|0|淡
+1|注|「聲」怎麼念？|ㄕㄥ/ㄕㄣ/ㄕㄥˊ|0|聲
+2|注|「堡」怎麼念？|ㄅㄠˇ/ㄅㄠˋ/ㄆㄠˇ|0|堡
+2|注|「番」怎麼念？|ㄈㄢ/ㄈㄥ/ㄈㄢˊ|0|番
+2|注|「茄」怎麼念？|ㄑㄧㄝˊ/ㄑㄧㄝˇ/ㄐㄧㄝˊ|0|茄
+2|注|「煎」怎麼念？|ㄐㄧㄢ/ㄑㄧㄢ/ㄐㄧㄣ|0|煎
+3|注|「蝶」怎麼念？|ㄉㄧㄝˊ/ㄊㄧㄝˊ/ㄉㄧㄝˇ|0|蝶
+3|注|「娘」怎麼念？|ㄋㄧㄤˊ/ㄌㄧㄤˊ/ㄋㄧㄤˋ|0|娘
+3|注|「麗」怎麼念？|ㄌㄧˋ/ㄌㄧˊ/ㄋㄧˋ|0|麗
+4|注|「鬧」怎麼念？|ㄋㄠˋ/ㄌㄠˋ/ㄋㄠˊ|0|鬧
+4|注|「賽」怎麼念？|ㄙㄞˋ/ㄕㄞˋ/ㄙㄞˇ|0|賽
+4|注|「最」怎麼念？|ㄗㄨㄟˋ/ㄗㄨㄥˋ/ㄓㄨㄟˋ|0|最
+4|注|「運」怎麼念？|ㄩㄣˋ/ㄧㄣˋ/ㄩㄥˋ|0|運
+5|注|「暑」怎麼念？|ㄕㄨˇ/ㄕㄨˋ/ㄙㄨˇ|0|暑
+5|注|「籃」怎麼念？|ㄌㄢˊ/ㄋㄢˊ/ㄌㄢˇ|0|籃
+5|注|「捕」怎麼念？|ㄅㄨˇ/ㄆㄨˇ/ㄅㄨˋ|0|捕
+6|注|「進」怎麼念？|ㄐㄧㄣˋ/ㄐㄧㄥˋ/ㄑㄧㄣˋ|0|進
+6|注|「餅」怎麼念？|ㄅㄧㄥˇ/ㄆㄧㄥˇ/ㄅㄧㄥˋ|0|餅
+6|注|「柿」怎麼念？|ㄕˋ/ㄙˋ/ㄕˊ|0|柿
+6|注|「節」怎麼念？|ㄐㄧㄝˊ/ㄐㄧㄝˇ/ㄑㄧㄝˊ|0|節
+2|詞|哪一個是圓形的東西？|圓桌/花園/吐司|0|圓桌
+2|詞|哪一個是種花的地方？|花園/圓桌/吐司|0|花園
+2|詞|在課本上＿重點。|畫/吃/跑|0|畫重點
+2|詞|在桌子上＿好書本。|擺/打/跳|0|擺好
+2|詞|哥哥剪了頭髮，看起來好＿。|帥/餓/冷|0|看起來
+3|詞|我希望小豆苗＿＿的發芽。|快快/靜靜/輕輕|0|快快
+3|詞|哥哥在房間裡＿＿地看書。|快快/靜靜/重重|1|靜靜
+3|詞|網路讓人們的生活越來越＿。|方便/遠離/睡覺|0|越來越
+4|詞|「協力」和「合力」，意思相近嗎？|相近/不同|0|協力
+4|詞|「力氣」和「力量」，意思相近嗎？|相近/不同|0|力氣
+4|詞|「合力」和「心力」，意思相近嗎？|相近/不同|1|合力
+5|詞|大家正在＿精采的影片。|觀賞/享受/打扮|0|觀賞
+5|詞|姐姐喜歡＿可愛的貼紙。|收集/閱讀/認識|0|收集
+5|詞|老師教我們＿自己的家鄉。|認識/打扮/收集|0|認識
+5|詞|我們＿快樂的時光。|享受/觀賞/閱讀|0|享受
+5|詞|迎接＿的陽光。|明亮/香甜/快樂|0|明亮
+6|詞|橘子代表的祝福語是什麼？|大吉大利/平平安安/好運旺旺來|0|祝福語
+6|詞|蘋果代表的祝福語是什麼？|大吉大利/平平安安/好運旺旺來|1|祝福語
+6|詞|鳳梨代表的祝福語是什麼？|大吉大利/平平安安/好運旺旺來|2|祝福語
+6|句|姑姑喜歡運動，除了打桌球，也＿＿。|愛慢跑/愛睡覺/很大|0|除了
+6|句|哪一句有表示「原因」？|因為下雨，所以我們不出門。/我們出門，天氣很好。/我們一邊走一邊玩。|0|因為`;
+var $=function(s){return document.querySelector(s)},A=$('#app');
+var S;try{S=JSON.parse(localStorage.getItem('sch1'))}catch(e){}S=S||{u:{},cur:null,ex:''};
+function persist(){try{localStorage.setItem('sch1',JSON.stringify(S))}catch(e){}}
+function sv(t){var p=S.cur&&S.u[S.cur];if(t&&p){p.ts=Date.now();dirty[S.cur]=1}persist();if(t)kick()}
+function prs(t,s){return String(t||'').split('\n').map(function(l){return l.trim().split('|')}).filter(function(a){return a.length>=6}).map(function(a){return{l:+a[0],t:a[1],q:a[2],c:a[3].split('/'),a:+a[4],g:a[5],s:a[6]||s,h:a[7]||''}})}
+function build(){return prs(RAW,'chi').concat(prs(typeof RAWM=='string'?RAWM:'','math'),prs(S.ex||'','chi'))}
+var Q=build(),sub='chi',SUBS={chi:{n:'國語教室',ic:'📖',u:[1,2,3,4,5,6],w:'課'},math:{n:'數學教室',ic:'➗',u:[1,2,3,4,5],w:'單元'}},sels={chi:[1,2,3,4,5,6],math:[1,2,3,4,5]},avs=['🐱','🐰','🐻','🦊','🐼','🐸'],av=avs[0],quiz=null;
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function plain(t){return esc(String(t).replace(/\[\[[^\]]*\]\]/g,'（圖）'))}
+function ruler(a,b){var x=function(n){return 15+n*20},s='<svg class="ruler" viewBox="0 0 330 80" width="330" role="img" aria-label="尺和物品">';s+='<rect x="'+x(a)+'" y="6" width="'+(x(b)-x(a))+'" height="22" rx="4" fill="#f4a259" stroke="currentColor" stroke-width="2"/>';s+='<line x1="'+x(a)+'" y1="28" x2="'+x(a)+'" y2="34" stroke="#d33" stroke-width="2" stroke-dasharray="2 2"/><line x1="'+x(b)+'" y1="28" x2="'+x(b)+'" y2="34" stroke="#d33" stroke-width="2" stroke-dasharray="2 2"/>';s+='<rect x="6" y="34" width="318" height="40" rx="3" fill="#fff6d8" stroke="currentColor" stroke-width="2"/>';for(var i=0;i<=15;i++){s+='<line x1="'+x(i)+'" y1="34" x2="'+x(i)+'" y2="50" stroke="#333" stroke-width="1.6"/><text x="'+x(i)+'" y="67" font-size="12" text-anchor="middle" fill="#333">'+i+'</text>';if(i<15)s+='<line x1="'+(x(i)+10)+'" y1="34" x2="'+(x(i)+10)+'" y2="43" stroke="#333" stroke-width="1"/>'}return s+'</svg>'}
+function blk(h,t,o){var s='<div class="blk">',i;for(i=0;i<h;i++)s+='<div class="flat"></div>';if(t){s+='<div class="rods">';for(i=0;i<t;i++)s+='<div class="rod"></div>';s+='</div>'}if(o){s+='<div class="ones">';for(i=0;i<o;i++)s+='<div class="one"></div>';s+='</div>'}return s+'</div>'}
+function fmt(t){return esc(t).replace(/\[\[ruler:(\d+):(\d+)\]\]/g,function(m,a,b){return ruler(+a,+b)}).replace(/\[\[blk:(\d+):(\d+):(\d+)\]\]/g,function(m,h,t,o){return blk(+h,+t,+o)})}
+var TT=['一年級新生','小學徒','認字小達人','注音小高手','國語小英雄','校園之星'];
+var DEF=[['貼紙一張',50],['鉛筆一支',100],['橡皮擦',150],['可愛筆記本',300],['自選文具一份',500]];
+function SH(){return Array.isArray(S.shop)?S.shop:DEF}
+function escA(s){return esc(s).replace(/"/g,'&quot;')}
+/* ===== 雲端同步（db）：每個小孩一份文件 kids/<id>，自訂題目放 config/ex ===== */
+var DB=null,SY='local',dirty={},exDirty=0,shopDirty=0,pinDirty=0,busy=0,pushT=0,tmo=0,scr='';
+function canon(o){if(o&&typeof o=='object'){if(Array.isArray(o))return '['+o.map(canon).join(',')+']';return '{'+Object.keys(o).sort().map(function(k){return JSON.stringify(k)+':'+canon(o[k])}).join(',')+'}'}return JSON.stringify(o)}
+function kid(n){return 'k_'+Array.from(String(n)).map(function(c){return c.codePointAt(0).toString(16)}).join('-')}
+function pack(n){var u=S.u[n];return{name:n,av:u.av,pts:u.pts||0,tot:u.tot||0,hist:u.hist||[],st:u.st||{},tix:u.tix||[],ts:u.ts||0}}
+function badge(){var m={local:'📱 只存在這台裝置',wait:'⏳ 正在連上雲端…',ok:'☁️ 已同步（iPhone／iPad 共用）',ro:'🔒 沒有寫入權限，只存這台',err:'⚠️ 暫時連不上雲端，先存在這台'},e=$('#sy');if(e)e.textContent=m[SY]}
+function setSY(s){SY=s;badge()}
+function mrg(l,r){var rn=(r.ts||0)>(l.ts||0);if(rn){l.av=r.av||l.av;l.pts=r.pts||0;l.tot=r.tot||0}
+var st=l.st||(l.st={}),rs=r.st||{};Object.keys(rs).forEach(function(k){var a=st[k],b=rs[k],bs=b.r+b.w;if(!a||bs>a.r+a.w||(bs==a.r+a.w&&rn))st[k]={r:b.r,w:b.w,s:b.s}});
+var hs={},h=[];(l.hist||[]).concat(r.hist||[]).forEach(function(e){var k=e.t?'t'+e.t:'o'+e.d+'|'+e.s;if(!hs[k]){hs[k]=1;h.push(e)}});h.sort(function(a,b){return (a.t||0)-(b.t||0)});l.hist=h;
+var ts={},t=[];(l.tix||[]).concat(r.tix||[]).forEach(function(e){var k=e.t?'t'+e.t:e.n+'|'+e.d;if(ts[k]){if(e.done)ts[k].done=1}else{ts[k]=e;t.push(e)}});l.tix=t;l.ts=Math.max(l.ts||0,r.ts||0)}
+function applyRemote(x){var n=x&&x.name;if(!n)return;var l=S.u[n];if(!l)S.u[n]={av:x.av,pts:x.pts||0,tot:x.tot||0,hist:x.hist||[],st:x.st||{},tix:x.tix||[],ts:x.ts||0};else mrg(l,x);
+if(canon(pack(n))!==canon({name:n,av:x.av,pts:x.pts||0,tot:x.tot||0,hist:x.hist||[],st:x.st||{},tix:x.tix||[],ts:x.ts||0}))dirty[n]=1}
+function kick(){if(!DB||SY=='ro')return;clearTimeout(pushT);pushT=setTimeout(flush,900)}
+function allDirty(){Object.keys(S.u).forEach(function(n){dirty[n]=1;S.u[n].ts=Date.now()});exDirty=1;shopDirty=1;pinDirty=1;persist();kick()}
+function exSave(){S.ex=$('#ex').value;S.exTs=Date.now();Q=build();exDirty=1;persist();kick();alert('目前共 '+Q.length+' 題')}
+function refresh(){if(scr=='login')login();else if(scr=='home'&&S.cur&&S.u[S.cur])home()}
+async function flush(){if(!DB||busy||SY=='ro')return;busy=1;try{var names=Object.keys(dirty);
+for(var i=0;i<names.length;i++){var n=names[i];if(!S.u[n]){delete dirty[n];continue}var ref=DB.collection('kids').doc(kid(n)),sn=await ref.get();if(sn.exists)mrg(S.u[n],sn.data());await ref.set(pack(n));delete dirty[n];persist()}
+if(exDirty){var r2=DB.doc('config/ex'),s2=await r2.get();if(s2.exists&&(s2.data().ts||0)>(S.exTs||0)){S.ex=s2.data().text||'';S.exTs=s2.data().ts;Q=build()}else await r2.set({text:S.ex||'',ts:S.exTs||Date.now()});exDirty=0;persist()}
+if(shopDirty){var r3=DB.doc('config/shop'),s3=await r3.get();if(s3.exists&&(s3.data().ts||0)>(S.shopTs||0)){S.shop=(s3.data().items||[]).map(function(i){return[i.n,i.p]});S.shopTs=s3.data().ts}else await r3.set({items:SH().map(function(x){return{n:x[0],p:x[1]}}),ts:S.shopTs||Date.now()});shopDirty=0;persist()}
+if(pinDirty){var r4=DB.doc('config/pin'),s4=await r4.get();if(s4.exists&&(s4.data().ts||0)>(S.pinTs||0)){S.pin=s4.data().h||'';S.pinTs=s4.data().ts}else await r4.set({h:S.pin||'',ts:S.pinTs||Date.now()});pinDirty=0;persist()}
+if(SY!='ok')setSY('ok')}catch(e){setSY(e&&e.code=='invalid_argument'?'ro':'err')}busy=0}
+/* ===== Supabase 同步轉接層：介面刻意做得跟原本的 db 一樣，上面的同步邏輯完全不用改 ===== */
+var SBC=window.SB||{};
+function famGet(){try{return localStorage.getItem('sch_fam')||''}catch(e){return ''}}
+function famSet(v){try{if(v)localStorage.setItem('sch_fam',v);else localStorage.removeItem('sch_fam')}catch(e){}}
+function famShow(c){return c.replace(/(.{4})(?=.)/g,'$1-')}
+function famNorm(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+async function rpc(fn,args){var r=await fetch(SBC.url+'/rest/v1/rpc/'+fn,{method:'POST',headers:{apikey:SBC.key,Authorization:'Bearer '+SBC.key,'Content-Type':'application/json'},body:JSON.stringify(args)});
+if(!r.ok){var e=new Error('http '+r.status);e.code=(r.status==400||r.status==401||r.status==403)?'invalid_argument':'net';throw e}
+var t=await r.text();return t?JSON.parse(t):null}
+function hasDirty(){return Object.keys(dirty).length>0||exDirty||shopDirty||pinDirty}
+function mkDB(f){var cache={},subs=[],since='1970-01-01T00:00:00+00:00',inited=0,pulling=0,timer=0,stopped=0;
+function snap(p){var d=cache[p];return{id:p.split('/').pop(),exists:d!==undefined,data:function(){return d===undefined?undefined:JSON.parse(JSON.stringify(d))},metadata:{fromCache:false}}}
+function fire(s){try{if(s.col){s.cb({docs:Object.keys(cache).filter(function(p){return p.indexOf(s.col+'/')==0}).map(snap),metadata:{fromCache:false}})}else s.cb(snap(s.p))}catch(e){}}
+async function pull(){if(stopped||pulling)return;pulling=1;try{var rows=await rpc('pull_docs',{f:f,since:since}),ch={};
+rows.forEach(function(r){if(r.updated_at>since)since=r.updated_at;if(!(r.path in cache)||canon(cache[r.path])!==canon(r.data)){cache[r.path]=r.data;ch[r.path]=1}});
+inited=1;subs.forEach(function(s){var hit=s.col?Object.keys(ch).some(function(p){return p.indexOf(s.col+'/')==0}):ch[s.p];if(!s.init||hit){s.init=1;fire(s)}});
+if(SY=='err'||SY=='wait')setSY('ok');if(hasDirty())kick()}catch(e){if(!stopped&&SY!='ro')setSY(e&&e.code=='invalid_argument'?'ro':'err')}pulling=0}
+function ref(p){return{get:async function(){var d=await rpc('get_doc',{f:f,p:p});return{exists:d!=null,data:function(){return d==null?undefined:d}}},
+set:async function(d){await rpc('set_doc',{f:f,p:p,d:d});setTimeout(pull,300)},
+onSnapshot:function(cb){subs.push({p:p,cb:cb});if(inited)setTimeout(pull,0)}}}
+return{doc:ref,collection:function(c){return{doc:function(id){return ref(c+'/'+id)},onSnapshot:function(cb){subs.push({col:c,cb:cb});if(inited)setTimeout(pull,0)}}},
+start:function(){pull();timer=setInterval(function(){if(!document.hidden)pull()},8000)},
+stop:function(){stopped=1;clearInterval(timer)},pull:pull}}
+document.addEventListener('visibilitychange',function(){if(!document.hidden&&DB&&DB.pull)DB.pull()});
+window.addEventListener('online',function(){if(DB&&DB.pull)DB.pull()});
+function cloudCard(){var f=famGet();if(!SBC.url||!SBC.key)return '<div class="c"><b>☁️ 雲端同步</b><br><small>尚未設定 config.js，目前只存在這台裝置。</small></div>';
+return '<div class="c"><b>☁️ 雲端同步</b>'+(f?'<br><small>這台已加入家庭，進度會自動同步。家庭代碼在「👪家長」頁。</small><button class="b" onclick="famLeave()">離開家庭（停止同步，不刪資料）</button>':'<br><small>第一台裝置按「建立新的家庭代碼」；第二台裝置輸入第一台的代碼加入。</small><button class="b pri" onclick="famNew()">建立新的家庭代碼</button><input id="famIn" placeholder="輸入既有的家庭代碼" autocapitalize="off" autocomplete="off" style="font-size:20px;text-align:center"><button class="b" onclick="famJoin()">加入這個家庭</button>')+'</div>'}
+function famInfo(){var f=famGet();return f?'<div class="c"><b>☁️ 家庭代碼</b><div style="font-size:24px;letter-spacing:2px;text-align:center;margin:8px 0;user-select:all;-webkit-user-select:all">'+famShow(f)+'</div><small>另一台裝置到「⚙設定」輸入這組代碼就能加入。請抄下來收好，不要給別人。</small></div>':''}
+function famNew(){var a='abcdefghjkmnpqrstuvwxyz23456789',v=new Uint8Array(12),c='',i;try{crypto.getRandomValues(v)}catch(e){for(i=0;i<12;i++)v[i]=Math.random()*256}for(i=0;i<12;i++)c+=a[v[i]%a.length];
+famSet(c);allDirty();startSync();alert('家庭代碼：'+famShow(c)+'\n請抄下來，另一台裝置要輸入。之後也可以在「👪家長」頁查看。');S.cur?home():login()}
+async function famJoin(){var c=famNorm($('#famIn').value);if(c.length<10)return alert('代碼長度不對，請再檢查');
+try{var ok=await rpc('family_exists',{f:c});if(!ok)return alert('找不到這組家庭代碼，請確認有沒有輸錯。\n（要建立新家庭請按「建立新的家庭代碼」）')}catch(e){return alert('連不上雲端，請確認網路後再試')}
+S.pin='';S.pinTs=0;persist();famSet(c);startSync();alert('已加入！進度會從雲端載入。');S.cur&&S.u[S.cur]?home():login()}
+function famLeave(){if(!confirm('離開家庭後，這台裝置不會再同步，但已存的進度還在。確定嗎？'))return;famSet('');startSync();setg()}
+async function startSync(){if(DB&&DB.stop)DB.stop();DB=null;clearTimeout(tmo);var f=famGet();
+if(!SBC.url||!SBC.key||!f)return setSY('local');DB=mkDB(f);setSY('wait');tmo=setTimeout(function(){if(SY=='wait')setSY('err')},10000);
+try{DB.collection('kids').onSnapshot(function(sn){var ids={};sn.docs.forEach(function(d){if(d.exists){var x=d.data();ids[x.name]=1;applyRemote(x)}});
+if(!sn.metadata.fromCache){clearTimeout(tmo);Object.keys(S.u).forEach(function(n){if(!ids[n])dirty[n]=1});if(SY=='wait'||SY=='err')setSY('ok')}
+persist();refresh();kick()},function(e){setSY(e&&e.code=='revoked'?'local':'err')});
+DB.doc('config/ex').onSnapshot(function(d){if(!d.exists){if(S.ex){exDirty=1;kick()}return}var x=d.data(),t=x.ts||0;if(t>(S.exTs||0)){S.ex=x.text||'';S.exTs=t;Q=build();persist()}else if(t<(S.exTs||0)){exDirty=1;kick()}},function(){});
+DB.doc('config/shop').onSnapshot(function(d){if(!d.exists){if(S.shop){shopDirty=1;kick()}return}var x=d.data(),t=x.ts||0;if(t>(S.shopTs||0)){S.shop=(x.items||[]).map(function(i){return[i.n,i.p]});S.shopTs=t;persist()}else if(t<(S.shopTs||0)){shopDirty=1;kick()}},function(){});
+DB.doc('config/pin').onSnapshot(function(d){if(!d.exists){if(S.pin){pinDirty=1;kick()}return}var x=d.data(),t=x.ts||0;if(t>(S.pinTs||0)){S.pin=x.h||'';S.pinTs=t;persist()}else if(t<(S.pinTs||0)){pinDirty=1;kick()}},function(){});DB.start()}catch(e){setSY('err')}}
+function P(){return S.u[S.cur]}
+function lv(p){return Math.floor(p.tot/100)+1}
+function shuf(a){return a.map(function(x){return[Math.random(),x]}).sort(function(p,q){return p[0]-q[0]}).map(function(x){return x[1]})}
+function pick(pool,n){var st=P().st;return pool.map(function(q){var s=st[q.q]||{w:0,s:0};return[Math.random()-Math.max(0,s.w-s.s)*.4,q]}).sort(function(a,b){return a[0]-b[0]}).slice(0,n).map(function(x){return x[1]})}
+function weak(q){var s=P().st[q.q];return s&&s.w>0&&s.s<3}
+function show(h){scr='';A.innerHTML=h;scrollTo(0,0)}
+function nav(){return '<div class="nav"><button class="b" onclick="unl=0;home()">🏫校園</button><button class="b" onclick="unl=0;shop()">🎁商店</button><button class="b" onclick="parent()">👪家長</button><button class="b" onclick="unl=0;setg()">⚙設定</button></div>'}
+function login(){var us=Object.keys(S.u);show('<h1>🏫 石牌小學堂</h1><div class="c"><h2>誰要上學？</h2>'+us.map(function(n,i){return '<button class="b pri" onclick="go('+i+')">'+S.u[n].av+' '+n+'</button>'}).join('')+'<p>新同學：</p><input id="nm" placeholder="輸入名字"><div style="margin:8px 0">'+avs.map(function(a){return '<span class="chip '+(a==av?'on':'')+'" onclick="av=\''+a+'\';login()">'+a+'</span>'}).join('')+'</div><button class="b" onclick="mk()">建立帳號</button></div>'+(famGet()?'':cloudCard()));scr='login'}
+function mk(){var n=$('#nm').value.trim();if(!n||S.u[n])return;S.u[n]={av:av,pts:0,tot:0,hist:[],st:{},tix:[]};S.cur=n;sv(1);home()}
+function go(i){S.cur=Object.keys(S.u)[i];sv();home()}
+function home(){var p=P();if(!p)return login();var l=lv(p);show(nav()+'<div class="c">'+p.av+' <b>'+S.cur+'</b>　Lv.'+l+' '+TT[Math.min(5,l-1)]+'<br>⭐ '+p.pts+' 分　<small>再 '+(100-p.tot%100)+' 分升級</small><progress value="'+p.tot%100+'" max="100"></progress><div><small id="sy"></small></div></div><div class="roof"></div><div class="c" style="margin-top:0"><h2>🏫 石牌小學堂</h2><div class="grid"><button class="room" onclick="room(\'chi\')">📖<br>國語教室</button><button class="room" onclick="room(\'math\')">➗<br>數學教室</button><div class="room lock">🔤<br>英文教室<br><small>即將開放</small></div><div class="room lock">➕<br>新教室<br><small>敬請期待</small></div></div></div>');badge();scr='home'}
+function room(s){if(s)sub=s;var p=P(),SB=SUBS[sub],sel=sels[sub],pool=Q.filter(function(q){return q.s==sub&&sel.indexOf(q.l)>-1}),wk=Q.filter(function(q){return q.s==sub&&weak(q)}),tg={};Object.keys(p.st).forEach(function(k){var q=Q.filter(function(x){return x.q==k})[0];if(q&&q.s==sub&&p.st[k].w)tg[q.g]=(tg[q.g]||0)+p.st[k].w});var tl=Object.keys(tg).sort(function(a,b){return tg[b]-tg[a]}).slice(0,8);
+show(nav()+'<h1>'+SB.ic+' '+SB.n+'</h1><div class="c"><b>選'+SB.w+'別</b><br>'+SB.u.map(function(n){return '<span class="chip '+(sel.indexOf(n)>-1?'on':'')+'" onclick="tg('+n+')">第'+n+SB.w+'</span>'}).join('')+'<button class="b pri" onclick="start(\'prac\')">✏️ 互動練習（'+pool.length+'題可選）</button></div><div class="c"><button class="b" onclick="start(\'weak\')">🎯 弱點加強（'+wk.length+'題待過關）</button><small>答錯的題目會常出現，連續答對 3 次才算過關。</small><button class="b" onclick="start(\'test\')">📝 模擬期中考（20題）</button></div><div class="c"><b>最近常錯</b><br>'+(tl.length?tl.map(function(t){return '<span class="chip">'+t+' ×'+tg[t]+'</span>'}).join(''):'<small>還沒有錯題紀錄</small>')+'<br><b>成績紀錄</b><br>'+(p.hist.length?p.hist.slice(-5).reverse().map(function(h){return h.d+'　'+h.s+' 分'}).join('<br>'):'<small>還沒考過</small>')+'</div>')}
+function tg(n){var sel=sels[sub],i=sel.indexOf(n);if(i>-1&&sel.length>1)sel.splice(i,1);else if(i<0)sel.push(n);room()}
+function start(m){var p=P(),sel=sels[sub],pool,ins=function(q){return q.s==sub&&sel.indexOf(q.l)>-1};if(m=='test')pool=Q.filter(function(q){return q.s==sub});else if(m=='weak'){pool=Q.filter(function(q){return q.s==sub&&weak(q)});if(!pool.length){pool=Q.filter(ins)}}else pool=Q.filter(ins);if(!pool.length)return;
+quiz={m:m,qs:pick(pool,m=='test'?20:10),i:0,ok:0,wr:[],o:null,k:-1};qv()}
+function qv(){var z=quiz,q=z.qs[z.i];if(!z.o)z.o=shuf(q.c.map(function(x,i){return[x,i==q.a]}));var done=z.k>-1;
+show('<div class="c"><small>'+(z.m=='test'?'模擬考':z.m=='weak'?'弱點加強':'互動練習')+'　第 '+(z.i+1)+' / '+z.qs.length+' 題</small><progress value="'+z.i+'" max="'+z.qs.length+'"></progress><div class="big'+(q.q.replace(/\[\[[^\]]*\]\]/g,'').length>16?' long':'')+'">'+fmt(q.q)+'</div>'+z.o.map(function(o,k){var c='';if(done&&z.m!='test'){if(o[1])c='ok';else if(k==z.k)c='bad'}return '<button class="b '+c+'" '+(done?'disabled':'')+' onclick="ans('+k+')">'+esc(o[0])+'</button>'}).join('')+(done&&z.m!='test'?'<div style="text-align:center">'+(z.o[z.k][1]?'🎉 答對了！+10 分':'💡 再記一次，答案是「'+esc(q.c[q.a])+'」')+'</div>'+(q.h?'<div class="hint">📝 '+esc(q.h)+'</div>':'')+'<button class="b pri" onclick="nx()">下一題 ➜</button>':'')+'</div>')}
+function ans(k){var z=quiz,q=z.qs[z.i],p=P(),r=z.o[k][1],s=p.st[q.q]||(p.st[q.q]={r:0,w:0,s:0});if(z.k>-1)return;z.k=k;if(r){z.ok++;s.r++;s.s++;if(z.m!='test'){p.pts+=10;p.tot+=10}}else{s.w++;s.s=0;z.wr.push(q)}sv(1);if(z.m=='test')nx();else qv()}
+function nx(){var z=quiz;z.i++;z.k=-1;z.o=null;if(z.i<z.qs.length)return qv();fin()}
+function fin(){var z=quiz,p=P(),n=z.qs.length,sc=Math.round(z.ok/n*100),b=0,h='';if(z.m=='test'){b=z.ok*5+(sc>=90?30:0);p.pts+=b;p.tot+=b;var d=new Date();p.hist.push({d:(d.getMonth()+1)+'/'+d.getDate(),s:sc,t:Date.now()});h='<div class="big">'+sc+' 分</div><p style="text-align:center">答對 '+z.ok+' / '+n+' 題，獲得 '+b+' 分'+(sc>=90?'（滿分獎勵 +30）':'')+'</p>'}else{h='<div class="big">'+z.ok+' / '+n+'</div><p style="text-align:center">本次練習獲得 '+z.ok*10+' 分</p>'}
+sv(1);show('<h1>'+(sc>=90?'🌟 太棒了！':'💪 繼續加油！')+'</h1><div class="c">'+h+(z.wr.length?'<b>要再複習：</b><br>'+z.wr.map(function(q){return '・'+plain(q.q)+' → <b>'+esc(q.c[q.a])+'</b>'+(q.h?'<br><small>📝 '+esc(q.h)+'</small>':'')}).join('<br>'):'<p style="text-align:center">全部答對！</p>')+'</div><button class="b pri" onclick="room()">回'+SUBS[sub].n+'</button>'+nav())}
+function shop(){var p=P();show(nav()+'<h1>🎁 獎勵商店</h1><div class="c">⭐ 目前 '+p.pts+' 分<br><small>兌換後會產生獎勵券，請家長確認後再領取文具。</small>'+(SH().length?SH().map(function(s,i){return '<button class="b" '+(p.pts<s[1]?'disabled':'')+' onclick="buy('+i+')">'+esc(s[0])+'　⭐'+s[1]+'</button>'}).join(''):'<br><small>目前沒有商品，請家長到「家長」頁新增。</small>')+'</div>')}
+function buy(i){var p=P(),s=SH()[i];if(!s||p.pts<s[1])return;p.pts-=s[1];p.tix.push({n:s[0],d:new Date().toLocaleDateString('zh-TW'),done:0,t:Date.now()});sv(1);shop()}
+/* ===== 家長密碼（4 位數字；只存雜湊，兩台裝置同步） ===== */
+function hp(s){var h1=0xdeadbeef,h2=0x41c6ce57,i,c;for(i=0;i<s.length;i++){c=s.charCodeAt(i);h1=Math.imul(h1^c,2654435761);h2=Math.imul(h2^c,1597334677)}h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909);return(4294967296*(2097151&h2)+(h1>>>0)).toString(36)}
+function parent(){if(!S.pin)return pinPage('set');if(Date.now()-unl>300000)return pinPage('ask');unl=Date.now();parentBody()}
+function pinPage(mode,msg){var h='<h1>👪 家長確認</h1><div class="c">',inp=function(id,ph){return '<input id="'+id+'" type="password" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="'+ph+'" style="font-size:24px;text-align:center;letter-spacing:8px;margin:6px 0">'};
+if(mode=='set')h+='<b>設定家長密碼</b><br><small>請設定 4 位數字。之後要確認獎勵券、修改商店品項，都需要輸入。</small>'+inp('pin1','輸入 4 位數字')+inp('pin2','再輸入一次')+'<button class="b pri" onclick="pinSet()">設定密碼</button>';
+else if(mode=='ask')h+='<b>請輸入家長密碼</b>'+inp('pin','4 位數字')+'<button class="b pri" onclick="pinCheck()">確認</button><button class="chip" onclick="pinPage(\'forgot\')">忘記密碼？</button>';
+else{PA=30+Math.floor(Math.random()*40);PB=4+Math.floor(Math.random()*6);h+='<b>忘記密碼</b><br><small>請回答下面的算術題，答對就可以重設密碼。</small><div class="big">'+PA+' × '+PB+' ＝ ？</div><input id="pans" type="number" inputmode="numeric" style="font-size:24px;text-align:center"><button class="b pri" onclick="pinForgot()">確認</button>'}
+if(msg)h+='<p style="text-align:center;color:#c0392b">'+esc(msg)+'</p>';show(nav()+h+'</div>')}
+var unl=0,pinFail=0,lockUntil=0,PA=0,PB=0;
+function pinSet(){var a=$('#pin1').value.trim(),b=$('#pin2').value.trim();if(!/^\d{4}$/.test(a))return pinPage('set','請輸入 4 位數字');if(a!==b)return pinPage('set','兩次輸入不一樣');S.pin=hp('shipai:'+a);S.pinTs=Date.now();pinDirty=1;persist();kick();unl=Date.now();parent()}
+function pinCheck(){var v=($('#pin').value||'').trim();if(Date.now()<lockUntil)return pinPage('ask','輸入錯太多次，請稍等 30 秒');if(hp('shipai:'+v)===S.pin){pinFail=0;unl=Date.now();return parent()}if(++pinFail>=3){lockUntil=Date.now()+30000;pinFail=0}pinPage('ask','密碼不對')}
+function pinForgot(){if(parseInt($('#pans').value,10)===PA*PB){S.pin='';S.pinTs=Date.now();pinDirty=1;persist();kick();return pinPage('set','請設定新的密碼')}pinPage('forgot','答案不對，再試一次')}
+function parentBody(){var p=P();show(nav()+'<h1>👪 家長確認</h1><div class="c"><b>獎勵券</b>'+(p.tix.length?p.tix.map(function(t,i){return '<div style="margin:8px 0">'+t.d+'　'+t.n+'　'+(t.done?'✅ 已兌換':'<button class="chip" onclick="dn('+i+')">確認已給</button>')+'</div>'}).join(''):'<br><small>目前沒有獎勵券</small>')+'</div>'+famInfo()+shopEd())}
+function shopEd(){return '<div class="c"><b>🛍 商店品項設定</b><br><small>可新增、刪除，也能修改名稱和所需積分。改完按「儲存」，兩台裝置會一起更新。</small>'+SH().map(function(s,i){return '<div class="row" style="align-items:center;margin:6px 0"><input id="sn'+i+'" value="'+escA(s[0])+'" style="flex:3" aria-label="商品名稱"><input id="sp'+i+'" type="number" min="1" value="'+(+s[1]||1)+'" style="flex:1.3" aria-label="所需積分"><button class="chip" style="flex:0 0 auto" onclick="shopDel('+i+')">刪除</button></div>'}).join('')+'<button class="b" onclick="shopAdd()">＋ 新增商品</button><button class="b pri" onclick="shopSave()">儲存商店設定</button><button class="b" onclick="shopReset()">還原預設商品</button><button class="b" onclick="pinPage(\'set\')">🔑 修改家長密碼</button></div>'}
+function shopRead(keep){var a=[];SH().forEach(function(s,i){var n=$('#sn'+i),p=$('#sp'+i);if(!n||!p)return;var nm=n.value.trim(),pt=Math.max(1,parseInt(p.value,10)||0);if(nm||keep)a.push([nm,pt])});return a}
+function setShop(a){S.shop=a;S.shopTs=Date.now();shopDirty=1;persist();kick();parent()}
+function shopAdd(){var a=shopRead();a.push(['新商品',100]);setShop(a)}
+function shopDel(i){var a=shopRead(true);a.splice(i,1);setShop(a.filter(function(s){return s[0]}))}
+function shopSave(){setShop(shopRead());alert('商店設定已儲存')}
+function shopReset(){if(confirm('要還原成預設的商品和積分嗎？'))setShop(DEF.map(function(s){return[s[0],s[1]]}))}
+function dn(i){if(confirm('確認已經給孩子這項獎勵了嗎？')){P().tix[i].done=1;sv(1);parent()}}
+function setg(){show(nav()+'<h1>⚙ 設定</h1>'+cloudCard()+'<div class="c"><b>匯入新題目</b><br><small>每行一題：課別|題型|題目（空格用＿）|選項用/分隔|答案編號從0開始|重點字。數學題請在最後加上 |math，後面還可以再加 |提示說明。可把新卷子傳給 Claude 整理成這個格式。</small><textarea id="ex" rows="5">'+(S.ex||'')+'</textarea><button class="b" onclick="exSave()">儲存題目</button></div><div class="c"><b>備份／搬移進度</b><br><small>複製這段文字，到另一台裝置貼上就能搬移進度。</small><textarea id="bk" rows="4">'+JSON.stringify(S).replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</textarea><button class="b" onclick="try{S=JSON.parse($(\'#bk\').value);S.u=S.u||{};Q=build();allDirty();login()}catch(e){alert(\'格式不正確\')}">匯入進度</button></div><button class="b" onclick="S.cur=null;sv();login()">切換使用者</button>')}
+S.cur&&S.u[S.cur]?home():login();
+startSync();
+if('serviceWorker' in navigator&&location.protocol.indexOf('http')==0)navigator.serviceWorker.register('sw.js').catch(function(){});
+</script>
+</body>
+</html>
