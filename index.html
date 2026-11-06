@@ -297,13 +297,13 @@ var CN='零一二三四五六七八九',SND=(function(){try{return localStorage.
 function cn(n){if(n<10)return CN.charAt(n);if(n<20)return '十'+(n%10?CN.charAt(n%10):'');return CN.charAt(Math.floor(n/10))+'十'+(n%10?CN.charAt(n%10):'')}
 function msay(a,b){return cn(a)+cn(b)+'，'+cn(a*b)}
 function speak(t,cb){var fin=function(){if(cb){var c=cb;cb=null;c()}};if(!SND||!window.speechSynthesis||!window.SpeechSynthesisUtterance){if(cb)setTimeout(fin,1800);return}
-try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='zh-TW';u.rate=RATES[SPD]||1.06;u.onend=fin;u.onerror=fin;var vs=speechSynthesis.getVoices(),v=vs.filter(function(x){return /zh[-_]TW/i.test(x.lang)})[0]||vs.filter(function(x){return /^zh/i.test(x.lang)})[0];if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){fin()}}
+try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='zh-TW';u.rate=RATES[SPD]||1;u.onend=fin;u.onerror=fin;var vs=speechSynthesis.getVoices(),v=vs.filter(function(x){return /zh[-_]TW/i.test(x.lang)})[0]||vs.filter(function(x){return /^zh/i.test(x.lang)})[0];if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){fin()}}
 function hl(u){return P().hist.filter(function(h){return u?h.u==u:h.u!='mul'})}
 function mkq(a,b){return{a:a,b:b,q:a+'×'+b+'＝？',v:a*b}}
 function mall(){var r=[],a,b;for(a=2;a<=9;a++)for(b=1;b<=9;b++)r.push(mkq(a,b));return r}
 function mweak(){return mall().filter(weak)}
-var SPD=(function(){try{var v=parseFloat(localStorage.getItem('sch_spd'));return v==1.5||v==2?v:1}catch(e){return 1}})(),RATES={1:1.06,1.5:1.59,2:2.12};
-function spdBar(){return '<div class="spdbar">語速　'+[1,1.5,2].map(function(x){return '<button class="chip'+(SPD==x?' on':'')+'" onclick="event.stopPropagation();setSpd('+x+')">'+x+'×</button>'}).join('')+'</div>'}
+var SPD=(function(){try{var v=parseFloat(localStorage.getItem('sch_spd'));return v==1.1||v==1.2?v:1}catch(e){return 1}})(),RATES={1:1,1.1:1.1,1.2:1.2};
+function spdBar(){return '<div class="spdbar">語速　'+[1,1.1,1.2].map(function(x){return '<button class="chip'+(SPD==x?' on':'')+'" onclick="event.stopPropagation();setSpd('+x+')">'+x+'×</button>'}).join('')+'</div>'}
 function setSpd(x){SPD=x;try{localStorage.setItem('sch_spd',String(x))}catch(e){}if(mp)mpv();else if(mq)mqv();else mroom()}
 function sndBtn(){return '<button class="chip" style="flex:0 0 auto" onclick="event.stopPropagation();sndTog()">'+(SND?'🔊 聲音開':'🔇 聲音關')+'</button>'}
 function sndTog(){SND=!SND;try{localStorage.setItem('sch_snd',SND?'1':'0')}catch(e){}if(!SND)lpStop();if(mp)mpv();else if(mq)mqv();else mroom()}
