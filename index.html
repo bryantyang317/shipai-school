@@ -58,6 +58,12 @@ small{opacity:.75}
 .ones{display:grid;grid-template-columns:repeat(3,13px);gap:2px}
 .one{width:13px;height:13px;border:2px solid var(--ink);background:#f4a0a0}
 .ruler{display:block;margin:6px auto;max-width:100%;height:auto;color:var(--ink)}
+.pic{font-size:88px;text-align:center;line-height:1.25;margin:4px 0}.pic svg{height:88px;width:88px;vertical-align:middle}
+.pi{font-size:56px;line-height:1.2}.pi svg{height:56px;width:56px;vertical-align:middle}
+.b.opt.en{font-family:Arial,'Helvetica Neue',Helvetica,sans-serif}.b.opt.pc{font-size:56px;min-height:104px;padding:6px}
+.big.en{font-family:Arial,'Helvetica Neue',Helvetica,sans-serif}
+.chip.lsn{font-size:28px;min-width:54px;text-align:center;padding:6px 12px;margin:4px}
+.say{font-size:26px;padding:10px 26px;display:block;margin:10px auto}
 </style>
 </head>
 <body>
@@ -287,19 +293,302 @@ var RAW=`3|形|小＿子很長，我們慢慢走進去。|巷/卷/券|0|巷
 7|文|大個子和小個子騙國王，他們做的衣裳有什麼特別的地方？|只有聰明的人才看得見/穿上去會飛起來/永遠不會弄髒|0|國王的新衣裳
 7|文|為什麼大臣們明明沒看到衣服，卻一直稱讚衣裳很漂亮？|因為他們怕被別人當成笨蛋/因為衣服真的非常華麗/因為國王強迫他們說謊|0|國王的新衣裳
 7|文|最後是誰勇敢說出「國王根本沒穿衣服」的真相？|一個小男孩/一位老大臣/兩個裁縫師|0|國王的新衣裳
-7|文|那件新衣裳有什麼特別的地方，所以大臣們都不敢說看不見？|只有聰明的人才看得見/只有國王才看得見/只有小孩才看得見|0|國王的新衣裳`;
+7|文|那件新衣裳有什麼特別的地方，所以大臣們都不敢說看不見？|只有聰明的人才看得見/只有國王才看得見/只有小孩才看得見|0|國王的新衣裳
+8|形|口＿的烏鴉為了要喝瓶子裡的水。|渴/喝/謁|0|渴|chi|渴（ㄎㄜˇ，水部，12畫）：口渴、解渴。
+8|形|口渴的烏鴉為了要＿瓶子裡的水。|喝/渴/曷|0|喝|chi|喝（ㄏㄜ，口部，12畫）：喝水、喝茶。
+8|形|＿鴉為了要喝瓶子裡的水。|烏/鳥/馬|0|烏|chi|烏（ㄨ，火部，10畫）：烏鴉。
+8|形|想出一個喝到水的好方＿。|法/去/注|0|法|chi|法（ㄈㄚˇ，水部，8畫）：方法。
+8|形|＿林裡的動物們知道了。|森/木/柔|0|森|chi|森（ㄙㄣ，木部，12畫）：森林。
+8|形|森＿裡的動物們知道了。|林/材/杯|0|林|chi|林（ㄌㄧㄣˊ，木部，8畫）：森林。
+8|形|動＿們知道了，都說烏鴉真是聰明！|物/勿/務|0|物|chi|物（ㄨˋ，牛部，8畫）：動物。
+8|形|有一次，小熊到外地旅＿。|行/衍/術|0|行|chi|行（ㄒㄧㄥˊ，行部，6畫）：旅行。
+8|形|有一次，小熊到外地＿行。|旅/族/旋|0|旅|chi|旅（ㄌㄩˇ，方部，10畫）：旅行。
+8|形|到了中＿，他又熱又渴。|午/牛/千|0|午|chi|午（ㄨˇ，十部，4畫）：中午。
+8|形|他看到一個＿有半瓶水的小瓶子。|裝/裙/袋|0|裝|chi|裝（ㄓㄨㄤ，衣部，13畫）：裝有半瓶水。
+8|形|小熊馬上找了＿多小石頭放進瓶子。|許/計/語|0|許|chi|許（ㄒㄩˇ，言部，11畫）：許多。
+8|形|小熊馬上找了許多小＿頭放進瓶子。|石/右/古|0|石|chi|石（ㄕˊ，石部，5畫）：石頭。
+8|形|小熊馬上找了許多小石頭放進＿子。|瓶/瓷/瓦|0|瓶|chi|瓶（ㄆㄧㄥˊ，瓦部，11畫）：瓶子。
+8|形|＿道你忘了烏鴉喝水的故事？|難/雖/維|0|難|chi|難（ㄋㄢˊ，隹部，19畫）：難道。
+8|形|難道你＿了烏鴉喝水的故事？|忘/忙/妄|0|忘|chi|忘（ㄨㄤˋ，心部，7畫）：忘了。
+8|形|＿哈哈！小馬笑著問。|哈/吟/合|0|哈|chi|哈（ㄏㄚ，口部，9畫）：哈哈哈。
+8|形|你真「聰明」！＿是，你為什麼不拿起瓶子喝水呢？|但/旦/俱|0|但|chi|但（ㄉㄢˋ，人部，7畫）：但是。
+8|形|我覺得口＿，想喝水。|渴/喝/葛|0|渴|chi|渴（ㄎㄜˇ，水部，12畫）：口渴、解渴。
+8|形|我覺得口渴，想＿水。|喝/渴/曷|0|喝|chi|喝（ㄏㄜ，口部，12畫）：喝水、喝茶。
+8|形|小明跑了很久，想要解＿，所以喝了一大杯水。|渴/喝/葛|0|渴|chi|渴（ㄎㄜˇ，水部，12畫）：口渴、解渴。
+8|注|「許」怎麼念？|ㄒㄩˇ/ㄒㄩˋ/ㄑㄩˇ|0|許|chi|許（ㄒㄩˇ，言部，11畫）：許多。
+8|注|「林」怎麼念？|ㄌㄧㄣˊ/ㄌㄧㄣˋ/ㄌㄧㄥˊ|0|林|chi|林（ㄌㄧㄣˊ，木部，8畫）：森林。
+8|注|「渴」怎麼念？|ㄎㄜˇ/ㄎㄜˊ/ㄏㄜˇ|0|渴|chi|渴（ㄎㄜˇ，水部，12畫）：口渴、解渴。
+8|注|「石」怎麼念？|ㄕˊ/ㄕˇ/ㄔˊ|0|石|chi|石（ㄕˊ，石部，5畫）：石頭。
+8|注|「物」怎麼念？|ㄨˋ/ㄨˊ/ㄨˇ|0|物|chi|物（ㄨˋ，牛部，8畫）：動物。
+8|注|「烏」怎麼念？|ㄨ/ㄨˊ/ㄨˇ|0|烏|chi|烏（ㄨ，火部，10畫）：烏鴉。
+8|注|「旅」怎麼念？|ㄌㄩˇ/ㄌㄩˊ/ㄌㄩˋ|0|旅|chi|旅（ㄌㄩˇ，方部，10畫）：旅行。
+8|注|「忘」怎麼念？|ㄨㄤˋ/ㄨㄤˊ/ㄇㄤˋ|0|忘|chi|忘（ㄨㄤˋ，心部，7畫）：忘了。
+8|注|「瓶」怎麼念？|ㄆㄧㄥˊ/ㄆㄧㄥˇ/ㄅㄧㄥˊ|0|瓶|chi|瓶（ㄆㄧㄥˊ，瓦部，11畫）：瓶子。
+8|注|「午」怎麼念？|ㄨˇ/ㄨˊ/ㄨˋ|0|午|chi|午（ㄨˇ，十部，4畫）：中午。
+8|注|「但」怎麼念？|ㄉㄢˋ/ㄉㄢˇ/ㄊㄢˋ|0|但|chi|但（ㄉㄢˋ，人部，7畫）：但是。
+8|注|「裝」怎麼念？|ㄓㄨㄤ/ㄓㄨㄤˋ/ㄔㄨㄤ|0|裝|chi|裝（ㄓㄨㄤ，衣部，13畫）：裝有半瓶水。
+8|注|「森」怎麼念？|ㄙㄣ/ㄙㄣˊ/ㄕㄣ|0|森|chi|森（ㄙㄣ，木部，12畫）：森林。
+8|注|「旅行」的「行」怎麼念？|ㄒㄧㄥˊ/ㄒㄧㄥˋ/ㄏㄤˊ|0|行|chi|行（ㄒㄧㄥˊ，行部，6畫）：旅行。
+8|注|「方法」的「法」怎麼念？|ㄈㄚˇ/ㄈㄚ/ㄈㄚˋ|0|法|chi|法（ㄈㄚˇ，水部，8畫）：方法。
+8|注|「喝水」的「喝」怎麼念？|ㄏㄜ/ㄏㄜˋ/ㄎㄜ|0|喝|chi|喝（ㄏㄜ，口部，12畫）：喝水、喝茶。
+8|注|「難道」的「難」怎麼念？|ㄋㄢˊ/ㄋㄢˋ/ㄌㄢˊ|0|難|chi|難（ㄋㄢˊ，隹部，19畫）：難道。
+8|注|「笑哈哈」的「哈」怎麼念？|ㄏㄚ/ㄏㄚˇ/ㄎㄚ|0|哈|chi|哈（ㄏㄚ，口部，9畫）：哈哈哈。
+8|注|「烏鴉」的「鴉」怎麼念？|ㄧㄚ/ㄧㄚˊ/ㄧㄚˇ|0|鴉|chi|鴉（ㄧㄚ）：烏鴉。（認讀字）
+8|注|「小熊」的「熊」怎麼念？|ㄒㄩㄥˊ/ㄒㄩㄥˇ/ㄒㄧㄥˊ|0|熊|chi|熊（ㄒㄩㄥˊ）：小熊。（認讀字）
+8|音|「喝采」的「喝」怎麼念？|ㄏㄜˋ/ㄏㄜ/ㄎㄜˋ|0|喝|chi|喝：ㄏㄜ（喝水、喝茶）；ㄏㄜˋ（喝采、吆喝）。
+8|音|哪一個詞語裡的「喝」念ㄏㄜˋ？|喝采/喝水/喝茶|0|喝|chi|喝：ㄏㄜ（喝水、喝茶）；ㄏㄜˋ（喝采、吆喝）。
+8|音|「法子」的「法」怎麼念？|ㄈㄚ/ㄈㄚˇ/ㄈㄚˋ|0|法|chi|法：ㄈㄚˇ（方法、辦法）；ㄈㄚ（法子）。
+8|音|哪一個詞語裡的「法」念ㄈㄚ？|法子/方法/辦法|0|法|chi|法：ㄈㄚˇ（方法、辦法）；ㄈㄚ（法子）。
+8|音|「銀行」的「行」怎麼念？|ㄏㄤˊ/ㄒㄧㄥˊ/ㄒㄧㄥˋ|0|行|chi|行：ㄒㄧㄥˊ（旅行、前行）；ㄏㄤˊ（行列、銀行）；ㄒㄧㄥˋ（品行、操行）。
+8|音|「品行」的「行」怎麼念？|ㄒㄧㄥˋ/ㄒㄧㄥˊ/ㄏㄤˊ|0|行|chi|行：ㄒㄧㄥˊ（旅行、前行）；ㄏㄤˊ（行列、銀行）；ㄒㄧㄥˋ（品行、操行）。
+8|音|哪一個詞語裡的「行」念ㄏㄤˊ？|銀行/旅行/品行|0|行|chi|行：ㄒㄧㄥˊ（旅行、前行）；ㄏㄤˊ（行列、銀行）；ㄒㄧㄥˋ（品行、操行）。
+8|音|「石頭」的「石」怎麼念？|ㄕˊ/ㄉㄢˋ/ㄕˇ|0|石|chi|石：ㄕˊ（石頭、礦石）；ㄉㄢˋ（一公石）。
+8|音|哪一個詞語裡的「石」念ㄉㄢˋ？|一公石/石頭/礦石|0|石|chi|石：ㄕˊ（石頭、礦石）；ㄉㄢˋ（一公石）。
+8|音|「災難」的「難」怎麼念？|ㄋㄢˋ/ㄋㄢˊ/ㄌㄢˋ|0|難|chi|難：ㄋㄢˊ（難道、難題）；ㄋㄢˋ（災難、責難）。
+8|音|哪一個詞語裡的「難」念ㄋㄢˋ？|災難/難道/難題|0|難|chi|難：ㄋㄢˊ（難道、難題）；ㄋㄢˋ（災難、責難）。
+8|音|「哈巴狗」的「哈」怎麼念？|ㄏㄚˇ/ㄏㄚ/ㄎㄚˇ|0|哈|chi|哈：ㄏㄚ（笑哈哈、哈哈大笑）；ㄏㄚˇ（哈巴狗）。
+8|音|哪一個詞語裡的「哈」念ㄏㄚˇ？|哈巴狗/笑哈哈/哈哈大笑|0|哈|chi|哈：ㄏㄚ（笑哈哈、哈哈大笑）；ㄏㄚˇ（哈巴狗）。
+8|部|「許」的部首是哪一個？|言部/木部/計部|0|許|chi|許（ㄒㄩˇ，言部，11畫）：許多。
+8|部|「林」的部首是哪一個？|木部/禾部/林部|0|林|chi|林（ㄌㄧㄣˊ，木部，8畫）：森林。
+8|部|「渴」的部首是哪一個？|水部/口部/日部|0|渴|chi|渴（ㄎㄜˇ，水部，12畫）：口渴、解渴。
+8|部|「石」的部首是哪一個？|石部/口部/一部|0|石|chi|石（ㄕˊ，石部，5畫）：石頭。
+8|部|「物」的部首是哪一個？|牛部/勿部/手部|0|物|chi|物（ㄨˋ，牛部，8畫）：動物。
+8|部|「烏」的部首是哪一個？|火部/鳥部/一部|0|烏|chi|烏（ㄨ，火部，10畫）：烏鴉。
+8|部|「難」的部首是哪一個？|隹部/又部/艸部|0|難|chi|難（ㄋㄢˊ，隹部，19畫）：難道。
+8|部|「旅」的部首是哪一個？|方部/人部/衣部|0|旅|chi|旅（ㄌㄩˇ，方部，10畫）：旅行。
+8|部|「喝」的部首是哪一個？|口部/日部/言部|0|喝|chi|喝（ㄏㄜ，口部，12畫）：喝水、喝茶。
+8|部|「忘」的部首是哪一個？|心部/亡部/女部|0|忘|chi|忘（ㄨㄤˋ，心部，7畫）：忘了。
+8|部|「行」的部首是哪一個？|行部/彳部/人部|0|行|chi|行（ㄒㄧㄥˊ，行部，6畫）：旅行。
+8|部|「瓶」的部首是哪一個？|瓦部/瓜部/并部|0|瓶|chi|瓶（ㄆㄧㄥˊ，瓦部，11畫）：瓶子。
+8|部|「哈」的部首是哪一個？|口部/合部/日部|0|哈|chi|哈（ㄏㄚ，口部，9畫）：哈哈哈。
+8|部|「午」的部首是哪一個？|十部/牛部/干部|0|午|chi|午（ㄨˇ，十部，4畫）：中午。
+8|部|「法」的部首是哪一個？|水部/土部/去部|0|法|chi|法（ㄈㄚˇ，水部，8畫）：方法。
+8|部|「但」的部首是哪一個？|人部/日部/土部|0|但|chi|但（ㄉㄢˋ，人部，7畫）：但是。
+8|部|「裝」的部首是哪一個？|衣部/士部/木部|0|裝|chi|裝（ㄓㄨㄤ，衣部，13畫）：裝有半瓶水。
+8|部|「森」的部首是哪一個？|木部/林部/火部|0|森|chi|森（ㄙㄣ，木部，12畫）：森林。
+8|畫|「許」總共有幾畫？|11/12/10|0|許|chi|許（ㄒㄩˇ，言部，11畫）：許多。
+8|畫|「林」總共有幾畫？|8/7/10|0|林|chi|林（ㄌㄧㄣˊ，木部，8畫）：森林。
+8|畫|「渴」總共有幾畫？|12/11/14|0|渴|chi|渴（ㄎㄜˇ，水部，12畫）：口渴、解渴。
+8|畫|「石」總共有幾畫？|5/6/4|0|石|chi|石（ㄕˊ，石部，5畫）：石頭。
+8|畫|「物」總共有幾畫？|8/7/10|0|物|chi|物（ㄨˋ，牛部，8畫）：動物。
+8|畫|「烏」總共有幾畫？|10/9/12|0|烏|chi|烏（ㄨ，火部，10畫）：烏鴉。
+8|畫|「難」總共有幾畫？|19/20/18|0|難|chi|難（ㄋㄢˊ，隹部，19畫）：難道。
+8|畫|「旅」總共有幾畫？|10/9/12|0|旅|chi|旅（ㄌㄩˇ，方部，10畫）：旅行。
+8|畫|「喝」總共有幾畫？|12/11/14|0|喝|chi|喝（ㄏㄜ，口部，12畫）：喝水、喝茶。
+8|畫|「忘」總共有幾畫？|7/8/6|0|忘|chi|忘（ㄨㄤˋ，心部，7畫）：忘了。
+8|畫|「行」總共有幾畫？|6/5/8|0|行|chi|行（ㄒㄧㄥˊ，行部，6畫）：旅行。
+8|畫|「瓶」總共有幾畫？|11/12/10|0|瓶|chi|瓶（ㄆㄧㄥˊ，瓦部，11畫）：瓶子。
+8|畫|「哈」總共有幾畫？|9/10/8|0|哈|chi|哈（ㄏㄚ，口部，9畫）：哈哈哈。
+8|畫|「午」總共有幾畫？|4/3/6|0|午|chi|午（ㄨˇ，十部，4畫）：中午。
+8|畫|「法」總共有幾畫？|8/7/10|0|法|chi|法（ㄈㄚˇ，水部，8畫）：方法。
+8|畫|「但」總共有幾畫？|7/8/6|0|但|chi|但（ㄉㄢˋ，人部，7畫）：但是。
+8|畫|「裝」總共有幾畫？|13/14/12|0|裝|chi|裝（ㄓㄨㄤ，衣部，13畫）：裝有半瓶水。
+8|畫|「森」總共有幾畫？|12/11/14|0|森|chi|森（ㄙㄣ，木部，12畫）：森林。
+8|畫|「渴」去掉部首以後，還有幾畫？|9/10/8|0|渴|chi|渴（水部，總共12畫，部首外9畫）：口渴、解渴。
+8|畫|「難」去掉部首以後，還有幾畫？|11/12/10|0|難|chi|難（隹部，總共19畫，部首外11畫）：難道。
+8|畫|「喝」去掉部首以後，還有幾畫？|9/10/8|0|喝|chi|喝（口部，總共12畫，部首外9畫）：喝水、喝茶。
+8|畫|「裝」去掉部首以後，還有幾畫？|7/8/6|0|裝|chi|裝（衣部，總共13畫，部首外7畫）：裝有半瓶水。
+8|畫|「森」去掉部首以後，還有幾畫？|8/9/7|0|森|chi|森（木部，總共12畫，部首外8畫）：森林。
+8|畫|「瓶」去掉部首以後，還有幾畫？|6/7/5|0|瓶|chi|瓶（瓦部，總共11畫，部首外6畫）：瓶子。
+8|畫|「旅」去掉部首以後，還有幾畫？|6/7/5|0|旅|chi|旅（方部，總共10畫，部首外6畫）：旅行。
+8|畫|「許」去掉部首以後，還有幾畫？|4/5/3|0|許|chi|許（言部，總共11畫，部首外4畫）：許多。
+8|畫|「物」去掉部首以後，還有幾畫？|4/5/3|0|物|chi|物（牛部，總共8畫，部首外4畫）：動物。
+8|畫|「哈」去掉部首以後，還有幾畫？|6/7/5|0|哈|chi|哈（口部，總共9畫，部首外6畫）：哈哈哈。
+8|部|「口部」的字，大多跟什麼有關？|嘴巴/水/手|0|口部|chi|口部的字，大多跟嘴巴有關：喝水、喝茶。
+8|部|「水部」的字，大多跟什麼有關？|水/嘴巴/樹木|0|水部|chi|水部的字，大多跟水有關：口渴、解渴。
+8|形|「＿水張口要用嘴」，要填哪一個字？|喝/渴/葛|0|喝|chi|口訣：喝水張口要用嘴，渴了請飲三點水。
+8|形|「＿了請飲三點水」，要填哪一個字？|渴/喝/葛|0|渴|chi|口訣：喝水張口要用嘴，渴了請飲三點水。
+8|部|「喝」跟「渴」長得很像，哪一個字是水部？|渴/喝/兩個都是|0|渴|chi|喝：口部（喝水、喝茶）；渴：水部（口渴、解渴）。
+8|部|「喝」跟「渴」長得很像，哪一個字是口部？|喝/渴/兩個都是|0|喝|chi|喝：口部（喝水、喝茶）；渴：水部（口渴、解渴）。
+8|詞|到了中午，小熊＿＿＿＿，想要找水喝。|又熱又渴/又高又大/又胖又高|0|又熱又渴|chi|「又高又大」是形容外表；這裡是小熊想找水喝的原因，所以要用「又熱又渴」。
+8|詞|＿＿你忘了烏鴉喝水的故事？|難道/難過/難看|0|難道|chi|「難過」是傷心、難受的意思。這句話是在問對方問題，所以要用「難道」。
+8|詞|「難過」是什麼意思？|傷心、難受/用來問問題/很不容易做到|0|難過|chi|「難過」是傷心、難受的意思；問問題要用「難道」。
+8|詞|「又高又大」是在形容什麼？|外表/小熊想找水喝的原因/烏鴉喝水的方法|0|又高又大|chi|「又高又大」是形容外表；小熊想找水喝的原因是「又熱又渴」。
+8|詞|口渴的＿＿為了要喝瓶子裡的水，想出一個好方法。|烏鴉/烏龜/鳥鴉|0|烏鴉
+8|詞|有一次，小熊到外地＿＿。|旅行/旅館/流行|0|旅行
+8|詞|他看到一個裝有半瓶水的小＿＿。|瓶子/瓷子/瓦子|0|瓶子
+8|詞|小熊馬上找了許多小＿＿放進瓶子。|石頭/右頭/古頭|0|石頭
+8|詞|＿＿裡的動物們知道了，都說烏鴉真是聰明！|森林/樹林/林森|0|森林
+8|詞|小馬笑著說：「你真聰明！＿＿，你為什麼不拿起瓶子喝水呢？」|但是/所以/因為|0|但是
+8|句|「口渴的烏鴉為了要喝瓶子裡的水，想出一個喝到水的好方法。」哪一部分是「目的」？|要喝瓶子裡的水/想出一個喝到水的好方法/口渴的烏鴉|0|為了|chi|「……為了……」：說明做事的目的。
+8|句|「口渴的烏鴉為了要喝瓶子裡的水，想出一個喝到水的好方法。」哪一部分是「行動」？|想出一個喝到水的好方法/要喝瓶子裡的水/口渴的烏鴉|0|為了|chi|「……為了……」：說明做事的目的。
+8|句|爸爸＿＿讓身體更健康，每天都去公園跑步。|為了/所以/但是|0|為了|chi|爸爸為了讓身體更健康，每天都去公園跑步。
+8|句|「爸爸為了讓身體更健康，每天都去公園跑步。」哪一部分是「目的」？|讓身體更健康/每天都去公園跑步/爸爸|0|為了|chi|「……為了……」：說明做事的目的。
+8|句|「哥哥為了加入籃球校隊，每天都會練習投籃。」哪一部分是「行動」？|每天都會練習投籃/加入籃球校隊/哥哥|0|為了|chi|「……為了……」：說明做事的目的。
+8|句|哥哥＿＿加入籃球校隊，每天都會練習投籃。|為了/所以/還是|0|為了|chi|哥哥為了加入籃球校隊，每天都會練習投籃。
+8|文|口渴的烏鴉為了要喝到瓶子裡的水，做了什麼事？|想出一個喝到水的好方法/把瓶子打破/請小馬幫忙|0|聰明的小熊|chi|烏鴉想出一個喝到水的好方法，森林裡的動物們都說烏鴉真是聰明。
+8|文|森林裡的動物們知道烏鴉的方法以後，說了什麼？|烏鴉真是聰明/烏鴉真是笨/烏鴉真是可憐|0|聰明的小熊
+8|文|小熊到外地旅行，到了中午，為什麼想找水喝？|他又熱又渴/他很無聊/他想玩水|0|聰明的小熊
+8|文|小熊東找西找，看到了什麼？|一個裝有半瓶水的小瓶子/一條小河/一桶水|0|聰明的小熊
+8|文|小熊馬上找了許多什麼放進瓶子？|小石頭/小樹枝/小餅乾|0|聰明的小熊
+8|文|小熊把小石頭放進瓶子以後，瓶子裡的水怎麼樣了？|越升越高/越來越少/不見了|0|聰明的小熊
+8|文|路過的小馬看見小熊的動作，好奇的問了什麼？|你為什麼要這麼做呢/你要去哪裡旅行/你渴不渴|0|聰明的小熊
+8|文|小熊說：「我可是一學就會呢！」他想學誰的方法？|烏鴉/小馬/森林裡的動物|0|聰明的小熊|chi|小熊學的是烏鴉喝水的方法。
+8|文|小熊認為自己聰明嗎？為什麼？|聰明，因為他一學就會/不聰明，因為他很笨/不聰明，因為他找不到水|0|聰明的小熊|chi|從小熊說的話可以知道，他認為自己一學就會，是聰明的。
+8|文|小馬贊成小熊的做法嗎？|不贊成/贊成/不知道|0|聰明的小熊|chi|從小馬說的話可以知道，他認為小熊有手，可以直接拿起瓶子喝水，不需要學烏鴉，所以他不贊成小熊的做法。
+8|文|小馬為什麼不贊成小熊的做法？|小熊有手，可以直接拿起瓶子喝水/小熊找的石頭太小/瓶子裡的水很髒|0|聰明的小熊|chi|從小馬說的話可以知道，小熊有手，可以直接拿起瓶子喝水，不需要學烏鴉。
+8|文|小熊用烏鴉的方法喝水，為什麼不恰當？|小熊有手，不必學烏鴉把石頭放進瓶子/小熊沒有找到石頭/瓶子太大了|0|聰明的小熊|chi|小熊有手可以拿起瓶子喝水，不必學烏鴉把石頭放進瓶子。
+8|文|課名「聰明」的小熊，「聰明」兩字加上引號，表示什麼？|有不同的意思/很重要/說話的聲音很大|0|聰明的小熊|chi|課名「聰明」的小熊，「聰明」兩字加上引號，表示有不同的意思。
+8|文|我們可以從課文中角色的什麼，知道他的看法？|做的事、說的話/長得高不高/住的地方|0|聰明的小熊|chi|我們可以從課文中角色做的事、說的話，知道他的看法。
+8|文|「你真『聰明』！」這句話是誰說的？|小馬/小熊/烏鴉|0|聰明的小熊
+8|文|「難道你忘了烏鴉喝水的故事？」這句話是誰說的？|小熊/小馬/烏鴉|0|聰明的小熊
+3|看圖|[[pic:ball]]這是什麼？|a ball/a car/a kite|0|ball|eng|a ball（球）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|看圖|[[pic:car]]這是什麼？|a car/a doll/a robot|0|car|eng|a car（汽車）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|看圖|[[pic:doll]]這是什麼？|a doll/a kite/a yo-yo|0|doll|eng|a doll（洋娃娃）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|看圖|[[pic:kite]]這是什麼？|a kite/a robot/a ball|0|kite|eng|a kite（風箏）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|看圖|[[pic:robot]]這是什麼？|a robot/a yo-yo/a car|0|robot|eng|a robot（機器人）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|看圖|[[pic:yoyo]]這是什麼？|a yo-yo/a ball/a doll|0|yo-yo|eng|a yo-yo（溜溜球）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|看圖|[[pic:pig]]這是什麼？|pig/sun/ten|0|pig|eng|pig（豬）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|看圖|[[pic:pan]]這是什麼？|pan/top/pig|0|pan|eng|pan（平底鍋）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|看圖|[[pic:queen]]這是什麼？|queen/ten/pan|0|queen|eng|queen（女王）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|看圖|[[pic:quiz]]這是什麼？|quiz/pig/queen|0|quiz|eng|quiz（小考）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|看圖|[[pic:rabbit]]這是什麼？|rabbit/pan/quiz|0|rabbit|eng|rabbit（兔子）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|看圖|[[pic:red]]這是什麼？|red/queen/rabbit|0|red|eng|red（紅色）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|看圖|[[pic:seven]]這是什麼？|seven/quiz/red|0|seven|eng|seven（七）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|看圖|[[pic:sun]]這是什麼？|sun/rabbit/seven|0|sun|eng|sun（太陽）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|看圖|[[pic:top]]這是什麼？|top/red/sun|0|top|eng|top（陀螺）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|看圖|[[pic:ten]]這是什麼？|ten/seven/top|0|ten|eng|ten（十）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|選圖|哪一張圖是 a ball？|pic:ball/pic:car/pic:kite|0|ball|eng|a ball（球）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|選圖|哪一張圖是 a car？|pic:car/pic:doll/pic:robot|0|car|eng|a car（汽車）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|選圖|哪一張圖是 a doll？|pic:doll/pic:kite/pic:yoyo|0|doll|eng|a doll（洋娃娃）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|選圖|哪一張圖是 a kite？|pic:kite/pic:robot/pic:ball|0|kite|eng|a kite（風箏）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|選圖|哪一張圖是 a robot？|pic:robot/pic:yoyo/pic:car|0|robot|eng|a robot（機器人）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|選圖|哪一張圖是 a yo-yo？|pic:yoyo/pic:ball/pic:doll|0|yo-yo|eng|a yo-yo（溜溜球）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|選圖|哪一張圖是 pig？|pic:pig/pic:sun/pic:ten|0|pig|eng|pig（豬）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|選圖|哪一張圖是 pan？|pic:pan/pic:top/pic:pig|0|pan|eng|pan（平底鍋）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|選圖|哪一張圖是 queen？|pic:queen/pic:ten/pic:pan|0|queen|eng|queen（女王）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|選圖|哪一張圖是 quiz？|pic:quiz/pic:pig/pic:queen|0|quiz|eng|quiz（小考）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|選圖|哪一張圖是 rabbit？|pic:rabbit/pic:pan/pic:quiz|0|rabbit|eng|rabbit（兔子）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|選圖|哪一張圖是 red？|pic:red/pic:queen/pic:rabbit|0|red|eng|red（紅色）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|選圖|哪一張圖是 seven？|pic:seven/pic:quiz/pic:red|0|seven|eng|seven（七）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|選圖|哪一張圖是 sun？|pic:sun/pic:rabbit/pic:seven|0|sun|eng|sun（太陽）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|選圖|哪一張圖是 top？|pic:top/pic:red/pic:sun|0|top|eng|top（陀螺）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|選圖|哪一張圖是 ten？|pic:ten/pic:seven/pic:top|0|ten|eng|ten（十）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:a ball]]聽一聽，哪一張圖是你聽到的？|pic:ball/pic:kite/pic:car|0|ball|eng|a ball（球）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|聽音|[[say:a ball]]聽一聽，你聽到哪個單字？|a ball/a kite/a car|0|ball|eng|a ball（球）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|聽音|[[say:a car]]聽一聽，哪一張圖是你聽到的？|pic:car/pic:robot/pic:doll|0|car|eng|a car（汽車）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|聽音|[[say:a car]]聽一聽，你聽到哪個單字？|a car/a robot/a doll|0|car|eng|a car（汽車）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|聽音|[[say:a doll]]聽一聽，哪一張圖是你聽到的？|pic:doll/pic:yoyo/pic:kite|0|doll|eng|a doll（洋娃娃）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|聽音|[[say:a doll]]聽一聽，你聽到哪個單字？|a doll/a yo-yo/a kite|0|doll|eng|a doll（洋娃娃）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|聽音|[[say:a kite]]聽一聽，哪一張圖是你聽到的？|pic:kite/pic:ball/pic:robot|0|kite|eng|a kite（風箏）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|聽音|[[say:a kite]]聽一聽，你聽到哪個單字？|a kite/a ball/a robot|0|kite|eng|a kite（風箏）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|聽音|[[say:a robot]]聽一聽，哪一張圖是你聽到的？|pic:robot/pic:car/pic:yoyo|0|robot|eng|a robot（機器人）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|聽音|[[say:a robot]]聽一聽，你聽到哪個單字？|a robot/a car/a yo-yo|0|robot|eng|a robot（機器人）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|聽音|[[say:a yo-yo]]聽一聽，哪一張圖是你聽到的？|pic:yoyo/pic:doll/pic:ball|0|yo-yo|eng|a yo-yo（溜溜球）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|聽音|[[say:a yo-yo]]聽一聽，你聽到哪個單字？|a yo-yo/a doll/a ball|0|yo-yo|eng|a yo-yo（溜溜球）。課本 Vocabulary：a ball、a car、a doll、a kite、a robot、a yo-yo。
+3|聽音|[[say:pig]]聽一聽，哪一張圖是你聽到的？|pic:pig/pic:ten/pic:sun|0|pig|eng|pig（豬）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:pig]]聽一聽，你聽到哪個單字？|pig/ten/sun|0|pig|eng|pig（豬）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:pan]]聽一聽，哪一張圖是你聽到的？|pic:pan/pic:pig/pic:top|0|pan|eng|pan（平底鍋）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:pan]]聽一聽，你聽到哪個單字？|pan/pig/top|0|pan|eng|pan（平底鍋）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:queen]]聽一聽，哪一張圖是你聽到的？|pic:queen/pic:pan/pic:ten|0|queen|eng|queen（女王）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:queen]]聽一聽，你聽到哪個單字？|queen/pan/ten|0|queen|eng|queen（女王）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:quiz]]聽一聽，哪一張圖是你聽到的？|pic:quiz/pic:queen/pic:pig|0|quiz|eng|quiz（小考）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:quiz]]聽一聽，你聽到哪個單字？|quiz/queen/pig|0|quiz|eng|quiz（小考）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:rabbit]]聽一聽，哪一張圖是你聽到的？|pic:rabbit/pic:quiz/pic:pan|0|rabbit|eng|rabbit（兔子）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:rabbit]]聽一聽，你聽到哪個單字？|rabbit/quiz/pan|0|rabbit|eng|rabbit（兔子）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:red]]聽一聽，哪一張圖是你聽到的？|pic:red/pic:rabbit/pic:queen|0|red|eng|red（紅色）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:red]]聽一聽，你聽到哪個單字？|red/rabbit/queen|0|red|eng|red（紅色）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:seven]]聽一聽，哪一張圖是你聽到的？|pic:seven/pic:red/pic:quiz|0|seven|eng|seven（七）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:seven]]聽一聽，你聽到哪個單字？|seven/red/quiz|0|seven|eng|seven（七）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:sun]]聽一聽，哪一張圖是你聽到的？|pic:sun/pic:seven/pic:rabbit|0|sun|eng|sun（太陽）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:sun]]聽一聽，你聽到哪個單字？|sun/seven/rabbit|0|sun|eng|sun（太陽）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:top]]聽一聽，哪一張圖是你聽到的？|pic:top/pic:sun/pic:red|0|top|eng|top（陀螺）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:top]]聽一聽，你聽到哪個單字？|top/sun/red|0|top|eng|top（陀螺）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:ten]]聽一聽，哪一張圖是你聽到的？|pic:ten/pic:top/pic:seven|0|ten|eng|ten（十）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|聽音|[[say:ten]]聽一聽，你聽到哪個單字？|ten/top/seven|0|ten|eng|ten（十）。課本 Phonics：Pp pig pan／Qq queen quiz／Rr rabbit red／Ss seven sun／Tt top ten。
+3|字母|[[pic:pig]]這個單字的開頭字母是哪一個？|p/q/b|0|pig|eng|pig（豬）的開頭是 p。課本 Phonics：Pp。
+3|字母|[[pic:pan]]這個單字的開頭字母是哪一個？|p/q/b|0|pan|eng|pan（平底鍋）的開頭是 p。課本 Phonics：Pp。
+3|字母|[[pic:queen]]這個單字的開頭字母是哪一個？|q/p/g|0|queen|eng|queen（女王）的開頭是 q。課本 Phonics：Qq。
+3|字母|[[pic:quiz]]這個單字的開頭字母是哪一個？|q/p/g|0|quiz|eng|quiz（小考）的開頭是 q。課本 Phonics：Qq。
+3|字母|[[pic:rabbit]]這個單字的開頭字母是哪一個？|r/l/n|0|rabbit|eng|rabbit（兔子）的開頭是 r。課本 Phonics：Rr。
+3|字母|[[pic:red]]這個單字的開頭字母是哪一個？|r/l/n|0|red|eng|red（紅色）的開頭是 r。課本 Phonics：Rr。
+3|字母|[[pic:seven]]這個單字的開頭字母是哪一個？|s/z/c|0|seven|eng|seven（七）的開頭是 s。課本 Phonics：Ss。
+3|字母|[[pic:sun]]這個單字的開頭字母是哪一個？|s/z/c|0|sun|eng|sun（太陽）的開頭是 s。課本 Phonics：Ss。
+3|字母|[[pic:top]]這個單字的開頭字母是哪一個？|t/d/f|0|top|eng|top（陀螺）的開頭是 t。課本 Phonics：Tt。
+3|字母|[[pic:ten]]這個單字的開頭字母是哪一個？|t/d/f|0|ten|eng|ten（十）的開頭是 t。課本 Phonics：Tt。
+3|字母|大寫 P 的小寫是哪一個？|p/q/b|0|p|eng|Pp：大寫 P，小寫 p。
+3|字母|小寫 p 的大寫是哪一個？|P/R/B|0|P|eng|Pp：大寫 P，小寫 p。
+3|字母|大寫 Q 的小寫是哪一個？|q/p/g|0|q|eng|Qq：大寫 Q，小寫 q。
+3|字母|小寫 q 的大寫是哪一個？|Q/O/G|0|Q|eng|Qq：大寫 Q，小寫 q。
+3|字母|大寫 R 的小寫是哪一個？|r/l/n|0|r|eng|Rr：大寫 R，小寫 r。
+3|字母|小寫 r 的大寫是哪一個？|R/P/B|0|R|eng|Rr：大寫 R，小寫 r。
+3|字母|大寫 S 的小寫是哪一個？|s/z/c|0|s|eng|Ss：大寫 S，小寫 s。
+3|字母|小寫 s 的大寫是哪一個？|S/Z/C|0|S|eng|Ss：大寫 S，小寫 s。
+3|字母|大寫 T 的小寫是哪一個？|t/d/f|0|t|eng|Tt：大寫 T，小寫 t。
+3|字母|小寫 t 的大寫是哪一個？|T/I/F|0|T|eng|Tt：大寫 T，小寫 t。
+3|拼字|[[pic:pig]]p_g，缺哪個字母？|i/a/o|0|pig|eng|pig（豬），要寫成 pig。
+3|拼字|[[pic:pan]]p_n，缺哪個字母？|a/e/u|0|pan|eng|pan（平底鍋），要寫成 pan。
+3|拼字|[[pic:red]]r_d，缺哪個字母？|e/a/o|0|red|eng|red（紅色），要寫成 red。
+3|拼字|[[pic:sun]]s_n，缺哪個字母？|u/a/o|0|sun|eng|sun（太陽），要寫成 sun。
+3|拼字|[[pic:top]]t_p，缺哪個字母？|o/a/i|0|top|eng|top（陀螺），要寫成 top。
+3|拼字|[[pic:ten]]t_n，缺哪個字母？|e/a/u|0|ten|eng|ten（十），要寫成 ten。
+3|拼字|[[pic:quiz]]q_iz，缺哪個字母？|u/a/o|0|quiz|eng|quiz（小考），要寫成 quiz。
+3|拼字|[[pic:rabbit]]ra_bit，缺哪個字母？|b/d/p|0|rabbit|eng|rabbit（兔子），要寫成 rabbit。
+3|拼字|[[pic:seven]]s_ven，缺哪個字母？|e/a/o|0|seven|eng|seven（七），要寫成 seven。
+3|拼字|[[pic:car]]c_r，缺哪個字母？|a/o/u|0|car|eng|car（汽車），要寫成 car。
+3|拼字|[[pic:ball]]b_ll，缺哪個字母？|a/e/o|0|ball|eng|ball（球），要寫成 ball。
+3|拼字|[[pic:doll]]d_ll，缺哪個字母？|o/a/e|0|doll|eng|doll（洋娃娃），要寫成 doll。
+3|拼字|[[pic:robot]]r_bot，缺哪個字母？|o/a/u|0|robot|eng|robot（機器人），要寫成 robot。
+3|拼字|e ＋ n ＝ ？|en/ne/in|0|en|eng|課本 Sound It Out：e ＋ n → en。
+3|拼字|t ＋ e ＋ n ＝ ？|ten/tan/net|0|ten|eng|t ＋ e ＋ n → ten。課本 Sound It Out：t ＋ e ＋ n → ten。
+3|拼字|p ＋ i ＋ g ＝ ？|pig/pug/big|0|pig|eng|p ＋ i ＋ g → pig。課本 Sound It Out：t ＋ e ＋ n → ten。
+3|拼字|p ＋ a ＋ n ＝ ？|pan/pen/pin|0|pan|eng|p ＋ a ＋ n → pan。課本 Sound It Out：t ＋ e ＋ n → ten。
+3|拼字|r ＋ e ＋ d ＝ ？|red/rod/rid|0|red|eng|r ＋ e ＋ d → red。課本 Sound It Out：t ＋ e ＋ n → ten。
+3|拼字|s ＋ u ＋ n ＝ ？|sun/sin/son|0|sun|eng|s ＋ u ＋ n → sun。課本 Sound It Out：t ＋ e ＋ n → ten。
+3|拼字|t ＋ o ＋ p ＝ ？|top/tap/tip|0|top|eng|t ＋ o ＋ p → top。課本 Sound It Out：t ＋ e ＋ n → ten。
+3|拼字|c ＋ a ＋ r ＝ ？|car/cat/can|0|car|eng|c ＋ a ＋ r → car。課本 Sound It Out：t ＋ e ＋ n → ten。
+3|句型|[[pic:ball]]What's this?|It's a ball./It's a car./It's a kite.|0|ball|eng|課本 Sentences：What's this?（這是什麼？）It's a kite.　What's that?（那是什麼？）It's a robot.　What's = What is，It's = It is。
+3|句型|[[pic:ball]]（指著遠處）What's that?|It's a kite./It's a ball./It's a car.|1|ball|eng|課本 Sentences：What's this?（這是什麼？）It's a kite.　What's that?（那是什麼？）It's a robot.　What's = What is，It's = It is。
+3|句型|[[pic:car]]What's this?|It's a car./It's a doll./It's a robot.|0|car|eng|課本 Sentences：What's this?（這是什麼？）It's a kite.　What's that?（那是什麼？）It's a robot.　What's = What is，It's = It is。
+3|句型|[[pic:car]]（指著遠處）What's that?|It's a robot./It's a car./It's a doll.|1|car|eng|課本 Sentences：What's this?（這是什麼？）It's a kite.　What's that?（那是什麼？）It's a robot.　What's = What is，It's = It is。
+3|句型|[[pic:doll]]What's this?|It's a doll./It's a kite./It's a yo-yo.|0|doll|eng|課本 Sentences：What's this?（這是什麼？）It's a kite.　What's that?（那是什麼？）It's a robot.　What's = What is，It's = It is。
+3|句型|[[pic:doll]]（指著遠處）What's that?|It's a yo-yo./It's a doll./It's a kite.|1|doll|eng|課本 Sentences：What's this?（這是什麼？）It's a kite.　What's that?（那是什麼？）It's a robot.　What's = What is，It's = It is。
+3|句型|[[pic:kite]]What's this?|It's a kite./It's a robot./It's a ball.|0|kite|eng|課本 Sentences：What's this?（這是什麼？）It's a kite.　What's that?（那是什麼？）It's a robot.　What's = What is，It's = It is。
+3|句型|[[pic:kite]]（指著遠處）What's that?|It's a ball./It's a kite./It's a robot.|1|kite|eng|課本 Sentences：What's this?（這是什麼？）It's a kite.　What's that?（那是什麼？）It's a robot.　What's = What is，It's = It is。
+3|句型|[[pic:robot]]What's this?|It's a robot./It's a yo-yo./It's a car.|0|robot|eng|課本 Sentences：What's this?（這是什麼？）It's a kite.　What's that?（那是什麼？）It's a robot.　What's = What is，It's = It is。
+3|句型|[[pic:robot]]（指著遠處）What's that?|It's a car./It's a robot./It's a yo-yo.|1|robot|eng|課本 Sentences：What's this?（這是什麼？）It's a kite.　What's that?（那是什麼？）It's a robot.　What's = What is，It's = It is。
+3|句型|[[pic:yoyo]]What's this?|It's a yo-yo./It's a ball./It's a doll.|0|yo-yo|eng|課本 Sentences：What's this?（這是什麼？）It's a kite.　What's that?（那是什麼？）It's a robot.　What's = What is，It's = It is。
+3|句型|[[pic:yoyo]]（指著遠處）What's that?|It's a doll./It's a yo-yo./It's a ball.|1|yo-yo|eng|課本 Sentences：What's this?（這是什麼？）It's a kite.　What's that?（那是什麼？）It's a robot.　What's = What is，It's = It is。
+3|句型|What's this? 是在問什麼樣的東西？|離你近的東西/離你遠的東西/不能問東西|0|this|eng|課本 Sentences：What's this?（這是什麼？）It's a kite.　What's that?（那是什麼？）It's a robot.　What's = What is，It's = It is。（this 這，that 那）
+3|句型|What's that? 是在問什麼樣的東西？|離你遠的東西/離你近的東西/不能問東西|0|that|eng|課本 Sentences：What's this?（這是什麼？）It's a kite.　What's that?（那是什麼？）It's a robot.　What's = What is，It's = It is。（this 這，that 那）
+3|句型|「this」的意思是？|這/那/哪|0|this|eng|課本：this 這、that 那。
+3|句型|「that」的意思是？|那/這/哪|0|that|eng|課本：this 這、that 那。
+3|句型|「What's」是哪兩個字合起來？|What is/Who is/What are|0|What's|eng|課本：What's = What is。
+3|句型|「It's」是哪兩個字合起來？|It is/It was/Is it|0|It's|eng|課本：It's = It is。
+3|句型|有人問 What's this? 你可以回答？|It's a ball./Good morning./I'm sorry.|0|What's this|eng|課本 Sentences：What's this?（這是什麼？）It's a kite.　What's that?（那是什麼？）It's a robot.　What's = What is，It's = It is。
+3|對話|想請朋友過來，要說哪一句？|Come here./I'm sorry./Good morning.|0|Come here|eng|課本 Daily English：Come here. / I'm sorry. / It's OK.
+3|對話|不小心撞到別人，要說哪一句？|I'm sorry./Come here./Cool!|0|I'm sorry|eng|課本 Daily English：Come here. / I'm sorry. / It's OK.（Oops! I'm sorry.）
+3|對話|別人對你說 I'm sorry. 你可以回答？|It's OK./Good morning./Come here.|0|It's OK|eng|課本 Daily English：Come here. / I'm sorry. / It's OK.
+3|對話|早上遇到朋友，要說哪一句？|Good morning./It's OK./Come here.|0|Good morning|eng|課本 Story：Good morning!
+3|對話|朋友對你說 Good morning! 你可以回答？|Good morning./I'm sorry./Come here.|0|Good morning|eng|課本 Story：Good morning!　Good morning!
+3|對話|「Come here.」是什麼意思？|過來/對不起/早安|0|Come here|eng|課本 Daily English：Come here. / I'm sorry. / It's OK.
+3|對話|「I'm sorry.」是什麼意思？|對不起/沒關係/早安|0|I'm sorry|eng|課本 Daily English：Come here. / I'm sorry. / It's OK.
+3|對話|「It's OK.」是什麼意思？|沒關係/對不起/過來|0|It's OK|eng|課本 Daily English：Come here. / I'm sorry. / It's OK.
+3|對話|「Cool!」是什麼意思？|酷/冷/熱|0|cool|eng|課本：cool 酷。
+3|對話|「Wow!」是什麼意思？|哇！（驚嘆聲）/對不起/再見|0|Wow|eng|課本：Wow! 哇！（驚嘆聲）
+3|對話|看到很可愛的東西，可以說？|So cute!/Come here./I'm sorry.|0|So cute|eng|課本 Story：So cute!
+3|對話|「Look!」是什麼意思？|看！/過來/對不起|0|Look|eng|課本 Story：Look!
+3|課文|Unit 3 的故事發生在哪裡？|B&J's Toys/B&J's Books/B&J's Food|0|B&J's Toys|eng|課本：B&J's Toys，Boka 和 Jello 的玩具工廠。
+3|課文|「3D printing」是什麼意思？|3D 列印/3D 電影/3D 遊戲|0|3D printing|eng|課本：3D printing 3D 列印。
+3|課文|「zone」是什麼意思？|區域/動物/玩具|0|zone|eng|課本：zone 區域（3D Printing Zone）。
+3|課文|歌曲 What's This? 裡，R-o-b-o-t 拼出哪個字？|robot/rabbit/rocket|0|robot|eng|歌詞：R-o-b-o-t, R-o-b-o-t, R-o-b-o-t. It's my robot.
+3|課文|歌曲 What's This? 的歌詞：It's my robot. It's so ＿＿!|cool/red/sorry|0|cool|eng|歌詞：It's my robot. It's so cool!（曲調：Bingo）
+3|課文|歌曲 What's This? 的曲調是哪一首？|Bingo/Jingle Bells/Happy Birthday|0|Bingo|eng|課本：Tune: Bingo。`;
 var $=function(s){return document.querySelector(s)},A=$('#app');
 var S;try{S=JSON.parse(localStorage.getItem('sch1'))}catch(e){}S=S||{u:{},cur:null,ex:''};
 function persist(){try{localStorage.setItem('sch1',JSON.stringify(S))}catch(e){}}
 function sv(t){var p=S.cur&&S.u[S.cur];if(t&&p){p.ts=Date.now();dirty[S.cur]=1}persist();if(t)kick()}
 function prs(t,s){return String(t||'').split('\n').map(function(l){return l.trim().split('|')}).filter(function(a){return a.length>=6}).map(function(a){return{l:+a[0],t:a[1],q:a[2],c:a[3].split('/'),a:+a[4],g:a[5],s:a[6]||s,h:a[7]||''}})}
 function build(){return prs(RAW,'chi').concat(prs(typeof RAWM=='string'?RAWM:'','math'),prs(S.ex||'','chi'))}
-var Q=build(),sub='chi',SUBS={chi:{n:'國語教室',ic:'📖',u:[1,2,3,4,5,6,7],w:'課'},math:{n:'數學教室',ic:'➗',u:[1,2,3,4,5],w:'單元'}},sels={chi:[1,2,3,4,5,6,7],math:[1,2,3,4,5]},avs=['🐱','🐰','🐻','🦊','🐼','🐸'],av=avs[0],quiz=null;
+var Q=build(),sub='chi',SUBS={chi:{n:'國語教室',ic:'📖',u:[1,2,3,4,5,6,7,8],w:'課'},math:{n:'數學教室',ic:'➗',u:[1,2,3,4,5],w:'單元'},eng:{n:'英文教室',ic:'🔤',u:[3],w:'單元'}},sels={chi:[1,2,3,4,5,6,7,8],math:[1,2,3,4,5],eng:[3]},avs=['🐱','🐰','🐻','🦊','🐼','🐸'],av=avs[0],quiz=null;
+var PICS={"ball": "⚽", "car": "🚗", "kite": "🪁", "robot": "🤖", "yoyo": "🪀", "pig": "🐷", "pan": "🍳", "queen": "👸", "quiz": "📝", "rabbit": "🐰", "sun": "☀️", "seven": "7️⃣", "ten": "🔟", "top": "<svg viewBox=\"0 0 64 64\"><rect x=\"30\" y=\"3\" width=\"4\" height=\"11\" fill=\"#8a5a2b\"/><ellipse cx=\"32\" cy=\"20\" rx=\"21\" ry=\"7\" fill=\"#f0b94a\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><path d=\"M11 20Q14 42 32 60Q50 42 53 20Z\" fill=\"#d0852e\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><path d=\"M15 30Q32 39 49 30\" stroke=\"#3b2f2f\" stroke-width=\"2.5\" fill=\"none\"/></svg>", "doll": "<svg viewBox=\"0 0 64 64\"><circle cx=\"15\" cy=\"13\" r=\"8\" fill=\"#d9483b\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><circle cx=\"49\" cy=\"13\" r=\"8\" fill=\"#d9483b\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><circle cx=\"32\" cy=\"24\" r=\"16\" fill=\"#d9483b\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><circle cx=\"32\" cy=\"28\" r=\"12\" fill=\"#fbd5b0\"/><circle cx=\"27\" cy=\"27\" r=\"2\" fill=\"#3b2f2f\"/><circle cx=\"37\" cy=\"27\" r=\"2\" fill=\"#3b2f2f\"/><path d=\"M27 33Q32 37 37 33\" stroke=\"#3b2f2f\" stroke-width=\"2\" fill=\"none\"/><path d=\"M15 61L21 42Q32 38 43 42L49 61Z\" fill=\"#7b5fb0\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/></svg>", "red": "<svg viewBox=\"0 0 64 64\"><circle cx=\"32\" cy=\"32\" r=\"26\" fill=\"#e02b2b\" stroke=\"#3b2f2f\" stroke-width=\"3\"/><circle cx=\"22\" cy=\"22\" r=\"6\" fill=\"#fff\" opacity=\".45\"/></svg>"};
+function ol(s){return String(s).indexOf('pic:')==0?'<span class="pi">'+(PICS[String(s).slice(4)]||'')+'</span>':esc(s)}
+function espeak(t){if(!SND||!window.speechSynthesis||!window.SpeechSynthesisUtterance)return;try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.85;var vs=speechSynthesis.getVoices(),v=vs.filter(function(x){return /en[-_]US/i.test(x.lang)})[0]||vs.filter(function(x){return /^en/i.test(x.lang)})[0];if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-function plain(t){return esc(String(t).replace(/\[\[[^\]]*\]\]/g,'（圖）'))}
+function plain(t){return esc(String(t).replace(/\[\[say:[^\]]*\]\]/g,'🔊').replace(/\[\[(?!pic:)[^\]]*\]\]/g,'（圖）')).replace(/\[\[pic:(\w+)\]\]/g,function(m,k){return '<span class="pi">'+(PICS[k]||'')+'</span>'})}
 function ruler(a,b){var x=function(n){return 15+n*20},s='<svg class="ruler" viewBox="0 0 330 80" width="330" role="img" aria-label="尺和物品">';s+='<rect x="'+x(a)+'" y="6" width="'+(x(b)-x(a))+'" height="22" rx="4" fill="#f4a259" stroke="currentColor" stroke-width="2"/>';s+='<line x1="'+x(a)+'" y1="28" x2="'+x(a)+'" y2="34" stroke="#d33" stroke-width="2" stroke-dasharray="2 2"/><line x1="'+x(b)+'" y1="28" x2="'+x(b)+'" y2="34" stroke="#d33" stroke-width="2" stroke-dasharray="2 2"/>';s+='<rect x="6" y="34" width="318" height="40" rx="3" fill="#fff6d8" stroke="currentColor" stroke-width="2"/>';for(var i=0;i<=15;i++){s+='<line x1="'+x(i)+'" y1="34" x2="'+x(i)+'" y2="50" stroke="#333" stroke-width="1.6"/><text x="'+x(i)+'" y="67" font-size="12" text-anchor="middle" fill="#333">'+i+'</text>';if(i<15)s+='<line x1="'+(x(i)+10)+'" y1="34" x2="'+(x(i)+10)+'" y2="43" stroke="#333" stroke-width="1"/>'}return s+'</svg>'}
 function blk(h,t,o){var s='<div class="blk">',i;for(i=0;i<h;i++)s+='<div class="flat"></div>';if(t){s+='<div class="rods">';for(i=0;i<t;i++)s+='<div class="rod"></div>';s+='</div>'}if(o){s+='<div class="ones">';for(i=0;i<o;i++)s+='<div class="one"></div>';s+='</div>'}return s+'</div>'}
-function fmt(t){return esc(t).replace(/\[\[ruler:(\d+):(\d+)\]\]/g,function(m,a,b){return ruler(+a,+b)}).replace(/\[\[blk:(\d+):(\d+):(\d+)\]\]/g,function(m,h,t,o){return blk(+h,+t,+o)})}
+function fmt(t){return esc(t).replace(/\[\[pic:(\w+)\]\]/g,function(m,k){return '<div class="pic">'+(PICS[k]||'')+'</div>'}).replace(/\[\[say:([^\]]+)\]\]/g,function(m,t){return '<button class="chip say" data-t="'+escA(t)+'" onclick="event.stopPropagation();espeak(this.dataset.t)">🔊 聽發音</button>'}).replace(/\[\[ruler:(\d+):(\d+)\]\]/g,function(m,a,b){return ruler(+a,+b)}).replace(/\[\[blk:(\d+):(\d+):(\d+)\]\]/g,function(m,h,t,o){return blk(+h,+t,+o)})}
 var TT=['一年級新生','小學徒','認字小達人','注音小高手','國語小英雄','校園之星'];
 var DEF=[['貼紙一張',50],['鉛筆一支',100],['橡皮擦',150],['可愛筆記本',300],['自選文具一份',500]];
 function SH(){return Array.isArray(S.shop)?S.shop:DEF}
@@ -382,7 +671,7 @@ function nav(){return '<div class="nav"><button class="b" onclick="unl=0;home()"
 function login(){var us=Object.keys(S.u);show('<h1>🏫 石牌小學堂</h1><div class="c"><h2>誰要上學？</h2>'+us.map(function(n,i){return '<button class="b pri" onclick="go('+i+')">'+S.u[n].av+' '+n+'</button>'}).join('')+'<p>新同學：</p><input id="nm" placeholder="輸入名字"><div style="margin:8px 0">'+avs.map(function(a){return '<span class="chip '+(a==av?'on':'')+'" onclick="av=\''+a+'\';login()">'+a+'</span>'}).join('')+'</div><button class="b" onclick="mk()">建立帳號</button></div>'+(famGet()?'':cloudCard()));scr='login'}
 function mk(){var n=$('#nm').value.trim();if(!n||S.u[n])return;S.u[n]={av:av,pts:0,tot:0,hist:[],st:{},tix:[]};S.cur=n;sv(1);home()}
 function go(i){S.cur=Object.keys(S.u)[i];sv();home()}
-function home(){var p=P();if(!p)return login();var l=lv(p);show(nav()+'<div class="c">'+p.av+' <b>'+S.cur+'</b>　Lv.'+l+' '+TT[Math.min(5,l-1)]+'<br>⭐ '+p.pts+' 分　<small>再 '+(100-p.tot%100)+' 分升級</small><progress value="'+p.tot%100+'" max="100"></progress><div><small id="sy"></small></div></div><div class="roof"></div><div class="c" style="margin-top:0"><h2>🏫 石牌小學堂</h2><div class="grid"><button class="room" onclick="room(\'chi\')">📖<br>國語教室</button><button class="room" onclick="room(\'math\')">➗<br>數學教室</button><button class="room" onclick="mroom()">✖️<br>九九乘法教室</button><div class="room lock">🔤<br>英文教室<br><small>即將開放</small></div><div class="room lock" style="grid-column:1/-1">➕<br>新教室<br><small>敬請期待</small></div></div></div>');badge();scr='home'}
+function home(){var p=P();if(!p)return login();var l=lv(p);show(nav()+'<div class="c">'+p.av+' <b>'+S.cur+'</b>　Lv.'+l+' '+TT[Math.min(5,l-1)]+'<br>⭐ '+p.pts+' 分　<small>再 '+(100-p.tot%100)+' 分升級</small><progress value="'+p.tot%100+'" max="100"></progress><div><small id="sy"></small></div></div><div class="roof"></div><div class="c" style="margin-top:0"><h2>🏫 石牌小學堂</h2><div class="grid"><button class="room" onclick="room(\'chi\')">📖<br>國語教室</button><button class="room" onclick="room(\'math\')">➗<br>數學教室</button><button class="room" onclick="mroom()">✖️<br>九九乘法教室</button><button class="room" onclick="room(\'eng\')">🔤<br>英文教室</button><div class="room lock" style="grid-column:1/-1">➕<br>新教室<br><small>敬請期待</small></div></div></div>');badge();scr='home'}
 /* ===== 九九乘法教室 ===== */
 var CN='零一二三四五六七八九',SND=(function(){try{return localStorage.getItem('sch_snd')!=='0'}catch(e){return true}})(),mp=null,mq=null;
 function cn(n){if(n<10)return CN.charAt(n);if(n<20)return '十'+(n%10?CN.charAt(n%10):'');return CN.charAt(Math.floor(n/10))+'十'+(n%10?CN.charAt(n%10):'')}
@@ -399,15 +688,23 @@ function setSpd(x){SPD=x;try{localStorage.setItem('sch_spd',String(x))}catch(e){
 function sndBtn(){return '<button class="chip" style="flex:0 0 auto" onclick="event.stopPropagation();sndTog()">'+(SND?'🔊 聲音開':'🔇 聲音關')+'</button>'}
 function sndTog(){SND=!SND;try{localStorage.setItem('sch_snd',SND?'1':'0')}catch(e){}if(!SND)lpStop();if(mp)mpv();else if(mq)mqv();else mroom()}
 function mroom(){var p=P();if(!p)return login();var wk=mweak(),H=hl('mul');lpStop();mp=null;mq=null;wk.sort(function(x,y){return p.st[y.q].w-p.st[x.q].w});
-show(nav()+'<h1>✖️ 九九乘法教室</h1><div class="c"><b>✏️ 互動練習</b><br><small>選一個數字開始。點一下螢幕，就會念出算式並顯示答案。</small><div class="mgrid">'+[2,3,4,5,6,7,8,9].map(function(n){return '<button class="b pri" onclick="mprac('+n+')">'+n+'</button>'}).join('')+'</div></div><div class="c"><button class="b" onclick="mstart(\'weak\')">🎯 弱點加強（'+wk.length+'題待過關）</button><small>答錯的算式會常出現，連續答對 3 次才算過關。</small><button class="b" onclick="mstart(\'test\')">📝 隨堂測驗（20題）</button><small>用數字鍵盤輸入答案，答對會念出算式。</small></div><div class="c"><b>最近常錯</b><br>'+(wk.length?wk.slice(0,8).map(function(q){return '<span class="chip">'+q.a+'×'+q.b+' ×'+p.st[q.q].w+'</span>'}).join(''):'<small>還沒有錯題紀錄</small>')+'<br><b>成績紀錄</b><br>'+(H.length?H.slice(-5).reverse().map(function(h){return h.d+'　'+h.s+' 分'}).join('<br>'):'<small>還沒考過</small>')+'<div style="margin-top:10px">'+sndBtn()+'</div>'+spdBar()+'<small>沒聽到聲音時，請檢查音量和靜音鍵。</small></div>');scr='mroom'}
-function mprac(n){lpStop();mp={n:n,i:0,loop:0};mpv()}
+show(nav()+'<h1>✖️ 九九乘法教室</h1><div class="c"><b>✏️ 互動練習</b><br><small>選一個數字開始。點一下螢幕，就會念出算式並顯示答案。</small><div class="mgrid">'+[2,3,4,5,6,7,8,9].map(function(n){return '<button class="b pri" onclick="mprac('+n+')">'+n+'</button>'}).join('')+'</div></div><div class="c"><b>🔁 循環播放（可複選）</b><br><small>勾選想聽的數字，會依序一個接一個念，念完再從頭開始，直到按停止。</small><div style="text-align:center;margin:6px 0">'+[2,3,4,5,6,7,8,9].map(function(n){return '<span id="ls'+n+'" class="chip lsn'+(LS.indexOf(n)>-1?' on':'')+'" onclick="lsTog('+n+')">'+n+'</span>'}).join('')+'</div><div class="row"><button class="b" onclick="lsAll()">全選 2～9</button><button class="b" onclick="lsClr()">全部取消</button></div><button class="b pri" id="lsgo" onclick="mloop()">'+(LS.length?'▶ 開始循環播放（'+lsLabel()+'）':'請先選數字')+'</button></div><div class="c"><button class="b" onclick="mstart(\'weak\')">🎯 弱點加強（'+wk.length+'題待過關）</button><small>答錯的算式會常出現，連續答對 3 次才算過關。</small><button class="b" onclick="mstart(\'test\')">📝 隨堂測驗（20題）</button><small>用數字鍵盤輸入答案，答對會念出算式。</small></div><div class="c"><b>最近常錯</b><br>'+(wk.length?wk.slice(0,8).map(function(q){return '<span class="chip">'+q.a+'×'+q.b+' ×'+p.st[q.q].w+'</span>'}).join(''):'<small>還沒有錯題紀錄</small>')+'<br><b>成績紀錄</b><br>'+(H.length?H.slice(-5).reverse().map(function(h){return h.d+'　'+h.s+' 分'}).join('<br>'):'<small>還沒考過</small>')+'<div style="margin-top:10px">'+sndBtn()+'</div>'+spdBar()+'<small>沒聽到聲音時，請檢查音量和靜音鍵。</small></div>');scr='mroom'}
+function mprac(n){lpStop();mp={n:n,i:0,loop:0,ns:[n],ni:0};mpv()}
+var LS=(function(){try{var a=JSON.parse(localStorage.getItem('sch_ls'));if(Array.isArray(a)){a=a.filter(function(x){return x>=2&&x<=9});if(a.length)return a}}catch(e){}return[2]})();
+function lsSave(){try{localStorage.setItem('sch_ls',JSON.stringify(LS))}catch(e){}}
+function lsLabel(){var a=LS.slice().sort(function(x,y){return x-y});return a.length==8?'2～9 全部':a.join('、')}
+function lsUi(){for(var n=2;n<=9;n++){var e=document.getElementById('ls'+n);if(e)e.className='chip lsn'+(LS.indexOf(n)>-1?' on':'')}var g=document.getElementById('lsgo');if(g){g.textContent=LS.length?'▶ 開始循環播放（'+lsLabel()+'）':'請先選數字';g.disabled=!LS.length}}
+function lsTog(n){var i=LS.indexOf(n);if(i>-1)LS.splice(i,1);else LS.push(n);lsSave();lsUi()}
+function lsAll(){LS=[2,3,4,5,6,7,8,9];lsSave();lsUi()}
+function lsClr(){LS=[];lsSave();lsUi()}
+function mloop(){if(!LS.length)return;if(!SND){alert('聲音目前是關閉的，請先按「🔊 聲音」打開。');return}var ns=LS.slice().sort(function(x,y){return x-y});lpStop();mp={n:ns[0],i:0,loop:1,ns:ns,ni:0};lpStep(++LPT,1)}
 var LPT=0;
 function lpStop(){LPT++;if(mp)mp.loop=0;try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(e){}}
-function lpToggle(){if(!mp)return;if(mp.loop){lpStop();return mpv()}if(!SND){alert('聲音目前是關閉的，請先按「🔊 聲音」打開。');return}mp.loop=1;mp.i=0;lpStep(++LPT,1)}
-function lpStep(t,k){if(t!==LPT||!mp||!mp.loop)return;mp.i=k;mpv();var done=0,go=function(){if(done||t!==LPT)return;done=1;setTimeout(function(){lpStep(t,k%9+1)},700)};speak(msay(mp.n,k),go);setTimeout(go,7000)}
+function lpToggle(){if(!mp)return;if(mp.loop){lpStop();return mpv()}if(!SND){alert('聲音目前是關閉的，請先按「🔊 聲音」打開。');return}if(mp.ns&&mp.ns.length>1){mp.ni=0;mp.n=mp.ns[0]}mp.loop=1;mp.i=0;lpStep(++LPT,1)}
+function lpStep(t,k){if(t!==LPT||!mp||!mp.loop)return;mp.i=k;mpv();var done=0,go=function(){if(done||t!==LPT)return;done=1;var sw=k==9&&mp.ns&&mp.ns.length>1;setTimeout(function(){if(t!==LPT||!mp||!mp.loop)return;if(sw){mp.ni=(mp.ni+1)%mp.ns.length;mp.n=mp.ns[mp.ni]}lpStep(t,k%9+1)},sw?1200:700)};speak(msay(mp.n,k),go);setTimeout(go,7000)}
 document.addEventListener('visibilitychange',function(){if(document.hidden&&mp&&mp.loop){lpStop();mpv()}});
 function mpv(){var n=mp.n,i=mp.i,lp=mp.loop,r='',b;for(b=1;b<=9;b++)r+='<div class="mrow'+(b==i?' cur':'')+'"><span>'+n+' × '+b+' =</span><span class="ma">'+(b<=i?n*b:'')+'</span></div>';
-inPv=1;show('<div onclick="mtap()" style="min-height:85vh;touch-action:manipulation"><div class="c"><div class="row" style="align-items:center"><button class="chip" style="flex:0 0 auto" onclick="event.stopPropagation();mroom()">✖ 退出</button><span></span>'+sndBtn()+'</div><h2>'+n+' 的乘法</h2><button class="b'+(lp?' pri':'')+'" style="min-height:56px;font-size:20px" onclick="event.stopPropagation();lpToggle()">'+(lp?'⏹ 循環播放中…點一下停止':'🔁 循環播放：關（點一下開始）')+'</button>'+spdBar()+(i<9&&!lp?'<div class="hintline" style="text-align:center"><small>👆 或點一下螢幕，念出算式並顯示答案</small></div>':'')+r+(i>=9&&!lp?'<div class="big" style="font-size:28px">🎉 '+n+' 的乘法完成！</div>'+(n<9?'<button class="b pri" onclick="event.stopPropagation();mprac('+(n+1)+')">➜ 練習 '+(n+1)+' 的乘法</button>':'')+'<button class="b" onclick="event.stopPropagation();mprac('+n+')">↺ 再練一次</button><button class="b" onclick="event.stopPropagation();mroom()">回九九乘法教室</button>':'')+'</div></div>');inPv=0}
+inPv=1;show('<div onclick="mtap()" style="min-height:85vh;touch-action:manipulation"><div class="c"><div class="row" style="align-items:center"><button class="chip" style="flex:0 0 auto" onclick="event.stopPropagation();mroom()">✖ 退出</button><span></span>'+sndBtn()+'</div><h2>'+n+' 的乘法</h2>'+(mp.ns&&mp.ns.length>1?'<div style="text-align:center"><small>循環範圍：'+(mp.ns.length==8?'2～9 全部':mp.ns.join('、'))+'</small></div>':'')+'<button class="b'+(lp?' pri':'')+'" style="min-height:56px;font-size:20px" onclick="event.stopPropagation();lpToggle()">'+(lp?'⏹ 循環播放中…點一下停止':'🔁 循環播放：關（點一下開始）')+'</button>'+spdBar()+(i<9&&!lp?'<div class="hintline" style="text-align:center"><small>👆 或點一下螢幕，念出算式並顯示答案</small></div>':'')+r+(i>=9&&!lp?'<div class="big" style="font-size:28px">🎉 '+n+' 的乘法完成！</div>'+(n<9?'<button class="b pri" onclick="event.stopPropagation();mprac('+(n+1)+')">➜ 練習 '+(n+1)+' 的乘法</button>':'')+'<button class="b" onclick="event.stopPropagation();mprac('+n+')">↺ 再練一次</button><button class="b" onclick="event.stopPropagation();mroom()">回九九乘法教室</button>':'')+'</div></div>');inPv=0}
 function mtap(){if(!mp||mp.loop||mp.i>=9)return;mp.i++;speak(msay(mp.n,mp.i));mpv()}
 function mstart(m){var pool=m=='weak'?mweak():mall();if(!pool.length)return alert('目前沒有待加強的算式，太棒了！可以去做隨堂測驗。');mq={m:m,qs:pick(pool,m=='test'?20:10),i:0,ok:0,wr:[],buf:'',k:-1};lpStop();mp=null;mqv()}
 function mqv(){var z=mq,q=z.qs[z.i],done=z.k>-1,dis=done?' disabled':'',kp='',fb='';
@@ -435,18 +732,18 @@ if(!confirm(z.m=='test'?'要中途退出嗎？\n已答對的題目會換成分�
 if(!n){quiz=null;return room()}
 var b=z.m=='test'?z.ok*5:z.ok*10;if(z.m=='test'){p.pts+=b;p.tot+=b}
 quiz=null;sv(1);
-show('<h1>👋 下次再繼續</h1><div class="c"><div class="big">'+z.ok+' / '+n+'</div><p style="text-align:center">已完成 '+n+' 題，答對 '+z.ok+' 題，獲得 '+b+' 分'+(z.m=='test'?'<br><small>中途退出，這次不記入模擬考成績</small>':'')+'</p>'+(z.wr.length?'<b>要再複習：</b><br>'+z.wr.map(function(q){return '・'+plain(q.q)+' → <b>'+esc(q.c[q.a])+'</b>'+(q.h?'<br><small>📝 '+esc(q.h)+'</small>':'')}).join('<br>'):'')+'</div><button class="b pri" onclick="room()">回'+SUBS[sub].n+'</button>'+nav())}
+show('<h1>👋 下次再繼續</h1><div class="c"><div class="big">'+z.ok+' / '+n+'</div><p style="text-align:center">已完成 '+n+' 題，答對 '+z.ok+' 題，獲得 '+b+' 分'+(z.m=='test'?'<br><small>中途退出，這次不記入模擬考成績</small>':'')+'</p>'+(z.wr.length?'<b>要再複習：</b><br>'+z.wr.map(function(q){return '・'+plain(q.q)+' → <b>'+ol(q.c[q.a])+'</b>'+(q.h?'<br><small>📝 '+esc(q.h)+'</small>':'')}).join('<br>'):'')+'</div><button class="b pri" onclick="room()">回'+SUBS[sub].n+'</button>'+nav())}
 function room(s){if(s)sub=s;var p=P(),SB=SUBS[sub],sel=sels[sub],pool=Q.filter(function(q){return q.s==sub&&sel.indexOf(q.l)>-1}),wk=Q.filter(function(q){return q.s==sub&&weak(q)}),tg={};Object.keys(p.st).forEach(function(k){var q=Q.filter(function(x){return x.q==k})[0];if(q&&q.s==sub&&p.st[k].w)tg[q.g]=(tg[q.g]||0)+p.st[k].w});var tl=Object.keys(tg).sort(function(a,b){return tg[b]-tg[a]}).slice(0,8);
 show(nav()+'<h1>'+SB.ic+' '+SB.n+'</h1><div class="c"><b>選'+SB.w+'別</b><br>'+SB.u.map(function(n){return '<span class="chip '+(sel.indexOf(n)>-1?'on':'')+'" onclick="tg('+n+')">第'+n+SB.w+'</span>'}).join('')+'<button class="b pri" onclick="start(\'prac\')">✏️ 互動練習（'+pool.length+'題可選）</button></div><div class="c"><button class="b" onclick="start(\'weak\')">🎯 弱點加強（'+wk.length+'題待過關）</button><small>答錯的題目會常出現，連續答對 3 次才算過關。</small><button class="b" onclick="start(\'test\')">📝 模擬期中考（20題）</button></div><div class="c"><b>最近常錯</b><br>'+(tl.length?tl.map(function(t){return '<span class="chip">'+t+' ×'+tg[t]+'</span>'}).join(''):'<small>還沒有錯題紀錄</small>')+'<br><b>成績紀錄</b><br>'+(hl().length?hl().slice(-5).reverse().map(function(h){return h.d+'　'+h.s+' 分'}).join('<br>'):'<small>還沒考過</small>')+'</div>')}
 function tg(n){var sel=sels[sub],i=sel.indexOf(n);if(i>-1&&sel.length>1)sel.splice(i,1);else if(i<0)sel.push(n);room()}
 function start(m){var p=P(),sel=sels[sub],pool,ins=function(q){return q.s==sub&&sel.indexOf(q.l)>-1};if(m=='test')pool=Q.filter(function(q){return q.s==sub});else if(m=='weak'){pool=Q.filter(function(q){return q.s==sub&&weak(q)});if(!pool.length){pool=Q.filter(ins)}}else pool=Q.filter(ins);if(!pool.length)return;
 quiz={m:m,qs:pick(pool,m=='test'?20:10),i:0,ok:0,wr:[],o:null,k:-1};qv()}
 function qv(){var z=quiz,q=z.qs[z.i];if(!z.o)z.o=shuf(q.c.map(function(x,i){return[x,i==q.a]}));var done=z.k>-1;
-show('<div class="c"><div style="text-align:right;margin-bottom:-6px"><button class="chip" onclick="qx()">✖ 退出</button></div><small>'+(z.m=='test'?'模擬考':z.m=='weak'?'弱點加強':'互動練習')+'　第 '+(z.i+1)+' / '+z.qs.length+' 題</small><progress value="'+z.i+'" max="'+z.qs.length+'"></progress><div class="big'+(q.q.replace(/\[\[[^\]]*\]\]/g,'').length>16?' long':'')+'">'+fmt(q.q)+'</div>'+z.o.map(function(o,k){var c='';if(done&&z.m!='test'){if(o[1])c='ok';else if(k==z.k)c='bad'}return '<button class="b opt'+(o[0].length>14?' sm':'')+' '+c+'" '+(done?'disabled':'')+' onclick="ans('+k+')">'+esc(o[0])+'</button>'}).join('')+(done&&z.m!='test'?'<div style="text-align:center">'+(z.o[z.k][1]?'🎉 答對了！+10 分':'💡 再記一次，答案是「'+esc(q.c[q.a])+'」')+'</div>'+(q.h?'<div class="hint">📝 '+esc(q.h)+'</div>':'')+'<button class="b pri opt" onclick="nx()">下一題 ➜</button>':'')+'</div>')}
-function ans(k){var z=quiz,q=z.qs[z.i],p=P(),r=z.o[k][1],s=p.st[q.q]||(p.st[q.q]={r:0,w:0,s:0});if(z.k>-1)return;z.k=k;if(r){z.ok++;s.r++;s.s++;if(z.m!='test'){p.pts+=10;p.tot+=10}}else{s.w++;s.s=0;z.wr.push(q)}sv(1);if(z.m=='test')nx();else qv()}
+show('<div class="c"><div style="text-align:right;margin-bottom:-6px"><button class="chip" onclick="qx()">✖ 退出</button></div><small>'+(z.m=='test'?'模擬考':z.m=='weak'?'弱點加強':'互動練習')+'　第 '+(z.i+1)+' / '+z.qs.length+' 題</small><progress value="'+z.i+'" max="'+z.qs.length+'"></progress><div class="big'+(q.s=='eng'?' en':'')+(q.q.replace(/\[\[[^\]]*\]\]/g,'').length>16?' long':'')+'">'+fmt(q.q)+'</div>'+z.o.map(function(o,k){var c='';if(done&&z.m!='test'){if(o[1])c='ok';else if(k==z.k)c='bad'}return '<button class="b opt'+(o[0].length>14?' sm':'')+(q.s=='eng'?' en':'')+(o[0].indexOf('pic:')==0?' pc':'')+' '+c+'" '+(done?'disabled':'')+' onclick="ans('+k+')">'+ol(o[0])+'</button>'}).join('')+(done&&z.m!='test'?'<div style="text-align:center">'+(z.o[z.k][1]?'🎉 答對了！+10 分':'💡 再記一次，答案是「'+ol(q.c[q.a])+'」')+'</div>'+(q.h?'<div class="hint">📝 '+esc(q.h)+'</div>':'')+'<button class="b pri opt" onclick="nx()">下一題 ➜</button>':'')+'</div>')}
+function ans(k){var z=quiz,q=z.qs[z.i],p=P(),r=z.o[k][1],s=p.st[q.q]||(p.st[q.q]={r:0,w:0,s:0});if(z.k>-1)return;z.k=k;if(r){z.ok++;s.r++;s.s++;if(z.m!='test'){p.pts+=10;p.tot+=10}}else{s.w++;s.s=0;z.wr.push(q)}if(q.s=='eng'&&z.m!='test'){var w=q.c[q.a];if(!/[\u4e00-\u9fff]/.test(w))espeak(w.indexOf('pic:')==0?q.g:w)}sv(1);if(z.m=='test')nx();else qv()}
 function nx(){var z=quiz;z.i++;z.k=-1;z.o=null;if(z.i<z.qs.length)return qv();fin()}
 function fin(){var z=quiz,p=P(),n=z.qs.length,sc=Math.round(z.ok/n*100),b=0,h='';if(z.m=='test'){b=z.ok*5+(sc>=90?30:0);p.pts+=b;p.tot+=b;var d=new Date();p.hist.push({d:(d.getMonth()+1)+'/'+d.getDate(),s:sc,t:Date.now()});h='<div class="big">'+sc+' 分</div><p style="text-align:center">答對 '+z.ok+' / '+n+' 題，獲得 '+b+' 分'+(sc>=90?'（滿分獎勵 +30）':'')+'</p>'}else{h='<div class="big">'+z.ok+' / '+n+'</div><p style="text-align:center">本次練習獲得 '+z.ok*10+' 分</p>'}
-sv(1);show('<h1>'+(sc>=90?'🌟 太棒了！':'💪 繼續加油！')+'</h1><div class="c">'+h+(z.wr.length?'<b>要再複習：</b><br>'+z.wr.map(function(q){return '・'+plain(q.q)+' → <b>'+esc(q.c[q.a])+'</b>'+(q.h?'<br><small>📝 '+esc(q.h)+'</small>':'')}).join('<br>'):'<p style="text-align:center">全部答對！</p>')+'</div><button class="b pri" onclick="room()">回'+SUBS[sub].n+'</button>'+nav())}
+sv(1);show('<h1>'+(sc>=90?'🌟 太棒了！':'💪 繼續加油！')+'</h1><div class="c">'+h+(z.wr.length?'<b>要再複習：</b><br>'+z.wr.map(function(q){return '・'+plain(q.q)+' → <b>'+ol(q.c[q.a])+'</b>'+(q.h?'<br><small>📝 '+esc(q.h)+'</small>':'')}).join('<br>'):'<p style="text-align:center">全部答對！</p>')+'</div><button class="b pri" onclick="room()">回'+SUBS[sub].n+'</button>'+nav())}
 function shop(){var p=P();show(nav()+'<h1>🎁 獎勵商店</h1><div class="c">⭐ 目前 '+p.pts+' 分<br><small>兌換後會產生獎勵券，請家長確認後再領取文具。</small>'+(SH().length?SH().map(function(s,i){return '<button class="b" '+(p.pts<s[1]?'disabled':'')+' onclick="buy('+i+')">'+esc(s[0])+'　⭐'+s[1]+'</button>'}).join(''):'<br><small>目前沒有商品，請家長到「家長」頁新增。</small>')+'</div>')}
 function buy(i){var p=P(),s=SH()[i];if(!s||p.pts<s[1])return;p.pts-=s[1];p.tix.push({n:s[0],d:new Date().toLocaleDateString('zh-TW'),done:0,t:Date.now()});sv(1);shop()}
 /* ===== 家長密碼（4 位數字；只存雜湊，兩台裝置同步） ===== */
