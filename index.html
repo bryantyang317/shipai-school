@@ -59,7 +59,7 @@ small{opacity:.75}
 .one{width:13px;height:13px;border:2px solid var(--ink);background:#f4a0a0}
 .ruler{display:block;margin:6px auto;max-width:100%;height:auto;color:var(--ink)}
 .pic{font-size:88px;text-align:center;line-height:1.25;margin:4px 0}.pic svg{height:88px;width:88px;vertical-align:middle}
-.pi{font-size:56px;line-height:1.2}.pi svg{height:56px;width:56px;vertical-align:middle}
+.pic img.pim{max-height:150px;max-width:78%;border-radius:14px;object-fit:contain;vertical-align:middle;-webkit-user-drag:none}.pi img.pim{max-height:84px;max-width:100%;border-radius:10px;object-fit:contain;vertical-align:middle}.b.opt.pc{display:flex;align-items:center;justify-content:center}.pi{font-size:56px;line-height:1.2}.pi svg{height:56px;width:56px;vertical-align:middle}
 .b.opt.en{font-family:Arial,'Helvetica Neue',Helvetica,sans-serif}.b.opt.pc{font-size:56px;min-height:104px;padding:6px}
 .big.en{font-family:Arial,'Helvetica Neue',Helvetica,sans-serif}
 .chip.lsn{font-size:28px;min-width:54px;text-align:center;padding:6px 12px;margin:4px}
@@ -573,22 +573,486 @@ var RAW=`3|形|小＿子很長，我們慢慢走進去。|巷/卷/券|0|巷
 3|課文|「zone」是什麼意思？|區域/動物/玩具|0|zone|eng|課本：zone 區域（3D Printing Zone）。
 3|課文|歌曲 What's This? 裡，R-o-b-o-t 拼出哪個字？|robot/rabbit/rocket|0|robot|eng|歌詞：R-o-b-o-t, R-o-b-o-t, R-o-b-o-t. It's my robot.
 3|課文|歌曲 What's This? 的歌詞：It's my robot. It's so ＿＿!|cool/red/sorry|0|cool|eng|歌詞：It's my robot. It's so cool!（曲調：Bingo）
-3|課文|歌曲 What's This? 的曲調是哪一首？|Bingo/Jingle Bells/Happy Birthday|0|Bingo|eng|課本：Tune: Bingo。`;
+3|課文|歌曲 What's This? 的曲調是哪一首？|Bingo/Jingle Bells/Happy Birthday|0|Bingo|eng|課本：Tune: Bingo。
+1|數字|[[pic:one]]這個數字怎麼說？|one/two/five|0|one|eng|one（一）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|哪一張圖是數字 one？|pic:one/pic:five/pic:two|0|one|eng|one（一）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|聽音|[[say:one]]聽一聽，你聽到哪個數字？|one/five/two|0|one|eng|one（一）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|[[pic:two]]這個數字怎麼說？|two/three/six|0|two|eng|two（二）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|哪一張圖是數字 two？|pic:two/pic:six/pic:three|0|two|eng|two（二）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|聽音|[[say:two]]聽一聽，你聽到哪個數字？|two/six/three|0|two|eng|two（二）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|[[pic:three]]這個數字怎麼說？|three/four/seven|0|three|eng|three（三）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|哪一張圖是數字 three？|pic:three/pic:seven/pic:four|0|three|eng|three（三）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|聽音|[[say:three]]聽一聽，你聽到哪個數字？|three/seven/four|0|three|eng|three（三）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|[[pic:four]]這個數字怎麼說？|four/five/eight|0|four|eng|four（四）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|哪一張圖是數字 four？|pic:four/pic:eight/pic:five|0|four|eng|four（四）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|聽音|[[say:four]]聽一聽，你聽到哪個數字？|four/eight/five|0|four|eng|four（四）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|[[pic:five]]這個數字怎麼說？|five/six/nine|0|five|eng|five（五）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|哪一張圖是數字 five？|pic:five/pic:nine/pic:six|0|five|eng|five（五）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|聽音|[[say:five]]聽一聽，你聽到哪個數字？|five/nine/six|0|five|eng|five（五）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|[[pic:six]]這個數字怎麼說？|six/seven/ten|0|six|eng|six（六）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|哪一張圖是數字 six？|pic:six/pic:ten/pic:seven|0|six|eng|six（六）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|聽音|[[say:six]]聽一聽，你聽到哪個數字？|six/ten/seven|0|six|eng|six（六）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|[[pic:seven]]這個數字怎麼說？|seven/eight/one|0|seven|eng|seven（七）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|哪一張圖是數字 seven？|pic:seven/pic:one/pic:eight|0|seven|eng|seven（七）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|聽音|[[say:seven]]聽一聽，你聽到哪個數字？|seven/one/eight|0|seven|eng|seven（七）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|[[pic:eight]]這個數字怎麼說？|eight/nine/two|0|eight|eng|eight（八）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|哪一張圖是數字 eight？|pic:eight/pic:two/pic:nine|0|eight|eng|eight（八）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|聽音|[[say:eight]]聽一聽，你聽到哪個數字？|eight/two/nine|0|eight|eng|eight（八）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|[[pic:nine]]這個數字怎麼說？|nine/ten/three|0|nine|eng|nine（九）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|哪一張圖是數字 nine？|pic:nine/pic:three/pic:ten|0|nine|eng|nine（九）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|聽音|[[say:nine]]聽一聽，你聽到哪個數字？|nine/three/ten|0|nine|eng|nine（九）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|[[pic:ten]]這個數字怎麼說？|ten/one/four|0|ten|eng|ten（十）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|哪一張圖是數字 ten？|pic:ten/pic:four/pic:one|0|ten|eng|ten（十）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|聽音|[[say:ten]]聽一聽，你聽到哪個數字？|ten/four/one|0|ten|eng|ten（十）。課本 Numbers／Vocabulary：one two three four five six seven eight nine ten。
+1|數字|[[pic:c1]]數一數，有幾個？|one/two/five|0|one|eng|有 1 個，是 one。課本 Numbers：1 one、2 two、3 three、4 four、5 five。
+1|數字|[[pic:c2]]數一數，有幾個？|two/three/one|0|two|eng|有 2 個，是 two。課本 Numbers：1 one、2 two、3 three、4 four、5 five。
+1|數字|[[pic:c3]]數一數，有幾個？|three/four/two|0|three|eng|有 3 個，是 three。課本 Numbers：1 one、2 two、3 three、4 four、5 five。
+1|數字|[[pic:c4]]數一數，有幾個？|four/five/three|0|four|eng|有 4 個，是 four。課本 Numbers：1 one、2 two、3 three、4 four、5 five。
+1|數字|[[pic:c5]]數一數，有幾個？|five/one/four|0|five|eng|有 5 個，是 five。課本 Numbers：1 one、2 two、3 three、4 four、5 five。
+1|句型|[[pic:one]]（你的年紀如圖）How old are you?|I'm one./I'm two./I'm five.|0|one|eng|課本 Sentences：How old are you? I'm nine. / I'm nine years old.（I'm = I am）
+1|句型|[[pic:six]]（你的年紀如圖）How old are you?|I'm six./I'm seven./I'm ten.|0|six|eng|課本 Sentences：How old are you? I'm nine. / I'm nine years old.（I'm = I am）
+1|句型|[[pic:seven]]（你的年紀如圖）How old are you?|I'm seven./I'm eight./I'm one.|0|seven|eng|課本 Sentences：How old are you? I'm nine. / I'm nine years old.（I'm = I am）
+1|句型|[[pic:eight]]（你的年紀如圖）How old are you?|I'm eight./I'm nine./I'm two.|0|eight|eng|課本 Sentences：How old are you? I'm nine. / I'm nine years old.（I'm = I am）
+1|句型|[[pic:nine]]（你的年紀如圖）How old are you?|I'm nine./I'm ten./I'm three.|0|nine|eng|課本 Sentences：How old are you? I'm nine. / I'm nine years old.（I'm = I am）
+1|句型|[[pic:ten]]（你的年紀如圖）How old are you?|I'm ten./I'm one./I'm four.|0|ten|eng|課本 Sentences：How old are you? I'm nine. / I'm nine years old.（I'm = I am）
+1|句型|[[pic:six]]How old are you? 要用完整的說法回答：|I'm six years old./I'm seven years old./I'm ten years old.|0|six|eng|課本 Sentences：I'm nine years old.
+1|句型|[[pic:seven]]How old are you? 要用完整的說法回答：|I'm seven years old./I'm eight years old./I'm one years old.|0|seven|eng|課本 Sentences：I'm nine years old.
+1|句型|[[pic:eight]]How old are you? 要用完整的說法回答：|I'm eight years old./I'm nine years old./I'm two years old.|0|eight|eng|課本 Sentences：I'm nine years old.
+1|句型|[[pic:nine]]How old are you? 要用完整的說法回答：|I'm nine years old./I'm ten years old./I'm three years old.|0|nine|eng|課本 Sentences：I'm nine years old.
+1|句型|[[pic:ten]]How old are you? 要用完整的說法回答：|I'm ten years old./I'm one years old./I'm four years old.|0|ten|eng|課本 Sentences：I'm nine years old.
+1|看圖|[[pic:ant]]這是什麼？|ant/apple/cat|0|ant|eng|ant（螞蟻）。課本 Phonics：Aa。
+1|聽音|[[say:ant]]聽一聽，哪一張圖是你聽到的？|pic:ant/pic:cat/pic:apple|0|ant|eng|ant（螞蟻）。課本 Phonics：Aa。
+1|字母|[[pic:ant]]這個單字的開頭字母是哪一個？|a/e/o|0|ant|eng|ant（螞蟻）。課本 Phonics：Aa。
+1|看圖|[[pic:apple]]這是什麼？|apple/bed/cab|0|apple|eng|apple（蘋果）。課本 Phonics：Aa。
+1|聽音|[[say:apple]]聽一聽，哪一張圖是你聽到的？|pic:apple/pic:cab/pic:bed|0|apple|eng|apple（蘋果）。課本 Phonics：Aa。
+1|字母|[[pic:apple]]這個單字的開頭字母是哪一個？|a/e/o|0|apple|eng|apple（蘋果）。課本 Phonics：Aa。
+1|看圖|[[pic:bed]]這是什麼？|bed/bag/duck|0|bed|eng|bed（床）。課本 Phonics：Bb。
+1|聽音|[[say:bed]]聽一聽，哪一張圖是你聽到的？|pic:bed/pic:duck/pic:bag|0|bed|eng|bed（床）。課本 Phonics：Bb。
+1|字母|[[pic:bed]]這個單字的開頭字母是哪一個？|b/d/p|0|bed|eng|bed（床）。課本 Phonics：Bb。
+1|看圖|[[pic:bag]]這是什麼？|bag/cat/dad|0|bag|eng|bag（袋子）。課本 Phonics：Bb。
+1|聽音|[[say:bag]]聽一聽，哪一張圖是你聽到的？|pic:bag/pic:dad/pic:cat|0|bag|eng|bag（袋子）。課本 Phonics：Bb。
+1|字母|[[pic:bag]]這個單字的開頭字母是哪一個？|b/d/p|0|bag|eng|bag（袋子）。課本 Phonics：Bb。
+1|看圖|[[pic:cat]]這是什麼？|cat/cab/egg|0|cat|eng|cat（貓）。課本 Phonics：Cc。
+1|聽音|[[say:cat]]聽一聽，哪一張圖是你聽到的？|pic:cat/pic:egg/pic:cab|0|cat|eng|cat（貓）。課本 Phonics：Cc。
+1|字母|[[pic:cat]]這個單字的開頭字母是哪一個？|c/e/k|0|cat|eng|cat（貓）。課本 Phonics：Cc。
+1|看圖|[[pic:cab]]這是什麼？|cab/duck/elephant|0|cab|eng|cab（計程車）。課本 Phonics：Cc。
+1|聽音|[[say:cab]]聽一聽，哪一張圖是你聽到的？|pic:cab/pic:elephant/pic:duck|0|cab|eng|cab（計程車）。課本 Phonics：Cc。
+1|字母|[[pic:cab]]這個單字的開頭字母是哪一個？|c/e/k|0|cab|eng|cab（計程車）。課本 Phonics：Cc。
+1|看圖|[[pic:duck]]這是什麼？|duck/dad/fish|0|duck|eng|duck（鴨子）。課本 Phonics：Dd。
+1|聽音|[[say:duck]]聽一聽，哪一張圖是你聽到的？|pic:duck/pic:fish/pic:dad|0|duck|eng|duck（鴨子）。課本 Phonics：Dd。
+1|字母|[[pic:duck]]這個單字的開頭字母是哪一個？|d/b/t|0|duck|eng|duck（鴨子）。課本 Phonics：Dd。
+1|看圖|[[pic:dad]]這是什麼？|dad/egg/fan|0|dad|eng|dad（爸爸）。課本 Phonics：Dd。
+1|聽音|[[say:dad]]聽一聽，哪一張圖是你聽到的？|pic:dad/pic:fan/pic:egg|0|dad|eng|dad（爸爸）。課本 Phonics：Dd。
+1|字母|[[pic:dad]]這個單字的開頭字母是哪一個？|d/b/t|0|dad|eng|dad（爸爸）。課本 Phonics：Dd。
+1|看圖|[[pic:egg]]這是什麼？|egg/elephant/goat|0|egg|eng|egg（蛋）。課本 Phonics：Ee。
+1|聽音|[[say:egg]]聽一聽，哪一張圖是你聽到的？|pic:egg/pic:goat/pic:elephant|0|egg|eng|egg（蛋）。課本 Phonics：Ee。
+1|字母|[[pic:egg]]這個單字的開頭字母是哪一個？|e/c/a|0|egg|eng|egg（蛋）。課本 Phonics：Ee。
+1|看圖|[[pic:elephant]]這是什麼？|elephant/fish/hat|0|elephant|eng|elephant（大象）。課本 Phonics：Ee。
+1|聽音|[[say:elephant]]聽一聽，哪一張圖是你聽到的？|pic:elephant/pic:hat/pic:fish|0|elephant|eng|elephant（大象）。課本 Phonics：Ee。
+1|字母|[[pic:elephant]]這個單字的開頭字母是哪一個？|e/c/a|0|elephant|eng|elephant（大象）。課本 Phonics：Ee。
+1|看圖|[[pic:fish]]這是什麼？|fish/fan/ham|0|fish|eng|fish（魚）。課本 Phonics：Ff。
+1|聽音|[[say:fish]]聽一聽，哪一張圖是你聽到的？|pic:fish/pic:ham/pic:fan|0|fish|eng|fish（魚）。課本 Phonics：Ff。
+1|字母|[[pic:fish]]這個單字的開頭字母是哪一個？|f/g/v|0|fish|eng|fish（魚）。課本 Phonics：Ff。
+1|看圖|[[pic:fan]]這是什麼？|fan/goat/igloo|0|fan|eng|fan（電風扇）。課本 Phonics：Ff。
+1|聽音|[[say:fan]]聽一聽，哪一張圖是你聽到的？|pic:fan/pic:igloo/pic:goat|0|fan|eng|fan（電風扇）。課本 Phonics：Ff。
+1|字母|[[pic:fan]]這個單字的開頭字母是哪一個？|f/g/v|0|fan|eng|fan（電風扇）。課本 Phonics：Ff。
+1|看圖|[[pic:goat]]這是什麼？|goat/hat/ink|0|goat|eng|goat（山羊）。課本 Phonics：Gg。
+1|聽音|[[say:goat]]聽一聽，哪一張圖是你聽到的？|pic:goat/pic:ink/pic:hat|0|goat|eng|goat（山羊）。課本 Phonics：Gg。
+1|字母|[[pic:goat]]這個單字的開頭字母是哪一個？|g/q/j|0|goat|eng|goat（山羊）。課本 Phonics：Gg。
+1|字母|「gap」的開頭字母是哪一個？|g/q/j|0|gap|eng|gap（縫隙）。課本 Phonics：Gg。
+1|看圖|[[pic:hat]]這是什麼？|hat/ham/jam|0|hat|eng|hat（帽子）。課本 Phonics：Hh。
+1|聽音|[[say:hat]]聽一聽，哪一張圖是你聽到的？|pic:hat/pic:jam/pic:ham|0|hat|eng|hat（帽子）。課本 Phonics：Hh。
+1|字母|[[pic:hat]]這個單字的開頭字母是哪一個？|h/g/n|0|hat|eng|hat（帽子）。課本 Phonics：Hh。
+1|看圖|[[pic:ham]]這是什麼？|ham/igloo/jet|0|ham|eng|ham（火腿）。課本 Phonics：Hh。
+1|聽音|[[say:ham]]聽一聽，哪一張圖是你聽到的？|pic:ham/pic:jet/pic:igloo|0|ham|eng|ham（火腿）。課本 Phonics：Hh。
+1|字母|[[pic:ham]]這個單字的開頭字母是哪一個？|h/g/n|0|ham|eng|ham（火腿）。課本 Phonics：Hh。
+1|看圖|[[pic:igloo]]這是什麼？|igloo/ink/ant|0|igloo|eng|igloo（冰屋）。課本 Phonics：Ii。
+1|聽音|[[say:igloo]]聽一聽，哪一張圖是你聽到的？|pic:igloo/pic:ant/pic:ink|0|igloo|eng|igloo（冰屋）。課本 Phonics：Ii。
+1|字母|[[pic:igloo]]這個單字的開頭字母是哪一個？|i/j/l|0|igloo|eng|igloo（冰屋）。課本 Phonics：Ii。
+1|看圖|[[pic:ink]]這是什麼？|ink/jam/apple|0|ink|eng|ink（墨水）。課本 Phonics：Ii。
+1|聽音|[[say:ink]]聽一聽，哪一張圖是你聽到的？|pic:ink/pic:apple/pic:jam|0|ink|eng|ink（墨水）。課本 Phonics：Ii。
+1|字母|[[pic:ink]]這個單字的開頭字母是哪一個？|i/j/l|0|ink|eng|ink（墨水）。課本 Phonics：Ii。
+1|看圖|[[pic:jam]]這是什麼？|jam/jet/bed|0|jam|eng|jam（果醬）。課本 Phonics：Jj。
+1|聽音|[[say:jam]]聽一聽，哪一張圖是你聽到的？|pic:jam/pic:bed/pic:jet|0|jam|eng|jam（果醬）。課本 Phonics：Jj。
+1|字母|[[pic:jam]]這個單字的開頭字母是哪一個？|j/g/i|0|jam|eng|jam（果醬）。課本 Phonics：Jj。
+1|看圖|[[pic:jet]]這是什麼？|jet/ant/bag|0|jet|eng|jet（噴射機）。課本 Phonics：Jj。
+1|聽音|[[say:jet]]聽一聽，哪一張圖是你聽到的？|pic:jet/pic:bag/pic:ant|0|jet|eng|jet（噴射機）。課本 Phonics：Jj。
+1|字母|[[pic:jet]]這個單字的開頭字母是哪一個？|j/g/i|0|jet|eng|jet（噴射機）。課本 Phonics：Jj。
+1|拼字|[[pic:ant]]a_t，缺哪個字母？|n/m/l|0|ant|eng|ant（螞蟻），要寫成 ant。
+1|拼字|[[pic:apple]]a_ple，缺哪個字母？|p/b/d|0|apple|eng|apple（蘋果），要寫成 apple。
+1|拼字|[[pic:bed]]b_d，缺哪個字母？|e/a/i|0|bed|eng|bed（床），要寫成 bed。
+1|拼字|[[pic:bag]]b_g，缺哪個字母？|a/e/o|0|bag|eng|bag（袋子），要寫成 bag。
+1|拼字|[[pic:cat]]c_t，缺哪個字母？|a/o/u|0|cat|eng|cat（貓），要寫成 cat。
+1|拼字|[[pic:cab]]c_b，缺哪個字母？|a/o/u|0|cab|eng|cab（計程車），要寫成 cab。
+1|拼字|[[pic:duck]]d_ck，缺哪個字母？|u/a/o|0|duck|eng|duck（鴨子），要寫成 duck。
+1|拼字|[[pic:dad]]d_d，缺哪個字母？|a/i/o|0|dad|eng|dad（爸爸），要寫成 dad。
+1|拼字|[[pic:egg]]e_g，缺哪個字母？|g/q/j|0|egg|eng|egg（蛋），要寫成 egg。
+1|拼字|[[pic:elephant]]el_phant，缺哪個字母？|e/a/o|0|elephant|eng|elephant（大象），要寫成 elephant。
+1|拼字|[[pic:fish]]f_sh，缺哪個字母？|i/a/o|0|fish|eng|fish（魚），要寫成 fish。
+1|拼字|[[pic:fan]]f_n，缺哪個字母？|a/i/u|0|fan|eng|fan（電風扇），要寫成 fan。
+1|拼字|[[pic:goat]]g_at，缺哪個字母？|o/e/u|0|goat|eng|goat（山羊），要寫成 goat。
+1|拼字|g_p，缺哪個字母？|a/e/o|0|gap|eng|gap（縫隙），要寫成 gap。
+1|拼字|[[pic:hat]]h_t，缺哪個字母？|a/i/o|0|hat|eng|hat（帽子），要寫成 hat。
+1|拼字|[[pic:ham]]h_m，缺哪個字母？|a/i/u|0|ham|eng|ham（火腿），要寫成 ham。
+1|拼字|[[pic:igloo]]ig_oo，缺哪個字母？|l/t/j|0|igloo|eng|igloo（冰屋），要寫成 igloo。
+1|拼字|[[pic:ink]]i_k，缺哪個字母？|n/m/l|0|ink|eng|ink（墨水），要寫成 ink。
+1|拼字|[[pic:jam]]j_m，缺哪個字母？|a/i/u|0|jam|eng|jam（果醬），要寫成 jam。
+1|拼字|[[pic:jet]]j_t，缺哪個字母？|e/a/o|0|jet|eng|jet（噴射機），要寫成 jet。
+1|拼字|a ＋ b ＝ ？|ab/ba/eb|0|ab|eng|a ＋ b → ab。課本 Sound It Out。
+1|拼字|c ＋ a ＋ b ＝ ？|cab/cob/cub|0|cab|eng|c ＋ a ＋ b → cab。課本 Sound It Out。
+1|拼字|i ＋ g ＝ ？|ig/eg/ag|0|ig|eng|i ＋ g → ig。課本 Sound It Out。
+1|拼字|f ＋ i ＋ g ＝ ？|fig/fog/fag|0|fig|eng|f ＋ i ＋ g → fig。課本 Sound It Out。
+1|拼字|c ＋ a ＋ t ＝ ？|cat/cot/cut|0|cat|eng|c ＋ a ＋ t → cat。課本 Sound It Out。
+1|拼字|b ＋ e ＋ d ＝ ？|bed/bad/bid|0|bed|eng|b ＋ e ＋ d → bed。課本 Sound It Out。
+1|拼字|b ＋ a ＋ g ＝ ？|bag/big/beg|0|bag|eng|b ＋ a ＋ g → bag。課本 Sound It Out。
+1|拼字|d ＋ a ＋ d ＝ ？|dad/did/dud|0|dad|eng|d ＋ a ＋ d → dad。課本 Sound It Out。
+1|拼字|f ＋ a ＋ n ＝ ？|fan/fin/fun|0|fan|eng|f ＋ a ＋ n → fan。課本 Sound It Out。
+1|拼字|h ＋ a ＋ t ＝ ？|hat/hit/hot|0|hat|eng|h ＋ a ＋ t → hat。課本 Sound It Out。
+1|拼字|h ＋ a ＋ m ＝ ？|ham/him/hum|0|ham|eng|h ＋ a ＋ m → ham。課本 Sound It Out。
+1|拼字|j ＋ a ＋ m ＝ ？|jam/jab/jar|0|jam|eng|j ＋ a ＋ m → jam。課本 Sound It Out。
+1|拼字|j ＋ e ＋ t ＝ ？|jet/jot/jut|0|jet|eng|j ＋ e ＋ t → jet。課本 Sound It Out。
+1|字母|大寫 A 的小寫是哪一個？|a/e/o|0|a|eng|Aa：ant、apple。
+1|字母|小寫 a 的大寫是哪一個？|A/E/O|0|A|eng|Aa：ant、apple。
+1|字母|大寫 B 的小寫是哪一個？|b/d/p|0|b|eng|Bb：bed、bag。
+1|字母|小寫 b 的大寫是哪一個？|B/D/P|0|B|eng|Bb：bed、bag。
+1|字母|大寫 C 的小寫是哪一個？|c/e/k|0|c|eng|Cc：cat、cab。
+1|字母|小寫 c 的大寫是哪一個？|C/E/K|0|C|eng|Cc：cat、cab。
+1|字母|大寫 D 的小寫是哪一個？|d/b/t|0|d|eng|Dd：duck、dad。
+1|字母|小寫 d 的大寫是哪一個？|D/B/T|0|D|eng|Dd：duck、dad。
+1|字母|大寫 E 的小寫是哪一個？|e/c/a|0|e|eng|Ee：egg、elephant。
+1|字母|小寫 e 的大寫是哪一個？|E/C/A|0|E|eng|Ee：egg、elephant。
+1|字母|大寫 F 的小寫是哪一個？|f/g/v|0|f|eng|Ff：fish、fan。
+1|字母|小寫 f 的大寫是哪一個？|F/G/V|0|F|eng|Ff：fish、fan。
+1|字母|大寫 G 的小寫是哪一個？|g/q/j|0|g|eng|Gg：goat、gap。
+1|字母|小寫 g 的大寫是哪一個？|G/Q/J|0|G|eng|Gg：goat、gap。
+1|字母|大寫 H 的小寫是哪一個？|h/g/n|0|h|eng|Hh：hat、ham。
+1|字母|小寫 h 的大寫是哪一個？|H/G/N|0|H|eng|Hh：hat、ham。
+1|字母|大寫 I 的小寫是哪一個？|i/j/l|0|i|eng|Ii：igloo、ink。
+1|字母|小寫 i 的大寫是哪一個？|I/J/L|0|I|eng|Ii：igloo、ink。
+1|字母|大寫 J 的小寫是哪一個？|j/g/i|0|j|eng|Jj：jam、jet。
+1|字母|小寫 j 的大寫是哪一個？|J/G/I|0|J|eng|Jj：jam、jet。
+1|句型|有人問 What's your name? 你可以回答？|My name is Kevin./I'm nine./Good morning.|0|name|eng|課本 Sentences：What's your name? My name is Kevin. / I'm Amy.（What's = What is，I'm = I am）
+1|句型|「What's your name?」是在問什麼？|你叫什麼名字？/你幾歲？/你好嗎？|0|name|eng|課本 Sentences：What's your name? My name is Kevin. / I'm Amy.（What's = What is，I'm = I am）
+1|句型|「How old are you?」是在問什麼？|你幾歲？/你叫什麼名字？/你好嗎？|0|old|eng|課本 Sentences：How old are you? I'm nine.
+1|句型|有人問 How old are you? 你可以回答？|I'm nine./My name is Amy./Thank you.|0|old|eng|課本 Sentences：How old are you? I'm nine. / I'm nine years old.
+1|句型|「I'm」是哪兩個字合起來？|I am/I is/It is|0|I'm|eng|課本：I'm = I am。
+1|句型|有人問 How are you? 你可以回答？|I'm fine, thank you./I'm nine./My name is Kevin.|0|fine|eng|課本 Classroom English：How are you? I'm fine, thank you.
+1|對話|早上遇到老師，要說哪一句？|Good morning./Good afternoon./Goodbye.|0|Good morning|eng|課本 Classroom English／Daily English：Good morning.
+1|對話|下午遇到朋友，要說哪一句？|Good afternoon./Good morning./Goodbye.|0|Good afternoon|eng|課本 Classroom English／Daily English：Good afternoon.
+1|對話|要離開、跟朋友說再見，要說哪一句？|Goodbye./Good morning./Stand up.|0|Goodbye|eng|課本 Classroom English／Daily English：Goodbye. / Bye.
+1|對話|老師說 Stand up. 你要做什麼？|站起來/坐下/說再見|0|Stand up|eng|課本 Classroom English／Daily English：Stand up.（Sit down. 是坐下）
+1|對話|老師說 Sit down. 你要做什麼？|坐下/站起來/說再見|0|Sit down|eng|課本 Classroom English／Daily English：Sit down.（Stand up. 是站起來）
+1|對話|「Listen!」是什麼意思？|聽！/看！/坐下|0|Listen|eng|課本 Classroom English／Daily English：Listen!
+1|對話|別人對你說 Thank you. 你可以回答？|You're welcome./Good morning./Stand up.|0|welcome|eng|課本 Daily English：Thank you. You're welcome.
+1|對話|「You're welcome.」是在什麼時候說？|別人跟你說謝謝時/早上遇到朋友時/要說再見時|0|welcome|eng|課本 Daily English：Thank you. You're welcome.
+1|對話|朋友生日，你要對他說什麼？|Happy birthday!/Good morning./Stand up.|0|birthday|eng|課本 Story：Happy birthday! 生日快樂！
+1|對話|「Happy birthday!」是什麼意思？|生日快樂！/早安/謝謝|0|birthday|eng|課本：Happy birthday! 生日快樂！
+1|對話|別人說 This is for you. 你可以回答？|Thank you./Goodbye./Sit down.|0|for you|eng|課本：This is for you. 這是給你的。
+1|對話|「This is for you.」是什麼意思？|這是給你的。/這是我的。/你幾歲？|0|for you|eng|課本：This is for you. 這是給你的。
+1|對話|「Yum!」是什麼意思？|好吃！/糟糕！/哎呀！|0|Yum|eng|課本：Yum! 好吃！
+1|對話|「Oh, no!」是什麼意思？|糟糕！/好吃！/生日快樂！|0|Oh no|eng|課本：Oh, no! 糟糕！
+1|對話|「Ahh!」是什麼意思？|啊！（驚恐的叫聲）/好吃！/謝謝|0|Ahh|eng|課本：Ahh! 啊！（驚恐的叫聲）
+1|寫法|下面哪一句寫對了？（句首和名字）|My name is Boka./my name is boka./My name is boka.|0|My name|eng|課本 Learn with Boka：1.句首的第一個字母要大寫。2.I 表示「我」的時候要大寫。3.名字的第一個字母要大寫。
+1|寫法|下面哪一句寫對了？（I）|I'm seven./i'm seven./I'm Seven.|0|I'm|eng|課本 Learn with Boka：1.句首的第一個字母要大寫。2.I 表示「我」的時候要大寫。3.名字的第一個字母要大寫。
+1|寫法|下面哪一句寫對了？（名字）|I'm Amy./I'm amy./i'm Amy.|0|Amy|eng|課本 Learn with Boka：1.句首的第一個字母要大寫。2.I 表示「我」的時候要大寫。3.名字的第一個字母要大寫。
+1|寫法|下面哪一句寫對了？（句首）|How old are you?/how old are you?/How Old are you?|0|How|eng|課本 Learn with Boka：1.句首的第一個字母要大寫。2.I 表示「我」的時候要大寫。3.名字的第一個字母要大寫。
+1|寫法|英文句子的第一個字母要怎麼寫？|大寫/小寫/都可以|0|大寫|eng|課本 Learn with Boka：1.句首的第一個字母要大寫。2.I 表示「我」的時候要大寫。3.名字的第一個字母要大寫。
+1|寫法|表示「我」的 I，要怎麼寫？|大寫 I/小寫 i/都可以|0|I|eng|課本 Learn with Boka：1.句首的第一個字母要大寫。2.I 表示「我」的時候要大寫。3.名字的第一個字母要大寫。
+1|寫法|名字的第一個字母要怎麼寫？|大寫/小寫/都可以|0|名字|eng|課本 Learn with Boka：1.句首的第一個字母要大寫。2.I 表示「我」的時候要大寫。3.名字的第一個字母要大寫。
+1|課文|Unit 1 的故事名稱是什麼？|The Birthday Party/Poor Kevin/Baby Dragon's Toys|0|Birthday Party|eng|課本：Unit 1 The Birthday Party。
+1|課文|故事中 Boka 說 I'm ＿＿. 他幾歲？|one/nine/ten|0|one|eng|課本 Story：How old are you, Boka? I'm one.
+1|課文|歌曲 How Old Are You? 的歌詞：How old are you? I'm ＿＿.|nine/red/sad|0|nine|eng|課本 Song：How old are you? I'm nine. I'm nine years old. Happy birthday!
+1|課文|歌曲 How Old Are You? 的最後一句是什麼？|Happy birthday!/Thank you./Goodbye.|0|Happy birthday|eng|課本 Song：I'm nine years old. Happy birthday!
+1|課文|歌曲 How Old Are You? 的曲調是哪一首？|Polly Put the Kettle On/Mary Had a Little Lamb/Skip to My Lou|0|Polly|eng|課本：Tune: Polly Put the Kettle On。
+1|課文|「tickets」是什麼意思？|門票/公園/兒童|0|tickets|eng|課本：tickets 門票（複數），adult 成人，child 兒童，under（年齡）未滿，free 免費。
+1|課文|「adult」是什麼意思？|成人/兒童/免費|0|adult|eng|課本：adult 成人。
+1|課文|「child」是什麼意思？|兒童/成人/免費|0|child|eng|課本：child 兒童。
+1|課文|「free」是什麼意思？|免費/成人/門票|0|free|eng|課本：free 免費。
+2|心情|[[pic:angry]]他覺得怎麼樣？|angry/happy/thirsty|0|angry|eng|angry（生氣）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|心情|哪一張圖是 angry？|pic:angry/pic:thirsty/pic:happy|0|angry|eng|angry（生氣）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|聽音|[[say:angry]]聽一聽，哪一張圖是你聽到的？|pic:angry/pic:thirsty/pic:happy|0|angry|eng|angry（生氣）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|聽音|[[say:angry]]聽一聽，你聽到哪個單字？|angry/thirsty/happy|0|angry|eng|angry（生氣）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|心情|[[pic:happy]]他覺得怎麼樣？|happy/sad/angry|0|happy|eng|happy（開心）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|心情|哪一張圖是 happy？|pic:happy/pic:angry/pic:sad|0|happy|eng|happy（開心）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|聽音|[[say:happy]]聽一聽，哪一張圖是你聽到的？|pic:happy/pic:angry/pic:sad|0|happy|eng|happy（開心）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|聽音|[[say:happy]]聽一聽，你聽到哪個單字？|happy/angry/sad|0|happy|eng|happy（開心）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|心情|[[pic:sad]]他覺得怎麼樣？|sad/hungry/happy|0|sad|eng|sad（難過）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|心情|哪一張圖是 sad？|pic:sad/pic:happy/pic:hungry|0|sad|eng|sad（難過）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|聽音|[[say:sad]]聽一聽，哪一張圖是你聽到的？|pic:sad/pic:happy/pic:hungry|0|sad|eng|sad（難過）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|聽音|[[say:sad]]聽一聽，你聽到哪個單字？|sad/happy/hungry|0|sad|eng|sad（難過）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|心情|[[pic:hungry]]他覺得怎麼樣？|hungry/thirsty/sad|0|hungry|eng|hungry（肚子餓）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|心情|哪一張圖是 hungry？|pic:hungry/pic:sad/pic:thirsty|0|hungry|eng|hungry（肚子餓）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|聽音|[[say:hungry]]聽一聽，哪一張圖是你聽到的？|pic:hungry/pic:sad/pic:thirsty|0|hungry|eng|hungry（肚子餓）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|聽音|[[say:hungry]]聽一聽，你聽到哪個單字？|hungry/sad/thirsty|0|hungry|eng|hungry（肚子餓）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|心情|[[pic:thirsty]]他覺得怎麼樣？|thirsty/angry/hungry|0|thirsty|eng|thirsty（口渴）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|心情|哪一張圖是 thirsty？|pic:thirsty/pic:hungry/pic:angry|0|thirsty|eng|thirsty（口渴）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|聽音|[[say:thirsty]]聽一聽，哪一張圖是你聽到的？|pic:thirsty/pic:hungry/pic:angry|0|thirsty|eng|thirsty（口渴）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|聽音|[[say:thirsty]]聽一聽，你聽到哪個單字？|thirsty/hungry/angry|0|thirsty|eng|thirsty（口渴）。課本 Vocabulary／How I Feel：angry、happy、sad、hungry、thirsty。
+2|句型|[[pic:angry]]他會說哪一句？|I'm angry./I'm happy./I'm sad.|0|angry|eng|課本：I'm angry. / I'm hungry and thirsty. I'm sad.
+2|句型|[[pic:sad]]他會說哪一句？|I'm sad./I'm angry./I'm happy.|0|sad|eng|課本：I'm angry. / I'm hungry and thirsty. I'm sad.
+2|句型|[[pic:happy]]他會說哪一句？|I'm happy./I'm sad./I'm angry.|0|happy|eng|課本：I'm angry. / I'm hungry and thirsty. I'm sad.
+2|句型|[[pic:hungry]]他又餓了。I'm hungry and ＿＿.|thirsty/happy/angry|0|thirsty|eng|課本 Story：I'm hungry and thirsty. I'm sad.
+2|句型|「and」是什麼意思？|和/可憐的/喝|0|and|eng|課本：and 和。
+2|句型|[[pic:hungry]]（你很餓）Are you hungry?|Yes, I am./No, I'm not./I'm fine.|0|hungry|eng|課本 Sentences：Are you hungry? Yes, I am. / No, I'm not.（I'm = I am）
+2|句型|[[pic:thirsty]]（你很渴）Are you thirsty?|Yes, I am./No, I'm not./I'm fine.|0|thirsty|eng|課本 Sentences：Are you hungry? Yes, I am. / No, I'm not.（I'm = I am）
+2|句型|[[pic:happy]]（你很開心）Are you sad?|No, I'm not./Yes, I am./I'm fine.|0|sad|eng|課本 Sentences：Are you hungry? Yes, I am. / No, I'm not.（I'm = I am）
+2|句型|[[pic:happy]]（你很開心）Are you happy?|Yes, I am./No, I'm not./I'm fine.|0|happy|eng|課本 Sentences：Are you hungry? Yes, I am. / No, I'm not.（I'm = I am）
+2|句型|[[pic:sad]]（你很難過）Are you sad?|Yes, I am./No, I'm not./I'm fine.|0|sad|eng|課本 Sentences：Are you hungry? Yes, I am. / No, I'm not.（I'm = I am）
+2|句型|[[pic:angry]]（你很生氣）Are you angry?|Yes, I am./No, I'm not./I'm fine.|0|angry|eng|課本 Sentences：Are you hungry? Yes, I am. / No, I'm not.（I'm = I am）
+2|句型|（你不生氣）Are you angry? 你可以回答：|No, I'm not./Yes, I am./Thank you.|0|angry|eng|課本 Sentences：Are you hungry? Yes, I am. / No, I'm not.（I'm = I am）
+2|句型|Are you hungry? 的意思是什麼？|你餓了嗎？/你渴了嗎？/你好嗎？|0|hungry|eng|課本 Sentences：Are you hungry? Yes, I am. / No, I'm not.（I'm = I am）
+2|句型|Are you thirsty? 的意思是什麼？|你渴了嗎？/你餓了嗎？/你好嗎？|0|thirsty|eng|課本 Sentences：Are you hungry? Yes, I am. / No, I'm not.（I'm = I am）
+2|句型|「Yes, I am.」是什麼意思？|是的，我是。/不，我不是。/謝謝你。|0|Yes|eng|課本 Sentences：Are you hungry? Yes, I am. / No, I'm not.（I'm = I am）
+2|句型|「No, I'm not.」是什麼意思？|不，我不是。/是的，我是。/謝謝你。|0|No|eng|課本 Sentences：Are you hungry? Yes, I am. / No, I'm not.（I'm = I am）
+2|對話|朋友跌倒了，你要問他？|Are you OK?/Are you hungry?/Good morning.|0|OK|eng|課本 Daily English：Are you OK?
+2|對話|別人問 Are you OK? 你很好，可以回答？|I'm fine./No, I'm not./Here you are.|0|fine|eng|課本 Story：Are you OK? Oh, I'm fine.
+2|對話|別人問 Are you OK? 你受傷了，可以回答？|No, I'm not./I'm fine./Here you are.|0|OK|eng|課本 Daily English：Are you OK? No, I'm not.
+2|對話|把東西遞給別人時，可以說哪一句？|Here you are./Are you OK?/Good morning.|0|Here you are|eng|課本 Story／Daily English：Here you are. Thank you.
+2|對話|別人對你說 Here you are. 你可以回答？|Thank you./Are you OK?/Goodbye.|0|Here you are|eng|課本 Daily English：Here you are. Thank you.
+2|對話|「Oops!」是什麼意思？|哎呀！/好吃！/糟了！|0|Oops|eng|課本：Oops! 哎呀！
+2|對話|「Phew!」是什麼意思？|呼！（表示鬆一口氣）/哎呀！/好吃！|0|Phew|eng|課本：Phew! 呼！（表示鬆一口氣）
+2|對話|「Drink it.」是什麼意思？|把它喝掉/把它吃掉/把它拿來|0|Drink|eng|課本：drink 喝，it 它。
+2|對話|「poor」是什麼意思？|可憐的/生氣的/開心的|0|poor|eng|課本：poor 可憐的（Poor Kevin）。
+2|對話|「cool off」是什麼意思？|冷靜下來/變很冷/跑步|0|cool off|eng|課本 How to Cool Off：cool off 冷靜下來。
+2|對話|「count」是什麼意思？|數/畫圖/跑步|0|count|eng|課本：count 數，draw 畫圖，run 跑步。
+2|對話|「draw」是什麼意思？|畫圖/數/跑步|0|draw|eng|課本：count 數，draw 畫圖，run 跑步。
+2|對話|[[pic:run]]「run」是什麼意思？|跑步/畫圖/數|0|run|eng|課本：count 數，draw 畫圖，run 跑步。
+2|對話|「count to 10」是什麼意思？|數到十/畫十張圖/跑十圈|0|count to 10|eng|課本 How to Cool Off：I can… count to 10 / draw / run。
+2|課文|Unit 2 的故事名稱是什麼？|Poor Kevin/The Birthday Party/Baby Dragon's Toys|0|Poor Kevin|eng|課本：Unit 2 Poor Kevin。
+2|課文|故事中，Kevin 為什麼難過？|他又餓又渴/他的玩具壞了/他迷路了|0|Poor Kevin|eng|課本 Story：I'm hungry and thirsty. I'm sad.
+2|課文|故事中，大家問 Kevin Are you hungry? 他怎麼回答？|Yes, I am./No, I'm not./I'm fine.|0|hungry|eng|課本 Story：Are you hungry? Yes, I am.
+2|課文|故事中的 Five, four, three, two, one! 是怎麼數的？|從 five 數到 one/從 one 數到 five/從 ten 數到 one|0|count|eng|課本 Story：Five, four, three, two, one!
+2|課文|歌曲 Are You Hungry? 的歌詞：Are you hungry? No, I'm ＿＿.|not/am/sad|0|not|eng|課本 Song：Are you hungry? No, I'm not.
+2|課文|歌曲 Are You Hungry? 的曲調是哪一首？|Mary Had a Little Lamb/Polly Put the Kettle On/Skip to My Lou|0|Mary|eng|課本：Tune: Mary Had a Little Lamb。
+2|課文|歌曲 Are You Hungry? 裡，More to sing 要換唱哪個字？|thirsty/angry/happy|0|thirsty|eng|課本 Song：More to sing: thirsty。
+2|寫法|Are you happy＿  句尾要用哪個標點符號？|?/./,|0|?|eng|課本 Learn with Boka：標點符號要緊緊跟著前面的單字；要站在第三條線上；英文的句點是實心的。（Are you happy?）
+2|寫法|Yes, I am＿  句尾要用哪個標點符號？|./?/,|0|.|eng|課本 Learn with Boka：標點符號要緊緊跟著前面的單字；要站在第三條線上；英文的句點是實心的。（Yes, I am.）
+2|寫法|How old are you＿  句尾要用哪個標點符號？|?/./,|0|?|eng|課本 Learn with Boka：標點符號要緊緊跟著前面的單字；要站在第三條線上；英文的句點是實心的。
+2|寫法|I am eight＿  句尾要用哪個標點符號？|./?/,|0|.|eng|課本 Learn with Boka：標點符號要緊緊跟著前面的單字；要站在第三條線上；英文的句點是實心的。（I am eight.）
+2|寫法|下面哪一句的標點符號寫對了？|Are you sad?/Are you sad ./Are you sad ?|0|?|eng|課本 Learn with Boka：標點符號要緊緊跟著前面的單字；要站在第三條線上；英文的句點是實心的。
+2|寫法|英文句子的句點（.）是什麼樣子？|實心的小點/空心的小圈/小圓圈|0|.|eng|課本：英文的句點是實心的，和中文句號不一樣。
+2|寫法|英文的標點符號，要怎麼寫？|緊緊跟著前面的單字/和前面的單字離很遠/寫在句子的最前面|0|標點|eng|課本 Learn with Boka：標點符號要緊緊跟著前面的單字；要站在第三條線上；英文的句點是實心的。
+2|看圖|[[pic:key]]這是什麼？|key/kid/monkey|0|key|eng|key（鑰匙）。課本 Phonics：Kk。
+2|聽音|[[say:key]]聽一聽，哪一張圖是你聽到的？|pic:key/pic:monkey/pic:kid|0|key|eng|key（鑰匙）。課本 Phonics：Kk。
+2|字母|[[pic:key]]這個單字的開頭字母是哪一個？|k/g/c|0|key|eng|key（鑰匙）。課本 Phonics：Kk。
+2|看圖|[[pic:kid]]這是什麼？|kid/lion/mop|0|kid|eng|kid（小孩）。課本 Phonics：Kk。
+2|聽音|[[say:kid]]聽一聽，哪一張圖是你聽到的？|pic:kid/pic:mop/pic:lion|0|kid|eng|kid（小孩）。課本 Phonics：Kk。
+2|字母|[[pic:kid]]這個單字的開頭字母是哪一個？|k/g/c|0|kid|eng|kid（小孩）。課本 Phonics：Kk。
+2|看圖|[[pic:lion]]這是什麼？|lion/leg/octopus|0|lion|eng|lion（獅子）。課本 Phonics：Ll。
+2|聽音|[[say:lion]]聽一聽，哪一張圖是你聽到的？|pic:lion/pic:octopus/pic:leg|0|lion|eng|lion（獅子）。課本 Phonics：Ll。
+2|字母|[[pic:lion]]這個單字的開頭字母是哪一個？|l/i/t|0|lion|eng|lion（獅子）。課本 Phonics：Ll。
+2|看圖|[[pic:leg]]這是什麼？|leg/monkey/ox|0|leg|eng|leg（腿）。課本 Phonics：Ll。
+2|聽音|[[say:leg]]聽一聽，哪一張圖是你聽到的？|pic:leg/pic:ox/pic:monkey|0|leg|eng|leg（腿）。課本 Phonics：Ll。
+2|字母|[[pic:leg]]這個單字的開頭字母是哪一個？|l/i/t|0|leg|eng|leg（腿）。課本 Phonics：Ll。
+2|看圖|[[pic:monkey]]這是什麼？|monkey/mop/key|0|monkey|eng|monkey（猴子）。課本 Phonics：Mm。
+2|聽音|[[say:monkey]]聽一聽，哪一張圖是你聽到的？|pic:monkey/pic:key/pic:mop|0|monkey|eng|monkey（猴子）。課本 Phonics：Mm。
+2|字母|[[pic:monkey]]這個單字的開頭字母是哪一個？|m/n/w|0|monkey|eng|monkey（猴子）。課本 Phonics：Mm。
+2|看圖|[[pic:mop]]這是什麼？|mop/octopus/kid|0|mop|eng|mop（拖把）。課本 Phonics：Mm。
+2|聽音|[[say:mop]]聽一聽，哪一張圖是你聽到的？|pic:mop/pic:kid/pic:octopus|0|mop|eng|mop（拖把）。課本 Phonics：Mm。
+2|字母|[[pic:mop]]這個單字的開頭字母是哪一個？|m/n/w|0|mop|eng|mop（拖把）。課本 Phonics：Mm。
+2|字母|「nod」的開頭字母是哪一個？|n/m/r|0|nod|eng|nod（點頭）。課本 Phonics：Nn。
+2|字母|「net」的開頭字母是哪一個？|n/m/r|0|net|eng|net（網子）。課本 Phonics：Nn。
+2|看圖|[[pic:octopus]]這是什麼？|octopus/ox/lion|0|octopus|eng|octopus（章魚）。課本 Phonics：Oo。
+2|聽音|[[say:octopus]]聽一聽，哪一張圖是你聽到的？|pic:octopus/pic:lion/pic:ox|0|octopus|eng|octopus（章魚）。課本 Phonics：Oo。
+2|字母|[[pic:octopus]]這個單字的開頭字母是哪一個？|o/e/a|0|octopus|eng|octopus（章魚）。課本 Phonics：Oo。
+2|看圖|[[pic:ox]]這是什麼？|ox/key/leg|0|ox|eng|ox（公牛）。課本 Phonics：Oo。
+2|聽音|[[say:ox]]聽一聽，哪一張圖是你聽到的？|pic:ox/pic:leg/pic:key|0|ox|eng|ox（公牛）。課本 Phonics：Oo。
+2|字母|[[pic:ox]]這個單字的開頭字母是哪一個？|o/e/a|0|ox|eng|ox（公牛）。課本 Phonics：Oo。
+2|拼字|[[pic:key]]k_y，缺哪個字母？|e/a/o|0|key|eng|key（鑰匙），要寫成 key。
+2|拼字|[[pic:kid]]k_d，缺哪個字母？|i/a/o|0|kid|eng|kid（小孩），要寫成 kid。
+2|拼字|[[pic:lion]]l_on，缺哪個字母？|i/a/e|0|lion|eng|lion（獅子），要寫成 lion。
+2|拼字|[[pic:leg]]l_g，缺哪個字母？|e/a/o|0|leg|eng|leg（腿），要寫成 leg。
+2|拼字|[[pic:monkey]]m_nkey，缺哪個字母？|o/a/u|0|monkey|eng|monkey（猴子），要寫成 monkey。
+2|拼字|[[pic:mop]]m_p，缺哪個字母？|o/a/i|0|mop|eng|mop（拖把），要寫成 mop。
+2|拼字|n_d，缺哪個字母？|o/a/i|0|nod|eng|nod（點頭），要寫成 nod。
+2|拼字|n_t，缺哪個字母？|e/a/o|0|net|eng|net（網子），要寫成 net。
+2|拼字|[[pic:octopus]]oct_pus，缺哪個字母？|o/a/u|0|octopus|eng|octopus（章魚），要寫成 octopus。
+2|拼字|[[pic:ox]]o_，缺哪個字母？|x/k/s|0|ox|eng|ox（公牛），要寫成 ox。
+2|拼字|o ＋ d ＝ ？|od/ad/ed|0|od|eng|o ＋ d → od。課本 Sound It Out。
+2|拼字|n ＋ o ＋ d ＝ ？|nod/nad/ned|0|nod|eng|n ＋ o ＋ d → nod。課本 Sound It Out。
+2|拼字|k ＋ i ＋ d ＝ ？|kid/kit/kin|0|kid|eng|k ＋ i ＋ d → kid。課本 Sound It Out。
+2|拼字|l ＋ e ＋ g ＝ ？|leg/log/lag|0|leg|eng|l ＋ e ＋ g → leg。課本 Sound It Out。
+2|拼字|m ＋ o ＋ p ＝ ？|mop/map/mom|0|mop|eng|m ＋ o ＋ p → mop。課本 Sound It Out。
+2|拼字|n ＋ e ＋ t ＝ ？|net/nut/not|0|net|eng|n ＋ e ＋ t → net。課本 Sound It Out。
+2|拼字|o ＋ x ＝ ？|ox/ax/ex|0|ox|eng|o ＋ x → ox。課本 Sound It Out。
+2|字母|大寫 K 的小寫是哪一個？|k/g/c|0|k|eng|Kk：key、kid。
+2|字母|小寫 k 的大寫是哪一個？|K/G/C|0|K|eng|Kk：key、kid。
+2|字母|大寫 L 的小寫是哪一個？|l/i/t|0|l|eng|Ll：lion、leg。
+2|字母|小寫 l 的大寫是哪一個？|L/I/T|0|L|eng|Ll：lion、leg。
+2|字母|大寫 M 的小寫是哪一個？|m/n/w|0|m|eng|Mm：monkey、mop。
+2|字母|小寫 m 的大寫是哪一個？|M/N/W|0|M|eng|Mm：monkey、mop。
+2|字母|大寫 N 的小寫是哪一個？|n/m/r|0|n|eng|Nn：nod、net。
+2|字母|小寫 n 的大寫是哪一個？|N/M/R|0|N|eng|Nn：nod、net。
+2|字母|大寫 O 的小寫是哪一個？|o/e/a|0|o|eng|Oo：octopus、ox。
+2|字母|小寫 o 的大寫是哪一個？|O/E/A|0|O|eng|Oo：octopus、ox。
+4|顏色|[[pic:yellow]]這是什麼顏色？|yellow/green/red|0|yellow|eng|yellow（黃色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|顏色|哪一張圖是 yellow？|pic:yellow/pic:red/pic:green|0|yellow|eng|yellow（黃色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|聽音|[[say:yellow]]聽一聽，是哪個顏色？|pic:yellow/pic:red/pic:green|0|yellow|eng|yellow（黃色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|聽音|[[say:yellow]]聽一聽，你聽到哪個顏色的單字？|yellow/red/green|0|yellow|eng|yellow（黃色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|句型|[[pic:yellow]]What color is it?|It's yellow./It's green./It's red.|0|yellow|eng|課本 Sentences：What color is it? It's red.（It's = It is）
+4|顏色|[[pic:green]]這是什麼顏色？|green/blue/pink|0|green|eng|green（綠色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|顏色|哪一張圖是 green？|pic:green/pic:pink/pic:blue|0|green|eng|green（綠色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|聽音|[[say:green]]聽一聽，是哪個顏色？|pic:green/pic:pink/pic:blue|0|green|eng|green（綠色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|聽音|[[say:green]]聽一聽，你聽到哪個顏色的單字？|green/pink/blue|0|green|eng|green（綠色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|句型|[[pic:green]]What color is it?|It's green./It's blue./It's pink.|0|green|eng|課本 Sentences：What color is it? It's red.（It's = It is）
+4|顏色|[[pic:blue]]這是什麼顏色？|blue/purple/yellow|0|blue|eng|blue（藍色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|顏色|哪一張圖是 blue？|pic:blue/pic:yellow/pic:purple|0|blue|eng|blue（藍色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|聽音|[[say:blue]]聽一聽，是哪個顏色？|pic:blue/pic:yellow/pic:purple|0|blue|eng|blue（藍色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|聽音|[[say:blue]]聽一聽，你聽到哪個顏色的單字？|blue/yellow/purple|0|blue|eng|blue（藍色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|句型|[[pic:blue]]What color is it?|It's blue./It's purple./It's yellow.|0|blue|eng|課本 Sentences：What color is it? It's red.（It's = It is）
+4|顏色|[[pic:purple]]這是什麼顏色？|purple/red/green|0|purple|eng|purple（紫色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|顏色|哪一張圖是 purple？|pic:purple/pic:green/pic:red|0|purple|eng|purple（紫色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|聽音|[[say:purple]]聽一聽，是哪個顏色？|pic:purple/pic:green/pic:red|0|purple|eng|purple（紫色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|聽音|[[say:purple]]聽一聽，你聽到哪個顏色的單字？|purple/green/red|0|purple|eng|purple（紫色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|句型|[[pic:purple]]What color is it?|It's purple./It's red./It's green.|0|purple|eng|課本 Sentences：What color is it? It's red.（It's = It is）
+4|顏色|[[pic:red]]這是什麼顏色？|red/pink/blue|0|red|eng|red（紅色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|聽音|[[say:red]]聽一聽，是哪個顏色？|pic:red/pic:blue/pic:pink|0|red|eng|red（紅色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|聽音|[[say:red]]聽一聽，你聽到哪個顏色的單字？|red/blue/pink|0|red|eng|red（紅色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|句型|[[pic:red]]What color is it?|It's red./It's pink./It's blue.|0|red|eng|課本 Sentences：What color is it? It's red.（It's = It is）
+4|顏色|[[pic:pink]]這是什麼顏色？|pink/yellow/purple|0|pink|eng|pink（粉紅色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|顏色|哪一張圖是 pink？|pic:pink/pic:purple/pic:yellow|0|pink|eng|pink（粉紅色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|聽音|[[say:pink]]聽一聽，是哪個顏色？|pic:pink/pic:purple/pic:yellow|0|pink|eng|pink（粉紅色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|聽音|[[say:pink]]聽一聽，你聽到哪個顏色的單字？|pink/purple/yellow|0|pink|eng|pink（粉紅色）。課本 Vocabulary：yellow、green、blue、purple、red、pink。
+4|句型|[[pic:pink]]What color is it?|It's pink./It's yellow./It's purple.|0|pink|eng|課本 Sentences：What color is it? It's red.（It's = It is）
+4|顏色|[[pic:orange]]這是什麼顏色？|orange/yellow/red|0|orange|eng|課本 Color Mixing：Red and yellow make orange.（orange 橘色）
+4|顏色|Red and yellow make ＿＿.|orange/green/purple|0|orange|eng|課本 Color Mixing：Red and yellow make orange.
+4|顏色|「orange」在課本 Color Mixing 裡是什麼意思？|橘色/橘子/彩虹|0|orange|eng|課本：orange 橘色。
+4|顏色|「rainbow」是什麼意思？|彩虹/橋/橘色|0|rainbow|eng|課本：rainbow 彩虹，bridge 橋，orange 橘色。
+4|顏色|「bridge」是什麼意思？|橋/彩虹/橘色|0|bridge|eng|課本：rainbow 彩虹，bridge 橋，orange 橘色。
+4|句型|「What color is it?」是在問什麼？|它是什麼顏色？/它是什麼？/你幾歲？|0|color|eng|課本 Sentences：What color is it? It's red.
+4|句型|有人問 What color is it? 你可以回答？|It's red./I'm nine./Thank you.|0|color|eng|課本 Sentences：What color is it? It's red.
+4|句型|[[pic:ball]]想請別人拿這個玩具，要說哪一句？|Please get a ball./Please get a kite./Please get a car.|0|ball|eng|課本 Story：Please get a ball, Boka! Please get a kite, Kevin!（please 請，get 拿、取）
+4|句型|[[pic:kite]]想請別人拿這個玩具，要說哪一句？|Please get a kite./Please get a robot./Please get a yo-yo.|0|kite|eng|課本 Story：Please get a ball, Boka! Please get a kite, Kevin!（please 請，get 拿、取）
+4|句型|[[pic:robot]]想請別人拿這個玩具，要說哪一句？|Please get a robot./Please get a doll./Please get a ball.|0|robot|eng|課本 Story：Please get a ball, Boka! Please get a kite, Kevin!（please 請，get 拿、取）
+4|句型|[[pic:doll]]想請別人拿這個玩具，要說哪一句？|Please get a doll./Please get a car./Please get a kite.|0|doll|eng|課本 Story：Please get a ball, Boka! Please get a kite, Kevin!（please 請，get 拿、取）
+4|句型|[[pic:car]]想請別人拿這個玩具，要說哪一句？|Please get a car./Please get a yo-yo./Please get a robot.|0|car|eng|課本 Story：Please get a ball, Boka! Please get a kite, Kevin!（please 請，get 拿、取）
+4|句型|[[pic:yoyo]]想請別人拿這個玩具，要說哪一句？|Please get a yo-yo./Please get a ball./Please get a doll.|0|yo-yo|eng|課本 Story：Please get a ball, Boka! Please get a kite, Kevin!（please 請，get 拿、取）
+4|句型|「please」是什麼意思？|請/拿/大家|0|please|eng|課本：please 請，get 拿、取。
+4|句型|「get」是什麼意思？|拿、取/請/大家|0|get|eng|課本：get 拿、取。
+4|句型|「everyone」是什麼意思？|每個人、大家/幼小的/龍|0|everyone|eng|課本：everyone 每個人、大家。
+4|句型|「baby」是什麼意思？|幼小的/龍/大的|0|baby|eng|課本：baby 幼小的，dragon 龍。
+4|句型|「dragon」是什麼意思？|龍/幼小的/大的|0|dragon|eng|課本：dragon 龍。
+4|句型|「big」是什麼意思？|大的/幼小的/紅色|0|big|eng|課本：big 大的。
+4|句型|「lost and found」是什麼意思？|失物招領/玩具工廠/生日派對|0|lost and found|eng|課本：lost and found 失物招領。
+4|對話|朋友做得很好，你可以說？|Good job!/Try again./Uh-oh!|0|Good job|eng|課本 Daily English：Good job!
+4|對話|朋友沒有成功，你想鼓勵他再做一次，可以說？|Try again./Good job!/Goodbye.|0|Try again|eng|課本 Daily English：Try again.
+4|對話|「Good job, everyone!」是在對誰說？|大家/只有一個人/動物們|0|Good job|eng|課本 Story：Good job, everyone!（everyone 每個人、大家）
+4|對話|「Great!」是什麼意思？|太棒了！/糟了！/請再試一次|0|Great|eng|課本 Story：Great!
+4|對話|「Uh-oh!」是什麼意思？|糟了！/太棒了！/好吃！|0|Uh-oh|eng|課本：Uh-oh! 糟了！
+4|對話|Kevin 跌倒了，朋友問 Are you OK? 他可以回答？|I'm fine./Good job!/Please get a kite.|0|fine|eng|課本 Daily English：Are you OK? I'm fine.
+4|課文|Unit 4 的故事名稱是什麼？|Baby Dragon's Toys/The Birthday Party/Poor Kevin|0|Baby Dragon's Toys|eng|課本：Unit 4 Baby Dragon's Toys。
+4|課文|故事中，Jello 請 Boka 拿什麼玩具？|a ball/a kite/a robot|0|ball|eng|課本 Story：Please get a ball, Boka!
+4|課文|故事中，Jello 請 Kevin 拿什麼玩具？|a kite/a ball/a robot|0|kite|eng|課本 Story：Please get a kite, Kevin!
+4|課文|故事中，球（ball）是什麼顏色？|yellow/green/red|0|yellow|eng|課本 Story：What color is it? It's yellow.
+4|課文|故事中，風箏（kite）是什麼顏色？|green/yellow/blue|0|green|eng|課本 Story：What color is it? It's green.
+4|課文|歌曲 What Color Is It? 的歌詞：It's a big ＿＿ yo-yo.|red/green/blue|0|red|eng|課本 Song：It's a big red yo-yo.
+4|課文|歌曲 What Color Is It? 的曲調是哪一首？|Skip to My Lou/Mary Had a Little Lamb/Polly Put the Kettle On|0|Skip to My Lou|eng|課本：Tune: Skip to My Lou。
+4|課文|歌曲 What Color Is It? 裡，More to sing 要換唱哪個字？|green/nine/thirsty|0|green|eng|課本 Song：More to sing: green。
+4|寫法|下面哪一句的單字間距寫對了？（問句）|What color is it?/Whatcolor is it?/Whatcoloris it?|0|間距|eng|課本 Learn with Boka：英文句子中的單字和單字之間，要空一個字母的距離。
+4|寫法|下面哪一句的單字間距寫對了？（答句）|It is red./Itis red./Itisred.|0|間距|eng|課本 Learn with Boka：英文句子中的單字和單字之間，要空一個字母的距離。
+4|寫法|英文單字和單字之間，要空多少距離？|一個字母的距離/很大一段/不用空|0|間距|eng|課本 Learn with Boka：英文句子中的單字和單字之間，要空一個字母的距離。
+4|看圖|[[pic:umbrella]]這是什麼？|umbrella/up/six|0|umbrella|eng|umbrella（雨傘）。課本 Phonics：Uu。
+4|聽音|[[say:umbrella]]聽一聽，哪一張圖是你聽到的？|pic:umbrella/pic:six/pic:up|0|umbrella|eng|umbrella（雨傘）。課本 Phonics：Uu。
+4|字母|[[pic:umbrella]]這個單字的開頭字母是哪一個？|u/a/n|0|umbrella|eng|umbrella（雨傘）。課本 Phonics：Uu。
+4|看圖|[[pic:up]]這是什麼？|up/van/fox|0|up|eng|up（向上）。課本 Phonics：Uu。
+4|聽音|[[say:up]]聽一聽，哪一張圖是你聽到的？|pic:up/pic:fox/pic:van|0|up|eng|up（向上）。課本 Phonics：Uu。
+4|字母|[[pic:up]]這個單字的開頭字母是哪一個？|u/a/n|0|up|eng|up（向上）。課本 Phonics：Uu。
+4|字母|「vest」的開頭字母是哪一個？|v/f/w|0|vest|eng|vest（背心）。課本 Phonics：Vv。
+4|看圖|[[pic:van]]這是什麼？|van/watch/yo-yo|0|van|eng|van（廂型車）。課本 Phonics：Vv。
+4|聽音|[[say:van]]聽一聽，哪一張圖是你聽到的？|pic:van/pic:yoyo/pic:watch|0|van|eng|van（廂型車）。課本 Phonics：Vv。
+4|字母|[[pic:van]]這個單字的開頭字母是哪一個？|v/f/w|0|van|eng|van（廂型車）。課本 Phonics：Vv。
+4|看圖|[[pic:watch]]這是什麼？|watch/six/umbrella|0|watch|eng|watch（手錶）。課本 Phonics：Ww。
+4|聽音|[[say:watch]]聽一聽，哪一張圖是你聽到的？|pic:watch/pic:umbrella/pic:six|0|watch|eng|watch（手錶）。課本 Phonics：Ww。
+4|字母|[[pic:watch]]這個單字的開頭字母是哪一個？|w/v/m|0|watch|eng|watch（手錶）。課本 Phonics：Ww。
+4|字母|「wig」的開頭字母是哪一個？|w/v/m|0|wig|eng|wig（假髮）。課本 Phonics：Ww。
+4|看圖|[[pic:six]]這是什麼？|six/fox/up|0|six|eng|six（六）。課本 Phonics：Xx。
+4|聽音|[[say:six]]聽一聽，哪一張圖是你聽到的？|pic:six/pic:up/pic:fox|0|six|eng|six（六）。課本 Phonics：Xx。
+4|字母|[[pic:six]]這個單字的最後一個字母是哪一個？|x/k/s|0|six|eng|six（六）：最後一個字母是 x。課本 Phonics：Xx six fox。
+4|看圖|[[pic:fox]]這是什麼？|fox/yo-yo/van|0|fox|eng|fox（狐狸）。課本 Phonics：Xx。
+4|聽音|[[say:fox]]聽一聽，哪一張圖是你聽到的？|pic:fox/pic:van/pic:yoyo|0|fox|eng|fox（狐狸）。課本 Phonics：Xx。
+4|字母|[[pic:fox]]這個單字的最後一個字母是哪一個？|x/k/s|0|fox|eng|fox（狐狸）：最後一個字母是 x。課本 Phonics：Xx six fox。
+4|聽音|[[say:yoyo]]聽一聽，哪一張圖是你聽到的？|pic:yoyo/pic:watch/pic:umbrella|0|yo-yo|eng|yo-yo（溜溜球）。課本 Phonics：Yy。
+4|字母|[[pic:yoyo]]這個單字的開頭字母是哪一個？|y/j/g|0|yo-yo|eng|yo-yo（溜溜球）。課本 Phonics：Yy。
+4|字母|「yellow」的開頭字母是哪一個？|y/j/g|0|yellow|eng|yellow（黃色）。課本 Phonics：Yy。
+4|字母|「zoo」的開頭字母是哪一個？|z/s/c|0|zoo|eng|zoo（動物園）。課本 Phonics：Zz。
+4|字母|「zip」的開頭字母是哪一個？|z/s/c|0|zip|eng|zip（拉鍊）。課本 Phonics：Zz。
+4|拼字|[[pic:umbrella]]u_brella，缺哪個字母？|m/n/r|0|umbrella|eng|umbrella（雨傘），要寫成 umbrella。
+4|拼字|[[pic:up]]u_，缺哪個字母？|p/b/d|0|up|eng|up（向上），要寫成 up。
+4|拼字|v_st，缺哪個字母？|e/a/o|0|vest|eng|vest（背心），要寫成 vest。
+4|拼字|[[pic:van]]v_n，缺哪個字母？|a/e/o|0|van|eng|van（廂型車），要寫成 van。
+4|拼字|[[pic:watch]]w_tch，缺哪個字母？|a/o/e|0|watch|eng|watch（手錶），要寫成 watch。
+4|拼字|w_g，缺哪個字母？|i/a/e|0|wig|eng|wig（假髮），要寫成 wig。
+4|拼字|[[pic:six]]s_x，缺哪個字母？|i/a/o|0|six|eng|six（六），要寫成 six。
+4|拼字|[[pic:fox]]f_x，缺哪個字母？|o/a/i|0|fox|eng|fox（狐狸），要寫成 fox。
+4|拼字|y_llow，缺哪個字母？|e/a/o|0|yellow|eng|yellow（黃色），要寫成 yellow。
+4|拼字|z_o，缺哪個字母？|o/a/e|0|zoo|eng|zoo（動物園），要寫成 zoo。
+4|拼字|z_p，缺哪個字母？|i/a/o|0|zip|eng|zip（拉鍊），要寫成 zip。
+4|拼字|u ＋ g ＝ ？|ug/ag/og|0|ug|eng|u ＋ g → ug。課本 Sound It Out。
+4|拼字|b ＋ u ＋ g ＝ ？|bug/bag/big|0|bug|eng|b ＋ u ＋ g → bug。課本 Sound It Out。
+4|拼字|v ＋ a ＋ n ＝ ？|van/vet/vat|0|van|eng|v ＋ a ＋ n → van。課本 Sound It Out。
+4|拼字|w ＋ i ＋ g ＝ ？|wig/win/wag|0|wig|eng|w ＋ i ＋ g → wig。課本 Sound It Out。
+4|拼字|z ＋ i ＋ p ＝ ？|zip/zap/zit|0|zip|eng|z ＋ i ＋ p → zip。課本 Sound It Out。
+4|拼字|s ＋ i ＋ x ＝ ？|six/sit/sip|0|six|eng|s ＋ i ＋ x → six。課本 Sound It Out。
+4|拼字|f ＋ o ＋ x ＝ ？|fox/fix/fax|0|fox|eng|f ＋ o ＋ x → fox。課本 Sound It Out。
+4|字母|大寫 U 的小寫是哪一個？|u/a/n|0|u|eng|Uu：umbrella、up。
+4|字母|小寫 u 的大寫是哪一個？|U/A/N|0|U|eng|Uu：umbrella、up。
+4|字母|大寫 V 的小寫是哪一個？|v/f/w|0|v|eng|Vv：vest、van。
+4|字母|小寫 v 的大寫是哪一個？|V/F/W|0|V|eng|Vv：vest、van。
+4|字母|大寫 W 的小寫是哪一個？|w/v/m|0|w|eng|Ww：watch、wig。
+4|字母|小寫 w 的大寫是哪一個？|W/V/M|0|W|eng|Ww：watch、wig。
+4|字母|大寫 X 的小寫是哪一個？|x/k/s|0|x|eng|Xx：six、fox。
+4|字母|小寫 x 的大寫是哪一個？|X/K/S|0|X|eng|Xx：six、fox。
+4|字母|大寫 Y 的小寫是哪一個？|y/j/g|0|y|eng|Yy：yoyo、yellow。
+4|字母|小寫 y 的大寫是哪一個？|Y/J/G|0|Y|eng|Yy：yoyo、yellow。
+4|字母|大寫 Z 的小寫是哪一個？|z/s/c|0|z|eng|Zz：zoo、zip。
+4|字母|小寫 z 的大寫是哪一個？|Z/S/C|0|Z|eng|Zz：zoo、zip。
+1|看圖|[[pic:gap]]這是什麼？|gap/jam/jet|0|gap|eng|gap（縫隙）。課本 Phonics：Gg。
+1|選圖|哪一張圖是 gap？|pic:gap/pic:jam/pic:jet|0|gap|eng|gap（縫隙）。課本 Phonics：Gg。
+1|聽音|[[say:gap]]聽一聽，哪一張圖是你聽到的？|pic:gap/pic:jet/pic:ham|0|gap|eng|gap（縫隙）。課本 Phonics：Gg。
+1|字母|[[pic:gap]]這個單字的開頭字母是哪一個？|g/q/j|0|gap|eng|gap（縫隙）。課本 Phonics：Gg。
+2|看圖|[[pic:nod]]這是什麼？|nod/net/mop|0|nod|eng|nod（點頭）。課本 Phonics：Nn。
+2|選圖|哪一張圖是 nod？|pic:nod/pic:net/pic:mop|0|nod|eng|nod（點頭）。課本 Phonics：Nn。
+2|聽音|[[say:nod]]聽一聽，哪一張圖是你聽到的？|pic:nod/pic:mop/pic:kid|0|nod|eng|nod（點頭）。課本 Phonics：Nn。
+2|字母|[[pic:nod]]這個單字的開頭字母是哪一個？|n/m/h|0|nod|eng|nod（點頭）。課本 Phonics：Nn。
+2|看圖|[[pic:net]]這是什麼？|net/nod/mop|0|net|eng|net（網子）。課本 Phonics：Nn。
+2|選圖|哪一張圖是 net？|pic:net/pic:nod/pic:mop|0|net|eng|net（網子）。課本 Phonics：Nn。
+2|聽音|[[say:net]]聽一聽，哪一張圖是你聽到的？|pic:net/pic:mop/pic:octopus|0|net|eng|net（網子）。課本 Phonics：Nn。
+2|字母|[[pic:net]]這個單字的開頭字母是哪一個？|n/m/h|0|net|eng|net（網子）。課本 Phonics：Nn。
+4|看圖|[[pic:vest]]這是什麼？|vest/watch/van|0|vest|eng|vest（背心）。課本 Phonics：Vv。
+4|選圖|哪一張圖是 vest？|pic:vest/pic:watch/pic:van|0|vest|eng|vest（背心）。課本 Phonics：Vv。
+4|聽音|[[say:vest]]聽一聽，哪一張圖是你聽到的？|pic:vest/pic:van/pic:wig|0|vest|eng|vest（背心）。課本 Phonics：Vv。
+4|字母|[[pic:vest]]這個單字的開頭字母是哪一個？|v/w/b|0|vest|eng|vest（背心）。課本 Phonics：Vv。
+4|看圖|[[pic:wig]]這是什麼？|wig/watch/vest|0|wig|eng|wig（假髮）。課本 Phonics：Ww。
+4|選圖|哪一張圖是 wig？|pic:wig/pic:watch/pic:vest|0|wig|eng|wig（假髮）。課本 Phonics：Ww。
+4|聽音|[[say:wig]]聽一聽，哪一張圖是你聽到的？|pic:wig/pic:vest/pic:zoo|0|wig|eng|wig（假髮）。課本 Phonics：Ww。
+4|字母|[[pic:wig]]這個單字的開頭字母是哪一個？|w/v/u|0|wig|eng|wig（假髮）。課本 Phonics：Ww。
+4|看圖|[[pic:zoo]]這是什麼？|zoo/zip/wig|0|zoo|eng|zoo（動物園）。課本 Phonics：Zz。
+4|選圖|哪一張圖是 zoo？|pic:zoo/pic:zip/pic:wig|0|zoo|eng|zoo（動物園）。課本 Phonics：Zz。
+4|聽音|[[say:zoo]]聽一聽，哪一張圖是你聽到的？|pic:zoo/pic:wig/pic:vest|0|zoo|eng|zoo（動物園）。課本 Phonics：Zz。
+4|字母|[[pic:zoo]]這個單字的開頭字母是哪一個？|z/s/x|0|zoo|eng|zoo（動物園）。課本 Phonics：Zz。
+4|看圖|[[pic:zip]]這是什麼？|zip/zoo/van|0|zip|eng|zip（拉鍊）。課本 Phonics：Zz。
+4|選圖|哪一張圖是 zip？|pic:zip/pic:zoo/pic:van|0|zip|eng|zip（拉鍊）。課本 Phonics：Zz。
+4|聽音|[[say:zip]]聽一聽，哪一張圖是你聽到的？|pic:zip/pic:van/pic:watch|0|zip|eng|zip（拉鍊）。課本 Phonics：Zz。
+4|字母|[[pic:zip]]這個單字的開頭字母是哪一個？|z/s/x|0|zip|eng|zip（拉鍊）。課本 Phonics：Zz。
+`;
 var $=function(s){return document.querySelector(s)},A=$('#app');
 var S;try{S=JSON.parse(localStorage.getItem('sch1'))}catch(e){}S=S||{u:{},cur:null,ex:''};
 function persist(){try{localStorage.setItem('sch1',JSON.stringify(S))}catch(e){}}
 function sv(t){var p=S.cur&&S.u[S.cur];if(t&&p){p.ts=Date.now();dirty[S.cur]=1}persist();if(t)kick()}
 function prs(t,s){return String(t||'').split('\n').map(function(l){return l.trim().split('|')}).filter(function(a){return a.length>=6}).map(function(a){return{l:+a[0],t:a[1],q:a[2],c:a[3].split('/'),a:+a[4],g:a[5],s:a[6]||s,h:a[7]||''}})}
 function build(){return prs(RAW,'chi').concat(prs(typeof RAWM=='string'?RAWM:'','math'),prs(S.ex||'','chi'))}
-var Q=build(),sub='chi',SUBS={chi:{n:'國語教室',ic:'📖',u:[1,2,3,4,5,6,7,8],w:'課'},math:{n:'數學教室',ic:'➗',u:[1,2,3,4,5],w:'單元'},eng:{n:'英文教室',ic:'🔤',u:[3],w:'單元'}},sels={chi:[1,2,3,4,5,6,7,8],math:[1,2,3,4,5],eng:[3]},avs=['🐱','🐰','🐻','🦊','🐼','🐸'],av=avs[0],quiz=null;
-var PICS={"ball": "⚽", "car": "🚗", "kite": "🪁", "robot": "🤖", "yoyo": "🪀", "pig": "🐷", "pan": "🍳", "queen": "👸", "quiz": "📝", "rabbit": "🐰", "sun": "☀️", "seven": "7️⃣", "ten": "🔟", "top": "<svg viewBox=\"0 0 64 64\"><rect x=\"30\" y=\"3\" width=\"4\" height=\"11\" fill=\"#8a5a2b\"/><ellipse cx=\"32\" cy=\"20\" rx=\"21\" ry=\"7\" fill=\"#f0b94a\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><path d=\"M11 20Q14 42 32 60Q50 42 53 20Z\" fill=\"#d0852e\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><path d=\"M15 30Q32 39 49 30\" stroke=\"#3b2f2f\" stroke-width=\"2.5\" fill=\"none\"/></svg>", "doll": "<svg viewBox=\"0 0 64 64\"><circle cx=\"15\" cy=\"13\" r=\"8\" fill=\"#d9483b\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><circle cx=\"49\" cy=\"13\" r=\"8\" fill=\"#d9483b\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><circle cx=\"32\" cy=\"24\" r=\"16\" fill=\"#d9483b\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><circle cx=\"32\" cy=\"28\" r=\"12\" fill=\"#fbd5b0\"/><circle cx=\"27\" cy=\"27\" r=\"2\" fill=\"#3b2f2f\"/><circle cx=\"37\" cy=\"27\" r=\"2\" fill=\"#3b2f2f\"/><path d=\"M27 33Q32 37 37 33\" stroke=\"#3b2f2f\" stroke-width=\"2\" fill=\"none\"/><path d=\"M15 61L21 42Q32 38 43 42L49 61Z\" fill=\"#7b5fb0\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/></svg>", "red": "<svg viewBox=\"0 0 64 64\"><circle cx=\"32\" cy=\"32\" r=\"26\" fill=\"#e02b2b\" stroke=\"#3b2f2f\" stroke-width=\"3\"/><circle cx=\"22\" cy=\"22\" r=\"6\" fill=\"#fff\" opacity=\".45\"/></svg>"};
-function ol(s){return String(s).indexOf('pic:')==0?'<span class="pi">'+(PICS[String(s).slice(4)]||'')+'</span>':esc(s)}
+var Q=build(),sub='chi',SUBS={chi:{n:'國語教室',ic:'📖',u:[1,2,3,4,5,6,7,8],w:'課'},math:{n:'數學教室',ic:'➗',u:[1,2,3,4,5],w:'單元'},eng:{n:'英文教室',ic:'🔤',u:[1,2,3,4],w:'單元'}},sels={chi:[1,2,3,4,5,6,7,8],math:[1,2,3,4,5],eng:[1,2,3,4]},avs=['🐱','🐰','🐻','🦊','🐼','🐸'],av=avs[0],quiz=null;
+var PICS={"ball": "⚽", "car": "🚗", "kite": "🪁", "robot": "🤖", "yoyo": "🪀", "pig": "🐷", "pan": "🍳", "queen": "👸", "quiz": "📝", "rabbit": "🐰", "sun": "☀️", "seven": "7️⃣", "ten": "🔟", "top": "<svg viewBox=\"0 0 64 64\"><rect x=\"30\" y=\"3\" width=\"4\" height=\"11\" fill=\"#8a5a2b\"/><ellipse cx=\"32\" cy=\"20\" rx=\"21\" ry=\"7\" fill=\"#f0b94a\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><path d=\"M11 20Q14 42 32 60Q50 42 53 20Z\" fill=\"#d0852e\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><path d=\"M15 30Q32 39 49 30\" stroke=\"#3b2f2f\" stroke-width=\"2.5\" fill=\"none\"/></svg>", "doll": "<svg viewBox=\"0 0 64 64\"><circle cx=\"15\" cy=\"13\" r=\"8\" fill=\"#d9483b\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><circle cx=\"49\" cy=\"13\" r=\"8\" fill=\"#d9483b\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><circle cx=\"32\" cy=\"24\" r=\"16\" fill=\"#d9483b\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><circle cx=\"32\" cy=\"28\" r=\"12\" fill=\"#fbd5b0\"/><circle cx=\"27\" cy=\"27\" r=\"2\" fill=\"#3b2f2f\"/><circle cx=\"37\" cy=\"27\" r=\"2\" fill=\"#3b2f2f\"/><path d=\"M27 33Q32 37 37 33\" stroke=\"#3b2f2f\" stroke-width=\"2\" fill=\"none\"/><path d=\"M15 61L21 42Q32 38 43 42L49 61Z\" fill=\"#7b5fb0\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/></svg>", "red": "<svg viewBox=\"0 0 64 64\"><circle cx=\"32\" cy=\"32\" r=\"26\" fill=\"#e02b2b\" stroke=\"#3b2f2f\" stroke-width=\"3\"/><circle cx=\"22\" cy=\"22\" r=\"6\" fill=\"#fff\" opacity=\".45\"/></svg>", "one": "1️⃣", "two": "2️⃣", "three": "3️⃣", "four": "4️⃣", "five": "5️⃣", "six": "6️⃣", "eight": "8️⃣", "nine": "9️⃣", "ant": "🐜", "apple": "🍎", "bed": "🛏️", "bag": "👜", "cat": "🐱", "cab": "🚕", "duck": "🦆", "dad": "👨", "egg": "🥚", "elephant": "🐘", "fish": "🐟", "goat": "🐐", "hat": "🎩", "ham": "🍖", "jet": "✈️", "key": "🔑", "kid": "🧒", "lion": "🦁", "leg": "🦵", "monkey": "🐒", "octopus": "🐙", "ox": "🐂", "umbrella": "☂️", "up": "⬆️", "van": "🚐", "watch": "⌚", "fox": "🦊", "angry": "😠", "happy": "😀", "sad": "😢", "hungry": "😋🍔", "thirsty": "🥵💧", "run": "🏃", "c1": "🦆", "c2": "👜👜", "c3": "🍒🍒🍒", "c4": "<span style=\"font-size:.7em\">🥚🥚🥚🥚</span>", "c5": "<span style=\"font-size:.6em\">🐜🐜🐜🐜🐜</span>", "fan": "<svg viewBox=\"0 0 64 64\"><rect x=\"28\" y=\"44\" width=\"8\" height=\"12\" fill=\"#7a8896\"/><rect x=\"18\" y=\"56\" width=\"28\" height=\"5\" rx=\"2\" fill=\"#5a6672\"/><circle cx=\"32\" cy=\"26\" r=\"22\" fill=\"#e9f3fa\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><path d=\"M32 26C28 12 36 8 38 14C39 19 35 23 32 26ZM32 26C46 24 50 32 44 35C39 37 35 31 32 26ZM32 26C36 40 28 44 25 38C23 33 28 30 32 26Z\" fill=\"#4aa3d8\" stroke=\"#3b2f2f\" stroke-width=\"1.5\"/><circle cx=\"32\" cy=\"26\" r=\"4\" fill=\"#3b2f2f\"/></svg>", "igloo": "<svg viewBox=\"0 0 64 64\"><path d=\"M6 52A26 26 0 0 1 58 52Z\" fill=\"#eaf6ff\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><path d=\"M10 42H54M15 32H49M22 22H42M32 22V32M22 32V42M42 32V42\" stroke=\"#9db8cc\" stroke-width=\"2\" fill=\"none\"/><path d=\"M24 52A8 10 0 0 1 40 52Z\" fill=\"#5a6c7c\" stroke=\"#3b2f2f\" stroke-width=\"2\"/></svg>", "jam": "<svg viewBox=\"0 0 64 64\"><rect x=\"18\" y=\"8\" width=\"28\" height=\"8\" rx=\"2\" fill=\"#c0392b\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><rect x=\"14\" y=\"16\" width=\"36\" height=\"42\" rx=\"8\" fill=\"#e8483f\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><rect x=\"20\" y=\"28\" width=\"24\" height=\"16\" rx=\"3\" fill=\"#fff8e7\"/><circle cx=\"32\" cy=\"36\" r=\"5\" fill=\"#d93a3a\"/></svg>", "ink": "<svg viewBox=\"0 0 64 64\"><rect x=\"24\" y=\"6\" width=\"16\" height=\"10\" fill=\"#3b2f2f\"/><path d=\"M22 16H42L52 28V54Q52 60 46 60H18Q12 60 12 54V28Z\" fill=\"#2c2c3a\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><rect x=\"20\" y=\"34\" width=\"24\" height=\"14\" rx=\"2\" fill=\"#fff8e7\"/><path d=\"M26 42Q32 36 38 42\" stroke=\"#2c2c3a\" stroke-width=\"2\" fill=\"none\"/></svg>", "mop": "<svg viewBox=\"0 0 64 64\"><path d=\"M48 4L30 40\" stroke=\"#8a5a2b\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"M22 40H42L46 60H18Z\" fill=\"#e8e0c8\" stroke=\"#3b2f2f\" stroke-width=\"2.5\"/><path d=\"M24 44V58M30 44V59M36 44V59M42 44V58\" stroke=\"#b9ad86\" stroke-width=\"2\"/></svg>", "yellow": "<svg viewBox=\"0 0 64 64\"><circle cx=\"32\" cy=\"32\" r=\"26\" fill=\"#f6d000\" stroke=\"#3b2f2f\" stroke-width=\"3\"/><circle cx=\"22\" cy=\"22\" r=\"6\" fill=\"#fff\" opacity=\".45\"/></svg>", "green": "<svg viewBox=\"0 0 64 64\"><circle cx=\"32\" cy=\"32\" r=\"26\" fill=\"#2f9e44\" stroke=\"#3b2f2f\" stroke-width=\"3\"/><circle cx=\"22\" cy=\"22\" r=\"6\" fill=\"#fff\" opacity=\".45\"/></svg>", "blue": "<svg viewBox=\"0 0 64 64\"><circle cx=\"32\" cy=\"32\" r=\"26\" fill=\"#2f6fdc\" stroke=\"#3b2f2f\" stroke-width=\"3\"/><circle cx=\"22\" cy=\"22\" r=\"6\" fill=\"#fff\" opacity=\".45\"/></svg>", "purple": "<svg viewBox=\"0 0 64 64\"><circle cx=\"32\" cy=\"32\" r=\"26\" fill=\"#8e4fc4\" stroke=\"#3b2f2f\" stroke-width=\"3\"/><circle cx=\"22\" cy=\"22\" r=\"6\" fill=\"#fff\" opacity=\".45\"/></svg>", "pink": "<svg viewBox=\"0 0 64 64\"><circle cx=\"32\" cy=\"32\" r=\"26\" fill=\"#f38fb8\" stroke=\"#3b2f2f\" stroke-width=\"3\"/><circle cx=\"22\" cy=\"22\" r=\"6\" fill=\"#fff\" opacity=\".45\"/></svg>", "orange": "<svg viewBox=\"0 0 64 64\"><circle cx=\"32\" cy=\"32\" r=\"26\" fill=\"#f28a1e\" stroke=\"#3b2f2f\" stroke-width=\"3\"/><circle cx=\"22\" cy=\"22\" r=\"6\" fill=\"#fff\" opacity=\".45\"/></svg>"};
+var PIMG={angry:1,ant:1,apple:1,bag:1,ball:1,bed:1,blue:1,c1:1,c2:1,c3:1,c4:1,c5:1,cab:1,car:1,cat:1,dad:1,doll:1,duck:1,egg:1,eight:1,elephant:1,fan:1,fish:1,five:1,four:1,fox:1,gap:1,goat:1,green:1,ham:1,happy:1,hat:1,hungry:1,igloo:1,ink:1,jam:1,jet:1,key:1,kid:1,kite:1,leg:1,lion:1,monkey:1,mop:1,net:1,nine:1,nod:1,octopus:1,one:1,orange:1,ox:1,pan:1,pig:1,pink:1,purple:1,queen:1,quiz:1,rabbit:1,red:1,robot:1,run:1,sad:1,seven:1,six:1,sun:1,ten:1,thirsty:1,three:1,top:1,two:1,umbrella:1,up:1,van:1,vest:1,watch:1,wig:1,yellow:1,yoyo:1,zip:1,zoo:1};
+function pich(k){if(PIMG[k])return '<img class="pim" src="img/'+k+'.webp" alt="" draggable="false" onerror="picFb(this)" data-k="'+k+'">';return PICS[k]||''}
+function picFb(el){var k=el.getAttribute('data-k'),f=PICS[k];if(f){var sp=document.createElement('span');sp.innerHTML=f;el.replaceWith(sp)}else el.style.visibility='hidden'}
+function ol(s){return String(s).indexOf('pic:')==0?'<span class="pi">'+pich(String(s).slice(4))+'</span>':esc(s)}
 function espeak(t){if(!SND||!window.speechSynthesis||!window.SpeechSynthesisUtterance)return;try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.85;var vs=speechSynthesis.getVoices(),v=vs.filter(function(x){return /en[-_]US/i.test(x.lang)})[0]||vs.filter(function(x){return /^en/i.test(x.lang)})[0];if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-function plain(t){return esc(String(t).replace(/\[\[say:[^\]]*\]\]/g,'🔊').replace(/\[\[(?!pic:)[^\]]*\]\]/g,'（圖）')).replace(/\[\[pic:(\w+)\]\]/g,function(m,k){return '<span class="pi">'+(PICS[k]||'')+'</span>'})}
+function plain(t){return esc(String(t).replace(/\[\[say:[^\]]*\]\]/g,'🔊').replace(/\[\[(?!pic:)[^\]]*\]\]/g,'（圖）')).replace(/\[\[pic:(\w+)\]\]/g,function(m,k){return '<span class="pi">'+pich(k)+'</span>'})}
 function ruler(a,b){var x=function(n){return 15+n*20},s='<svg class="ruler" viewBox="0 0 330 80" width="330" role="img" aria-label="尺和物品">';s+='<rect x="'+x(a)+'" y="6" width="'+(x(b)-x(a))+'" height="22" rx="4" fill="#f4a259" stroke="currentColor" stroke-width="2"/>';s+='<line x1="'+x(a)+'" y1="28" x2="'+x(a)+'" y2="34" stroke="#d33" stroke-width="2" stroke-dasharray="2 2"/><line x1="'+x(b)+'" y1="28" x2="'+x(b)+'" y2="34" stroke="#d33" stroke-width="2" stroke-dasharray="2 2"/>';s+='<rect x="6" y="34" width="318" height="40" rx="3" fill="#fff6d8" stroke="currentColor" stroke-width="2"/>';for(var i=0;i<=15;i++){s+='<line x1="'+x(i)+'" y1="34" x2="'+x(i)+'" y2="50" stroke="#333" stroke-width="1.6"/><text x="'+x(i)+'" y="67" font-size="12" text-anchor="middle" fill="#333">'+i+'</text>';if(i<15)s+='<line x1="'+(x(i)+10)+'" y1="34" x2="'+(x(i)+10)+'" y2="43" stroke="#333" stroke-width="1"/>'}return s+'</svg>'}
 function blk(h,t,o){var s='<div class="blk">',i;for(i=0;i<h;i++)s+='<div class="flat"></div>';if(t){s+='<div class="rods">';for(i=0;i<t;i++)s+='<div class="rod"></div>';s+='</div>'}if(o){s+='<div class="ones">';for(i=0;i<o;i++)s+='<div class="one"></div>';s+='</div>'}return s+'</div>'}
-function fmt(t){return esc(t).replace(/\[\[pic:(\w+)\]\]/g,function(m,k){return '<div class="pic">'+(PICS[k]||'')+'</div>'}).replace(/\[\[say:([^\]]+)\]\]/g,function(m,t){return '<button class="chip say" data-t="'+escA(t)+'" onclick="event.stopPropagation();espeak(this.dataset.t)">🔊 聽發音</button>'}).replace(/\[\[ruler:(\d+):(\d+)\]\]/g,function(m,a,b){return ruler(+a,+b)}).replace(/\[\[blk:(\d+):(\d+):(\d+)\]\]/g,function(m,h,t,o){return blk(+h,+t,+o)})}
+function fmt(t){return esc(t).replace(/\[\[pic:(\w+)\]\]/g,function(m,k){return '<div class="pic">'+pich(k)+'</div>'}).replace(/\[\[say:([^\]]+)\]\]/g,function(m,t){return '<button class="chip say" data-t="'+escA(t)+'" onclick="event.stopPropagation();espeak(this.dataset.t)">🔊 聽發音</button>'}).replace(/\[\[ruler:(\d+):(\d+)\]\]/g,function(m,a,b){return ruler(+a,+b)}).replace(/\[\[blk:(\d+):(\d+):(\d+)\]\]/g,function(m,h,t,o){return blk(+h,+t,+o)})}
 var TT=['一年級新生','小學徒','認字小達人','注音小高手','國語小英雄','校園之星'];
 var DEF=[['貼紙一張',50],['鉛筆一支',100],['橡皮擦',150],['可愛筆記本',300],['自選文具一份',500]];
 function SH(){return Array.isArray(S.shop)?S.shop:DEF}

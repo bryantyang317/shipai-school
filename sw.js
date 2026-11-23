@@ -1,5 +1,5 @@
 /* 離線快取：有網路時優先抓最新版，沒網路時用快取。雲端資料（Supabase）不經過這裡。 */
-const CACHE = 'shipai-v1';
+const CACHE = 'shipai-v2';
 const FILES = ['./', 'index.html', 'math-bank.js', 'config.js', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting()));
